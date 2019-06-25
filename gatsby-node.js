@@ -1,7 +1,22 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const all_jobs = require("./src/models/jobs.json")
 
-// You can delete this file if you're not using it
+exports.createPages = async ({ actions: { createPage } }) => {
+  // `getPokemonData` is a function that fetches our data
+  const allJobs = all_jobs
+
+  // Create a page that lists all Pokémon.
+  createPage({
+    path: `/`,
+    component: require.resolve("./src/templates/job.js"),
+    context: { allJobs },
+  })
+
+  // Create a page for each Pokémon.
+  allJobs.forEach(job_object => {
+    createPage({
+      path: `/job/${job_object.id}/`,
+      component: require.resolve("./src/templates/job.js"),
+      context: { job_object },
+    })
+  })
+}
