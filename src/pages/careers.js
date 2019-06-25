@@ -70,7 +70,7 @@ const Careers = () => {
           </div>
           <div className="send-wrapper">
             <Modal tag={"Apply"}>
-              <JobForm />
+              <JobForm2 />
             </Modal>
           </div>
         </div>
