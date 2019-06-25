@@ -3,7 +3,7 @@ import Layout from "../components/DefaultLayout"
 import { Link } from "gatsby"
 import all_jobs from "../models/jobs.json"
 import Modal from "../components/Modal"
-// import JobForm from "../components/JobForm"
+import JobForm from "../components/JobForm"
 import JobForm2 from "../components/JobForm2"
 import { TimelineMax, Expo } from "gsap"
 import careersImage from "../images/careers/careers.jpg"
@@ -70,7 +70,7 @@ const Careers = () => {
           </div>
           <div className="send-wrapper">
             <Modal tag={"Apply"}>
-              <JobForm2 />
+              <JobForm />
             </Modal>
           </div>
         </div>

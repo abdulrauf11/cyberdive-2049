@@ -50,7 +50,7 @@ function JobForm(props) {
     fetch("/careers", {
       method: "POST",
       // headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "job", ...state }),
+      body: encode({ "form-name": "job-application", ...state }),
     })
       .then(() => {
         console.log("Success!")
@@ -88,13 +88,13 @@ function JobForm(props) {
   return (
     <form
       method="post"
-      name="job"
+      name="job-application"
       data-netlify="true"
-      data-netlify-honeypot="bot-field-job"
+      data-netlify-honeypot="bot-field-job-application"
       onSubmit={handleSubmit}
     >
-      <input type="hidden" name="bot-field-job" />
-      <input type="hidden" name="form-name" value="job" />
+      <input type="hidden" name="bot-field-job-application" />
+      <input type="hidden" name="form-name" value="job-application" />
 
       <div className="group">
         <div className="group-item">
@@ -344,6 +344,8 @@ function JobForm(props) {
           // line-height: 40px;
           display: inline-block;
           padding: 0 10px;
+          white-space: nowrap;
+          // overflow: hidden;
         }
         .file-upload .file-select:hover {
           border-color: var(--blue);

@@ -25,7 +25,8 @@ export default class Contact extends React.Component {
   }
 
   handleSubmit = e => {
-    fetch("/", {
+    console.log(this.state)
+    fetch("/careers", {
       method: "POST",
       body: encode({ "form-name": "file-upload", ...this.state }),
     })
