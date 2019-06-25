@@ -43,13 +43,13 @@ export default class Contact extends React.Component {
           name="file-upload"
           method="post"
           data-netlify="true"
-          data-netlify-honeypot="bot-field"
+          data-netlify-honeypot="bot-field-new"
           onSubmit={this.handleSubmit}
         >
           <p hidden>
             <label>
               Don’t fill this out:{" "}
-              <input name="bot-field" onChange={this.handleChange} />
+              <input name="bot-field-new" onChange={this.handleChange} />
             </label>
           </p>
           <p>
