@@ -175,17 +175,7 @@ function JobForm(props) {
           </div>
         </div> */}
 
-        <div className="group-item">
-          <input
-            name="resume"
-            type="file"
-            onChange={e => {
-              setResume(e.target.files[0])
-            }}
-          />
-        </div>
-
-        {/* <div className="file-upload" ref={fileUpload}>
+        <div className="file-upload" ref={fileUpload}>
           <div className="file-select">
             <div className="file-select-button" id="fileName">
               Choose File
@@ -217,7 +207,7 @@ function JobForm(props) {
               }}
             />
           </div>
-        </div> */}
+        </div>
 
         <div className="group-item">
           <textarea
