@@ -46,12 +46,8 @@ class JobForm extends React.Component {
         data-netlify-honeypot="bot-field-application"
         onSubmit={this.handleSubmit}
       >
-        <p hidden>
-          <label>
-            Don’t fill this out:{" "}
-            <input name="bot-field-application" onChange={this.handleChange} />
-          </label>
-        </p>
+        <input type="hidden" name="bot-field-application" />
+        <input type="hidden" name="form-name" value="application" />
 
         <div className="group">
           <div className="group-item">
