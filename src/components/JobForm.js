@@ -9,25 +9,11 @@ import { CSSTransition } from "react-transition-group"
 //     .join("&")
 // }
 
-// function encode(data) {
-//   const formData = new FormData()
-//   for (const key of Object.keys(data)) {
-//     formData.append(key, data[key])
-//   }
-//   return formData
-// }
-
-const encode = data => {
+function encode(data) {
   const formData = new FormData()
-  Object.keys(data).map(key => {
-    if (key === "files") {
-      for (const file of data[key]) {
-        formData.append(key, file, file.name)
-      }
-    } else {
-      formData.append(key, data[key])
-    }
-  })
+  for (const key of Object.keys(data)) {
+    formData.append(key, data[key])
+  }
   return formData
 }
 
@@ -62,8 +48,8 @@ function JobForm(props) {
         setPosition("")
         setResume(null)
         setMessage("")
-        // fileUpload.current.classList.remove("active")
-        // noFile.current.textContent = "No file chosen..."
+        fileUpload.current.classList.remove("active")
+        noFile.current.textContent = "No file chosen..."
       })
       .catch(error => {
         console.log(error)
@@ -144,37 +130,6 @@ function JobForm(props) {
           </select>
         </div>
 
-        {/* <div className="group-item">
-          <input
-            placeholder="Link to your resume*"
-            type="text"
-            name="resume"
-            required
-            value={resume}
-            onChange={e => setResume(e.target.value)}
-          />
-        </div> */}
-
-        {/* <div className="group-item">
-          <div
-            className="file-upload-wrapper"
-            data-text={
-              !filename ? "Upload resume..." : filename.replace(/.*(\/|\\)/, "")
-            }
-          >
-            <input
-              name="resume"
-              type="file"
-              accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-              value={filename}
-              onChange={e => {
-                setFilename(e.target.value)
-                setResume(e.target.files[0])
-              }}
-            />
-          </div>
-        </div> */}
-
         <div className="file-upload" ref={fileUpload}>
           <div className="file-select">
             <div className="file-select-button" id="fileName">
@@ -186,7 +141,7 @@ function JobForm(props) {
             <input
               type="file"
               name="resume"
-              // accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               onChange={e => {
                 let filename = e.target.value
                 if (e.target.files[0].size > 1048576) {
