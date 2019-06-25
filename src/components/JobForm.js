@@ -75,8 +75,7 @@ function JobForm(props) {
     >
       <p hidden>
         <label>
-          Don’t fill this out:{" "}
-          <input name="bot-field-job" onChange={this.handleChange} />
+          Don’t fill this out: <input type="hidden" name="bot-field-job" />
         </label>
       </p>
 
