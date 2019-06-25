@@ -45,7 +45,7 @@ class JobForm extends React.Component {
     return (
       <form
         name="application"
-        method="POST"
+        method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field-application"
         onSubmit={this.handleSubmit}
@@ -56,13 +56,8 @@ class JobForm extends React.Component {
             <input name="bot-field-application" onChange={this.handleChange} />
           </label>
         </p>
-        <p>
-          <label>
-            Your name:
-            <br />
-            <input type="text" name="name" onChange={this.handleChange} />
-          </label>
-        </p>
+
+        <input type="hidden" name="form-name" value="application" />
 
         <div className="group">
           <div className="group-item">
