@@ -56,6 +56,13 @@ class JobForm extends React.Component {
             <input name="bot-field-application" onChange={this.handleChange} />
           </label>
         </p>
+        <p>
+          <label>
+            Your name:
+            <br />
+            <input type="text" name="name" onChange={this.handleChange} />
+          </label>
+        </p>
 
         <div className="group">
           <div className="group-item">

@@ -1,52 +1,84 @@
-import React from "react"
+import React, { useState, useEffect, useRef } from "react"
 import Button from "./Button"
 import all_jobs from "../models/jobs.json"
 import { CSSTransition } from "react-transition-group"
 
+// const encode = data => {
+//   return Object.keys(data)
+//     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+//     .join("&")
+// }
+
 function encode(data) {
   const formData = new FormData()
-
   for (const key of Object.keys(data)) {
     formData.append(key, data[key])
   }
-
   return formData
 }
 
-export default class JobForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
+function JobForm(props) {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [position, setPosition] = useState("")
+  const [resume, setResume] = useState(null)
+  const [message, setMessage] = useState("")
+  const [buttonText, setButtonText] = useState("Send")
+  const [inProp, setInProp] = useState(false)
 
-  handleChange = e => {
-    if (e.target.files) {
-      this.setState({ [e.target.name]: e.target.files[0] })
-    } else {
-      this.setState({ [e.target.name]: e.target.value })
-    }
-  }
+  const fileUpload = useRef(null)
+  const noFile = useRef(null)
 
-  handleSubmit = e => {
-    console.log(this.state)
+  const handleSubmit = e => {
+    let state = { name, email, phone, position, resume, message }
+    console.log(state)
     fetch("/careers", {
       method: "POST",
-      body: encode({ "form-name": "job", ...this.state }),
+      // headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "job", ...state }),
     })
-      .then(() => { console.log("Success!"); e.currentTarget.reset()})
-      .catch(error => alert(error))
-
+      .then(() => {
+        console.log("Success!")
+        setInProp(true)
+        setButtonText("Thank you!")
+        setName("")
+        setEmail("")
+        setPhone("")
+        setPosition("")
+        setResume(null)
+        setMessage("")
+        fileUpload.current.classList.remove("active")
+        noFile.current.textContent = "No file chosen..."
+      })
+      .catch(error => {
+        console.log(error)
+        setInProp(true)
+        setButtonText("Try Again!")
+      })
     e.preventDefault()
   }
-render(){
+
+  useEffect(() => {
+    if (buttonText === "Send") {
+      setInProp(false)
+    }
+    let timeout = setTimeout(() => {
+      setButtonText("Send")
+    }, 2000)
+    return function cleanup() {
+      clearTimeout(timeout)
+    }
+  }, [buttonText])
+
   return (
     <form
-    name="job"
-    method="post"
-    data-netlify="true"
-    data-netlify-honeypot="bot-field-job"
-    onSubmit={this.handleSubmit}
-  >
+      method="post"
+      name="job"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field-job"
+      onSubmit={handleSubmit}
+    >
       <input type="hidden" name="bot-field-job" />
       <input type="hidden" name="form-name" value="job" />
 
@@ -58,6 +90,7 @@ render(){
             name="name"
             required
             value={name}
+            onChange={e => setName(e.target.value)}
           />
         </div>
         <div className="group-item">
@@ -97,7 +130,58 @@ render(){
           </select>
         </div>
 
-        <div className="file-upload" ref={fileUpload}>
+        {/* <div className="group-item">
+          <input
+            placeholder="Link to your resume*"
+            type="text"
+            name="resume"
+            required
+            value={resume}
+            onChange={e => setResume(e.target.value)}
+          />
+        </div> */}
+
+        {/* <div className="group-item">
+          <div
+            className="file-upload-wrapper"
+            data-text={
+              !filename ? "Upload resume..." : filename.replace(/.*(\/|\\)/, "")
+            }
+          >
+            <input
+              name="resume"
+              type="file"
+              accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              value={filename}
+              onChange={e => {
+                setFilename(e.target.value)
+                setResume(e.target.files[0])
+              }}
+            />
+          </div>
+        </div> */}
+
+        <div className="group-item">
+          <div
+            className="file-upload-wrapper"
+            data-text={
+              !filename ? "Upload resume..." : filename.replace(/.*(\/|\\)/, "")
+            }
+          >
+            <input
+              name="resume"
+              type="file"
+              // accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              value={filename}
+              onChange={e => {
+                setFilename(e.target.value)
+                setResume(e.target.files[0])
+              }}
+            />
+          </div>
+        </div>
+
+        {/* <div className="file-upload" ref={fileUpload}>
           <div className="file-select">
             <div className="file-select-button" id="fileName">
               Choose File
@@ -129,7 +213,7 @@ render(){
               }}
             />
           </div>
-        </div>
+        </div> */}
 
         <div className="group-item">
           <textarea
@@ -266,8 +350,6 @@ render(){
           // line-height: 40px;
           display: inline-block;
           padding: 0 10px;
-          white-space: nowrap;
-          // overflow: hidden;
         }
         .file-upload .file-select:hover {
           border-color: var(--blue);
@@ -356,7 +438,6 @@ render(){
       `}</style>
     </form>
   )
-      }
 }
 
 export default JobForm
