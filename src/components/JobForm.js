@@ -62,8 +62,8 @@ function JobForm(props) {
         setPosition("")
         setResume(null)
         setMessage("")
-        fileUpload.current.classList.remove("active")
-        noFile.current.textContent = "No file chosen..."
+        // fileUpload.current.classList.remove("active")
+        // noFile.current.textContent = "No file chosen..."
       })
       .catch(error => {
         console.log(error)
