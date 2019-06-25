@@ -1,84 +1,54 @@
-import React, { useState, useEffect, useRef } from "react"
+import React from "react"
 import Button from "./Button"
 import all_jobs from "../models/jobs.json"
 import { CSSTransition } from "react-transition-group"
 
 function encode(data) {
   const formData = new FormData()
+
   for (const key of Object.keys(data)) {
     formData.append(key, data[key])
   }
+
   return formData
 }
 
-function JobForm(props) {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
-  const [position, setPosition] = useState("")
-  const [resume, setResume] = useState(null)
-  const [message, setMessage] = useState("")
-  const [buttonText, setButtonText] = useState("Send")
-  const [inProp, setInProp] = useState(false)
-
-  const fileUpload = useRef(null)
-  const noFile = useRef(null)
-
-  const handleSubmit = e => {
-    let state = { name, email, phone, position, resume, message }
-    console.log(state)
-    fetch("/careers", {
-      method: "POST",
-      // headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "job", ...state }),
-    })
-      .then(() => {
-        console.log("Success!")
-        setInProp(true)
-        setButtonText("Thank you!")
-        setName("")
-        setEmail("")
-        setPhone("")
-        setPosition("")
-        setResume(null)
-        setMessage("")
-        fileUpload.current.classList.remove("active")
-        noFile.current.textContent = "No file chosen..."
-      })
-      .catch(error => {
-        console.log(error)
-        setInProp(true)
-        setButtonText("Try Again!")
-      })
-    e.preventDefault()
+export default class JobForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
   }
 
-  useEffect(() => {
-    if (buttonText === "Send") {
-      setInProp(false)
+  handleChange = e => {
+    if (e.target.files) {
+      this.setState({ [e.target.name]: e.target.files[0] })
+    } else {
+      this.setState({ [e.target.name]: e.target.value })
     }
-    let timeout = setTimeout(() => {
-      setButtonText("Send")
-    }, 2000)
-    return function cleanup() {
-      clearTimeout(timeout)
-    }
-  }, [buttonText])
+  }
 
+  handleSubmit = e => {
+    console.log(this.state)
+    fetch("/careers", {
+      method: "POST",
+      body: encode({ "form-name": "job", ...this.state }),
+    })
+      .then(() => { console.log("Success!"); e.currentTarget.reset()})
+      .catch(error => alert(error))
+
+    e.preventDefault()
+  }
+render(){
   return (
     <form
-      method="post"
-      name="job"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field-job"
-      onSubmit={handleSubmit}
-    >
-      <p hidden>
-        <label>
-          Don’t fill this out:{" "}
-          <input name="bot-field-job" onChange={this.handleChange} />
-        </label>
-      </p>
+    name="job"
+    method="post"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field-job"
+    onSubmit={this.handleSubmit}
+  >
+      <input type="hidden" name="bot-field-job" />
+      <input type="hidden" name="form-name" value="job" />
 
       <div className="group">
         <div className="group-item">
@@ -88,7 +58,6 @@ function JobForm(props) {
             name="name"
             required
             value={name}
-            onChange={e => setName(e.target.value)}
           />
         </div>
         <div className="group-item">
@@ -387,6 +356,7 @@ function JobForm(props) {
       `}</style>
     </form>
   )
+      }
 }
 
 export default JobForm
