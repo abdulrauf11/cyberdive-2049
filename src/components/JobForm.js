@@ -76,10 +76,10 @@ function JobForm(props) {
       method="post"
       name="job-application"
       data-netlify="true"
-      data-netlify-honeypot="bot-field-job-application"
+      data-netlify-honeypot="bot-field-jobapp"
       onSubmit={handleSubmit}
     >
-      <input type="hidden" name="bot-field-job-application" />
+      <input type="hidden" name="bot-field-jobapp" />
       <input type="hidden" name="form-name" value="job-application" />
 
       <div className="group">
@@ -141,7 +141,7 @@ function JobForm(props) {
             <input
               type="file"
               name="resume"
-              accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              // accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               onChange={e => {
                 let filename = e.target.value
                 if (e.target.files[0].size > 1048576) {
