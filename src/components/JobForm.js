@@ -161,7 +161,17 @@ function JobForm(props) {
           </div>
         </div> */}
 
-        <div className="file-upload" ref={fileUpload}>
+        <div className="group-item">
+          <input
+            name="resume"
+            type="file"
+            onChange={e => {
+              setResume(e.target.files[0])
+            }}
+          />
+        </div>
+
+        {/* <div className="file-upload" ref={fileUpload}>
           <div className="file-select">
             <div className="file-select-button" id="fileName">
               Choose File
@@ -171,9 +181,8 @@ function JobForm(props) {
             </div>
             <input
               type="file"
-              name="chooseFile"
-              id="chooseFile"
-              accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              name="resume"
+              // accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               onChange={e => {
                 let filename = e.target.value
                 if (e.target.files[0].size > 1048576) {
@@ -194,7 +203,7 @@ function JobForm(props) {
               }}
             />
           </div>
-        </div>
+        </div> */}
 
         <div className="group-item">
           <textarea
