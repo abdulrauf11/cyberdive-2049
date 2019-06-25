@@ -9,11 +9,25 @@ import { CSSTransition } from "react-transition-group"
 //     .join("&")
 // }
 
-function encode(data) {
+// function encode(data) {
+//   const formData = new FormData()
+//   for (const key of Object.keys(data)) {
+//     formData.append(key, data[key])
+//   }
+//   return formData
+// }
+
+const encode = data => {
   const formData = new FormData()
-  for (const key of Object.keys(data)) {
-    formData.append(key, data[key])
-  }
+  Object.keys(data).map(key => {
+    if (key === "files") {
+      for (const file of data[key]) {
+        formData.append(key, file, file.name)
+      }
+    } else {
+      formData.append(key, data[key])
+    }
+  })
   return formData
 }
 
