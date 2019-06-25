@@ -1,7 +1,7 @@
 import React from "react"
 function Button(props) {
   return (
-    <button>
+    <button type="submit">
       <div className="wrapper">{props.children}</div>
       <style jsx>{`
         .wrapper {

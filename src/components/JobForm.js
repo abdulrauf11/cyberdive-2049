@@ -32,6 +32,7 @@ function JobForm(props) {
 
   const handleSubmit = e => {
     let state = { name, email, phone, position, resume, message }
+    console.log(state)
     fetch("/careers", {
       method: "POST",
       // headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -45,8 +46,10 @@ function JobForm(props) {
         setEmail("")
         setPhone("")
         setPosition("")
-        setResume("")
+        setResume(null)
         setMessage("")
+        fileUpload.current.classList.remove("active")
+        noFile.current.textContent = "No file chosen..."
       })
       .catch(error => {
         console.log(error)
