@@ -120,7 +120,7 @@ function JobForm(props) {
               Select position
             </option>
             {all_jobs.map(job => (
-              <option key={job.id} value={job.id}>
+              <option key={job.id} value={job.title}>
                 {job.title}
               </option>
             ))}
@@ -173,12 +173,11 @@ function JobForm(props) {
               accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               onChange={e => {
                 let filename = e.target.value
-                if (e.target.files[0].size > 1048576 / 2) {
+                if (e.target.files[0].size > 1048576) {
                   alert("File size exceeds the maximum capacity!")
                   return
                 }
                 setResume(e.target.files[0])
-                console.log(e.target.files[0])
                 if (/^\s*$/.test(filename)) {
                   fileUpload.current.classList.remove("active")
                   noFile.current.textContent = "No file chosen..."
