@@ -116,7 +116,8 @@ const Services = () => {
           justify-content: center;
         }
         .contact-slide h1 {
-          font-size: 4rem;
+          font-size: 3.5rem;
+          text-transform: uppercase;
         }
         .contact-slide a {
           color: var(--pink);
@@ -126,6 +127,12 @@ const Services = () => {
         }
         .contact-slide a:hover {
           text-shadow: 0px 0px 10px var(--pink);
+        }
+
+        @media only screen and (max-width: 600px) {
+          .contact-slide h1 {
+            font-size: 2rem;
+          }
         }
       `}</style>
     </Layout>

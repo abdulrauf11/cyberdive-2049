@@ -1,61 +1,72 @@
-import React, { useState, useEffect } from "react";
-import Button from "./Button";
-import all_jobs from "../models/jobs.json";
-import { CSSTransition } from "react-transition-group";
+import React, { useState, useEffect, useRef } from "react"
+import Button from "./Button"
+import all_jobs from "../models/jobs.json"
+import { CSSTransition } from "react-transition-group"
 
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+// const encode = data => {
+//   return Object.keys(data)
+//     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+//     .join("&")
+// }
+
+function encode(data) {
+  const formData = new FormData()
+  for (const key of Object.keys(data)) {
+    formData.append(key, data[key])
+  }
+  return formData
+}
 
 function JobForm(props) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [position, setPosition] = useState("");
-  const [resume, setResume] = useState("");
-  const [message, setMessage] = useState("");
-  const [buttonText, setButtonText] = useState("Send");
-  const [inProp, setInProp] = useState(false);
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [position, setPosition] = useState("")
+  const [resume, setResume] = useState(null)
+  const [message, setMessage] = useState("")
+  const [buttonText, setButtonText] = useState("Send")
+  const [inProp, setInProp] = useState(false)
+
+  const fileUpload = useRef(null)
+  const noFile = useRef(null)
 
   const handleSubmit = e => {
-    let state = { name, email, phone, position, resume, message };
+    let state = { name, email, phone, position, resume, message }
     fetch("/careers", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "job", ...state })
+      // headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "job", ...state }),
     })
       .then(() => {
-        console.log("Success!");
-        setInProp(true);
-        setButtonText("Thank you!");
-        setName("");
-        setEmail("");
-        setPhone("");
-        setPosition("");
-        setResume("");
-        setMessage("");
+        console.log("Success!")
+        setInProp(true)
+        setButtonText("Thank you!")
+        setName("")
+        setEmail("")
+        setPhone("")
+        setPosition("")
+        setResume("")
+        setMessage("")
       })
       .catch(error => {
-        console.log(error);
-        setInProp(true);
-        setButtonText("Try Again!");
-      });
-    e.preventDefault();
-  };
+        console.log(error)
+        setInProp(true)
+        setButtonText("Try Again!")
+      })
+    e.preventDefault()
+  }
 
   useEffect(() => {
     if (buttonText === "Send") {
-      setInProp(false);
+      setInProp(false)
     }
     let timeout = setTimeout(() => {
-      setButtonText("Send");
-    }, 2000);
+      setButtonText("Send")
+    }, 2000)
     return function cleanup() {
-      clearTimeout(timeout);
-    };
-  }, [buttonText]);
+      clearTimeout(timeout)
+    }
+  }, [buttonText])
 
   return (
     <form
@@ -116,7 +127,7 @@ function JobForm(props) {
           </select>
         </div>
 
-        <div className="group-item">
+        {/* <div className="group-item">
           <input
             placeholder="Link to your resume*"
             type="text"
@@ -125,7 +136,7 @@ function JobForm(props) {
             value={resume}
             onChange={e => setResume(e.target.value)}
           />
-        </div>
+        </div> */}
 
         {/* <div className="group-item">
           <div
@@ -137,15 +148,51 @@ function JobForm(props) {
             <input
               name="resume"
               type="file"
-              // required
+              accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               value={filename}
               onChange={e => {
-                setFilename(e.target.value);
-                setResume(e.target.files[0]);
+                setFilename(e.target.value)
+                setResume(e.target.files[0])
               }}
             />
           </div>
         </div> */}
+
+        <div className="file-upload" ref={fileUpload}>
+          <div className="file-select">
+            <div className="file-select-button" id="fileName">
+              Choose File
+            </div>
+            <div className="file-select-name" id="noFile" ref={noFile}>
+              No file chosen...
+            </div>
+            <input
+              type="file"
+              name="chooseFile"
+              id="chooseFile"
+              accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              onChange={e => {
+                let filename = e.target.value
+                if (e.target.files[0].size > 1048576 / 2) {
+                  alert("File size exceeds the maximum capacity!")
+                  return
+                }
+                setResume(e.target.files[0])
+                console.log(e.target.files[0])
+                if (/^\s*$/.test(filename)) {
+                  fileUpload.current.classList.remove("active")
+                  noFile.current.textContent = "No file chosen..."
+                } else {
+                  fileUpload.current.classList.add("active")
+                  noFile.current.textContent = filename.replace(
+                    "C:\\fakepath\\",
+                    ""
+                  )
+                }
+              }}
+            />
+          </div>
+        </div>
 
         <div className="group-item">
           <textarea
@@ -231,55 +278,6 @@ function JobForm(props) {
           transition: background-color 5000s ease-in-out 0s;
         }
 
-        .file-upload-wrapper {
-          position: relative;
-          height: 35px;
-        }
-        .file-upload-wrapper:after {
-          content: attr(data-text);
-          position: absolute;
-          font-size: 0.8rem;
-          color: var(--white);
-          width: 100%;
-          height: 100%;
-          background: transparent;
-          outline: none;
-          padding: 0.5rem;
-          border: 1px solid var(--white);
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-        }
-        .file-upload-wrapper:before {
-          display: flex;
-          align-items: center;
-          content: "Upload";
-          position: absolute;
-          font-size: 0.7rem;
-          font-weight: 600;
-          top: 0;
-          right: 0;
-          padding: 0 1rem;
-          background: var(--blue);
-          border-left: 1px solid var(--white);
-          height: 100%;
-          z-index: 20;
-        }
-
-        input[type="file"] {
-          opacity: 0;
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 99;
-          margin: 0;
-          padding: 0;
-          cursor: pointer;
-          width: 100%;
-        }
-
         .button-wrapper {
           margin: 2rem 0 0 0;
           display: flex;
@@ -301,6 +299,98 @@ function JobForm(props) {
           transition: all 500ms;
         }
 
+        .file-upload {
+          display: block;
+          text-align: center;
+          font-size: 0.8rem;
+        }
+        .file-upload .file-select {
+          display: block;
+          border: 1px solid var(--white);
+          color: var(--white);
+          cursor: pointer;
+          height: 35px;
+          line-height: 40px;
+          text-align: left;
+          background: transparent;
+          overflow: hidden;
+          position: relative;
+          transition: all 0.2s ease-in-out;
+        }
+        .file-upload .file-select .file-select-button {
+          background: var(--blue);
+          color: var(--white);
+          padding: 0 10px;
+          display: inline-block;
+          height: 35px;
+          // line-height: 40px;
+        }
+        .file-upload .file-select .file-select-name {
+          // line-height: 40px;
+          display: inline-block;
+          padding: 0 10px;
+        }
+        .file-upload .file-select:hover {
+          border-color: var(--blue);
+        }
+        .file-upload.active .file-select {
+          border-color: var(--blue);
+          box-shadow: 0px 0px 5px 0px var(--blue);
+        }
+        // .file-upload .file-select:hover .file-select-button {
+        //   background: ;
+        //   color: #ffffff;
+        //   transition: all 0.2s ease-in-out;
+        // }
+        // .file-upload.active .file-select .file-select-button {
+        //   background: #3fa46a;
+        //   color: #ffffff;
+        // transition: all 0.2s ease-in-out;
+        // }
+        .file-upload .file-select input[type="file"] {
+          z-index: 100;
+          cursor: pointer;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          filter: alpha(opacity=0);
+        }
+        .file-upload .file-select.file-select-disabled {
+          opacity: 0.65;
+        }
+        .file-upload .file-select.file-select-disabled:hover {
+          cursor: default;
+          display: block;
+          border: 2px solid #dce4ec;
+          color: #34495e;
+          cursor: pointer;
+          height: 40px;
+          line-height: 40px;
+          margin-top: 5px;
+          text-align: left;
+          background: #ffffff;
+          overflow: hidden;
+          position: relative;
+        }
+        .file-upload
+          .file-select.file-select-disabled:hover
+          .file-select-button {
+          background: #dce4ec;
+          color: #666666;
+          padding: 0 10px;
+          display: inline-block;
+          height: 40px;
+          line-height: 40px;
+        }
+        .file-upload .file-select.file-select-disabled:hover .file-select-name {
+          line-height: 40px;
+          display: inline-block;
+          padding: 0 10px;
+        }
+
         @media only screen and (max-width: 600px) {
           input[type="text"],
           input[type="email"],
@@ -316,7 +406,8 @@ function JobForm(props) {
         @media only screen and (min-width: 2500px) {
           input[type="text"],
           input[type="email"],
-          select {
+          select,
+          .file-upload .file-select {
             height: 50px;
           }
           textarea {
@@ -325,7 +416,7 @@ function JobForm(props) {
         }
       `}</style>
     </form>
-  );
+  )
 }
 
-export default JobForm;
+export default JobForm
