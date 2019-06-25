@@ -31,7 +31,7 @@ class JobForm extends React.Component {
     console.log(this.state)
     fetch("/careers", {
       method: "POST",
-      body: encode({ "form-name": "job", ...this.state }),
+      body: encode({ "form-name": "application", ...this.state }),
     })
       .then(() => {
         console.log("Success!")
@@ -44,16 +44,16 @@ class JobForm extends React.Component {
   render() {
     return (
       <form
-        name="job"
-        method="post"
+        name="application"
+        method="POST"
         data-netlify="true"
-        data-netlify-honeypot="bot-field-job"
+        data-netlify-honeypot="bot-field-application"
         onSubmit={this.handleSubmit}
       >
         <p hidden>
           <label>
             Don’t fill this out:{" "}
-            <input name="bot-field-job" onChange={this.handleChange} />
+            <input name="bot-field-application" onChange={this.handleChange} />
           </label>
         </p>
 
@@ -225,12 +225,10 @@ class JobForm extends React.Component {
           .file-upload {
             font-size: 0.8rem;
           }
-          .file-upload span {
-          }
           .file-upload input {
             width: 100%;
             margin: 1rem 0;
-            border: 1px solid var(--white);
+            border: 1px solid var(--blue);
           }
 
           @media only screen and (max-width: 600px) {
