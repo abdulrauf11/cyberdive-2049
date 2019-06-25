@@ -33,12 +33,8 @@ class JobForm extends React.Component {
       method: "POST",
       body: encode({ "form-name": "application", ...this.state }),
     })
-      .then(() => {
-        console.log("Success!")
-      })
+      .then(() => alert("Success!"))
       .catch(error => alert(error))
-    e.currentTarget.reset()
-
     e.preventDefault()
   }
   render() {
@@ -56,8 +52,6 @@ class JobForm extends React.Component {
             <input name="bot-field-application" onChange={this.handleChange} />
           </label>
         </p>
-
-        <input type="hidden" name="form-name" value="application" />
 
         <div className="group">
           <div className="group-item">
