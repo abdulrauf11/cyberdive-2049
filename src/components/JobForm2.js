@@ -29,7 +29,7 @@ export default class Contact extends React.Component {
     console.log(this.state)
     fetch("/careers", {
       method: "POST",
-      body: encode({ "form-name": "file-upload", ...this.state }),
+      body: encode({ "form-name": "job-post", ...this.state }),
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error))
@@ -42,7 +42,7 @@ export default class Contact extends React.Component {
       <div>
         <h1>File Upload</h1>
         <form
-          name="file-upload"
+          name="job-post"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field-new"
