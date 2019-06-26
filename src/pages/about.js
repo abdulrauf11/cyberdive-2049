@@ -138,9 +138,9 @@ const About = () => {
           <div className="content">
             <h2>QUALITY</h2>
             <p>
-              Groovrick is a services based company, our first priority is
-              serving in the best possible way. So our choices and decisions are
-              often taken around enhancing our services.
+              We challenge ourselves constantly to create content and implement
+              technology that has maximum yield and impact larger audience. This
+              is how we measure quality.
             </p>
           </div>
           <div className="image">

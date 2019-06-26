@@ -4,44 +4,39 @@ import Service from "../components/Service"
 import ReactFullpage from "@fullpage/react-fullpage"
 import Footer from "../components/Footer.js"
 import Loader from "../components/Loader.js"
-import { Link } from "gatsby"
-import serviceImage1 from "../images/services/digital-transformation.jpg"
-import serviceImage2 from "../images/services/social-ecommerce.jpg"
-import serviceImage3 from "../images/services/design-development.jpg"
-import serviceImage4 from "../images/services/creative.jpg"
-import serviceImage5 from "../images/services/digital-consultancy.jpg"
+import { Link, graphql } from "gatsby"
 
-const FullPage = () => {
+const FullPage = ({ idata }) => {
   const serviceList = [
     {
       heading: "DIGITAL TRANSFORMATION",
       description:
         "Ignite your digital inventiveness, transform your business for the next cybernated wave 4.0 with the journey towards evolved customer experience and business agility.",
-      imgSrc: serviceImage1,
+      imgSrc: idata.data.imageOne.childImageSharp.fluid,
     },
     {
       heading: "SOCIAL & ECOMMERCE",
       description:
         "Fueled with creative insights and driven by engagement, our cutting-edge social media management and e-com solutions are disruptive, fused across creativity, design, human-centered UX, high-end content & ultra-modern tech.",
-      imgSrc: serviceImage2,
+      imgSrc: idata.data.imageTwo.childImageSharp.fluid,
     },
     {
       heading: "DESIGN & DEVELOPMENT",
       description:
         "We’re design-thinking driven, bringing brand, UX and technology together with innovative approaches.",
-      imgSrc: serviceImage3,
+      imgSrc: idata.data.imageThree.childImageSharp.fluid,
     },
     {
       heading: "CREATIVE",
       description:
         "Catch the eye of digital-first next-gen consumers that are inspired by high-end purposeful visual content curated for maximum engagement and conversions.",
-      imgSrc: serviceImage4,
+      imgSrc: idata.data.imageFour.childImageSharp.fluid,
     },
     {
       heading: "DIGITAL CONSULTANCY",
       description:
         "Consult us to make a shift from now to next by merging imagination and technology in order to grow in the age of digital transformation.",
-      imgSrc: serviceImage5,
+      imgSrc: idata.data.imageFive.childImageSharp.fluid,
     },
   ]
 
@@ -85,7 +80,7 @@ const FullPage = () => {
   )
 }
 
-const Services = () => {
+const Services = props => {
   const [loaded, setLoaded] = useState(false)
   useEffect(() => {
     let timeout = setTimeout(() => setLoaded(true), 500)
@@ -98,7 +93,7 @@ const Services = () => {
 
   return (
     <Layout onlyHeader={true}>
-      <FullPage />
+      <FullPage idata={props} />
       <style global jsx>{`
         .contact-wrapper {
           display: flex;
@@ -138,5 +133,41 @@ const Services = () => {
     </Layout>
   )
 }
+
+export const fluidImage = graphql`
+  fragment fluidImage on File {
+    childImageSharp {
+      fluid(maxWidth: 1000) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+export const pageQuery = graphql`
+  query {
+    imageOne: file(
+      relativePath: { eq: "services/digital-transformation.jpg" }
+    ) {
+      ...fluidImage
+    }
+
+    imageTwo: file(relativePath: { eq: "services/social-ecommerce.jpg" }) {
+      ...fluidImage
+    }
+
+    imageThree: file(relativePath: { eq: "services/design-development.jpg" }) {
+      ...fluidImage
+    }
+
+    imageFour: file(relativePath: { eq: "services/creative.jpg" }) {
+      ...fluidImage
+    }
+
+    imageFive: file(relativePath: { eq: "services/digital-consultancy.jpg" }) {
+      ...fluidImage
+    }
+  }
+`
 
 export default Services

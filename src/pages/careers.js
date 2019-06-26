@@ -5,7 +5,9 @@ import all_jobs from "../models/jobs.json"
 import Modal from "../components/Modal"
 import JobForm from "../components/JobForm"
 import { TimelineMax, Expo } from "gsap"
-import careersImage from "../images/careers/careers.jpg"
+import { graphql, StaticQuery } from "gatsby"
+import BackgroundImage from "gatsby-background-image"
+
 if (typeof window !== "undefined") {
   var ScrollMagic = require("scrollmagic")
   require("imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
@@ -16,6 +18,30 @@ function pad(n, width, z) {
   n = n + ""
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n
 }
+
+const BackgroundSection = ({ className, children }) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        desktop: file(relativePath: { eq: "careers/careers.jpg" }) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 1500) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      const imageData = data.desktop.childImageSharp.fluid
+      return (
+        <BackgroundImage className={className} fluid={imageData}>
+          {children}
+        </BackgroundImage>
+      )
+    }}
+  />
+)
 
 const Careers = () => {
   const imageRef = useRef(null)
@@ -88,9 +114,9 @@ const Careers = () => {
       </section>
 
       <section className="full-width">
-        <div className="careers-image">
+        <BackgroundSection className="careers-image">
           <div className="image-overlay" ref={imageRef} />
-        </div>
+        </BackgroundSection>
         <div className="box-wrapper">
           <div className="box">
             <div className="sides">
@@ -258,12 +284,11 @@ const Careers = () => {
         }
         .careers-image {
           overflow: hidden;
-          right: 0;
+          left: 20%;
           top: 0;
           position: absolute;
           width: 80%;
           height: 90%;
-          background-image: url(${careersImage});
           background-size: cover;
         }
         .image-overlay {

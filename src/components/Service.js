@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react"
 import { TimelineMax, Expo } from "gsap"
+import Img from "gatsby-image"
 if (typeof window !== "undefined") {
   var ScrollMagic = require("scrollmagic")
   require("imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
@@ -34,7 +35,11 @@ const Service = props => {
       <div className="service-item">
         <div className="item-image">
           <div className="image-overlay" ref={imageRef} />
-          <img src={props.imgSrc} alt="services" />
+          <Img
+            fluid={props.imgSrc}
+            objectFit="cover"
+            objectPosition="50% 50%"
+          />
         </div>
         <div className="item-content" ref={textRef}>
           <h1>{props.heading}</h1>
@@ -65,6 +70,7 @@ const Service = props => {
         .item-image {
           flex: 1;
           position: relative;
+          margin-right: 1rem;
         }
 
         .image-overlay {
@@ -76,15 +82,11 @@ const Service = props => {
           height: 100%;
           background: var(--black);
         }
-        .item-image img {
-          display: block;
-          width: 90%;
-          height: auto;
-        }
         .item-content {
           flex: 1;
           opacity: 0;
           transform: translateY(15px);
+          margin-left: 1rem;
         }
         .item-content h1 {
           font-weight: 700;
@@ -142,12 +144,16 @@ const Service = props => {
         }
         @media only screen and (max-width: 600px) {
           .service-item {
+            // display: block;
             flex-direction: column;
             width: 90%;
           }
-          .item-image img {
+          .item-image {
             width: 60%;
-            margin: 0 auto;
+            margin-right: 0rem;
+          }
+          .item-content {
+            margin-left: 0rem;
           }
           .item-content h1 {
             width: 100%;
