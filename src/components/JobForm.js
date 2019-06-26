@@ -40,14 +40,14 @@ class JobForm extends React.Component {
   render() {
     return (
       <form
-        name="application"
+        name="job-form"
         method="post"
         data-netlify="true"
-        data-netlify-honeypot="bot-field-application"
+        data-netlify-honeypot="bot-field-123"
         onSubmit={this.handleSubmit}
       >
-        <input type="hidden" name="bot-field-application" />
-        <input type="hidden" name="form-name" value="application" />
+        <input type="hidden" name="bot-field-123" />
+        <input type="hidden" name="form-name" value="job-form" />
 
         <div className="group">
           <div className="group-item">

@@ -29,7 +29,7 @@ export default class Contact extends React.Component {
     console.log(this.state)
     fetch("/careers", {
       method: "POST",
-      body: encode({ "form-name": "job-post", ...this.state }),
+      body: encode({ "form-name": "job-temp", ...this.state }),
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error))
@@ -42,7 +42,7 @@ export default class Contact extends React.Component {
       <div>
         <h1>File Upload</h1>
         <form
-          name="job-post"
+          name="job-temp"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field-new2"
@@ -85,7 +85,7 @@ export default class Contact extends React.Component {
             </div>
             <div className="group-item">
               <input
-                type="email"
+                type="text"
                 name="email"
                 required
                 onChange={this.handleChange}
@@ -101,7 +101,7 @@ export default class Contact extends React.Component {
                 placeholder="Phone*"
               />
             </div>
-            <div className="group-item">
+            {/* <div className="group-item">
               <select name="position" onChange={this.handleChange}>
                 <option value="" disabled>
                   Select position
@@ -112,7 +112,7 @@ export default class Contact extends React.Component {
                   </option>
                 ))}
               </select>
-            </div>
+            </div> */}
 
             <div className="group-item">
               <label className="file-upload">
