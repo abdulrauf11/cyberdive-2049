@@ -45,13 +45,13 @@ export default class Contact extends React.Component {
           name="job-temp"
           method="post"
           data-netlify="true"
-          data-netlify-honeypot="bot-field-new2"
+          data-netlify-honeypot="bot-field-temp"
           onSubmit={this.handleSubmit}
         >
           <p hidden>
             <label>
               Don’t fill this out:{" "}
-              <input name="bot-field-new2" onChange={this.handleChange} />
+              <input name="bot-field-temp" onChange={this.handleChange} />
             </label>
           </p>
 
@@ -73,68 +73,72 @@ export default class Contact extends React.Component {
               />
             </label>
           </p> */}
-          <div className="group">
-            <div className="group-item">
-              <input
-                type="text"
-                name="name"
-                required
-                onChange={this.handleChange}
-                placeholder="Full Name*"
-              />
-            </div>
-            <div className="group-item">
-              <input
-                type="text"
-                name="email"
-                required
-                onChange={this.handleChange}
-                placeholder="Email*"
-              />
-            </div>
-            <div className="group-item">
-              <input
-                type="text"
-                name="phone"
-                required
-                onChange={this.handleChange}
-                placeholder="Phone*"
-              />
-            </div>
-            {/* <div className="group-item">
-              <select name="position" onChange={this.handleChange}>
-                <option value="" disabled>
-                  Select position
-                </option>
-                {all_jobs.map(job => (
-                  <option key={job.id} value={job.title}>
-                    {job.title}
-                  </option>
-                ))}
-              </select>
-            </div> */}
-
-            <div className="group-item">
-              <label className="file-upload">
-                Upload resume:
-                <span>
-                  <input
-                    type="file"
-                    name="attachment"
-                    onChange={this.handleChange}
-                  />
-                </span>
-              </label>
-            </div>
-
-            <div className="group-item">
-              <textarea
-                name="message"
-                onChange={this.handleChange}
-                placeholder="Tell us what inspires you to join Groovrick"
-              />
-            </div>
+          {/* <div className="group"> */}
+          <div className="group-item">
+            <input
+              type="text"
+              name="name"
+              required
+              onChange={this.handleChange}
+              placeholder="Full Name*"
+            />
           </div>
+          <div className="group-item">
+            <input
+              type="email"
+              name="email"
+              required
+              onChange={this.handleChange}
+              placeholder="Email*"
+            />
+          </div>
+          <div className="group-item">
+            <input
+              type="text"
+              name="phone"
+              required
+              onChange={this.handleChange}
+              placeholder="Phone*"
+            />
+          </div>
+          <div className="group-item">
+            <select
+              name="position"
+              onChange={this.handleChange}
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Select position
+              </option>
+              {all_jobs.map(job => (
+                <option key={job.id} value={job.title}>
+                  {job.title}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="group-item">
+            <label className="file-upload">
+              Upload resume:
+              <span>
+                <input
+                  type="file"
+                  name="attachment"
+                  onChange={this.handleChange}
+                />
+              </span>
+            </label>
+          </div>
+
+          <div className="group-item">
+            <textarea
+              name="message"
+              onChange={this.handleChange}
+              placeholder="Tell us what inspires you to join Groovrick"
+            />
+          </div>
+          {/* </div> */}
 
           <div>
             <button type="submit">Send</button>
