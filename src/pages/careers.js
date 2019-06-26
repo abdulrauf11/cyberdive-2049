@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react"
 import Layout from "../components/DefaultLayout"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import all_jobs from "../models/jobs.json"
 import Modal from "../components/Modal"
 import JobForm from "../components/JobForm"
@@ -8,6 +8,7 @@ import { TimelineMax, Expo } from "gsap"
 import { graphql, StaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import SEO from "../components/SEO"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 if (typeof window !== "undefined") {
   var ScrollMagic = require("scrollmagic")
@@ -89,9 +90,11 @@ const Careers = () => {
               <div className="position-item" key={job.id}>
                 <h3>{pad(index + 1, 2)}</h3>
                 <h4>{job.title}</h4>
-                <Link to={`/job/${job.id}`}>
+                <AniLink fade duration={0.3} to={`/job/${job.id}`}>
+                  {/* <Link to={`/job/${job.id}`}> */}
                   <div>View Description</div>
-                </Link>
+                  {/* </Link> */}
+                </AniLink>
               </div>
             ))}
           </div>

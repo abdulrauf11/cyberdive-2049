@@ -73,8 +73,10 @@ const Footer = () => (
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.rauftech.com"
+          className="powered-by"
         >
-          Powered by:{"  "}Rauf Tech
+          Powered by:{"  "}
+          <span>Rauf Tech</span>
         </a>
       </span>
     </div>
@@ -85,12 +87,22 @@ const Footer = () => (
         .footer-link {
           transition: all 0.5s ease-out;
         }
-
         a:hover,
         .lets-talk:hover,
         .footer-link:hover {
           text-shadow: 0px 0px 10px var(--white);
         }
+        .powered-by:hover {
+          text-shadow: 0px 0px 0px var(--white);
+        }
+        .powered-by span {
+          color: var(--pink);
+          transition: all 0.5s ease-out;
+        }
+        .powered-by:hover span {
+          text-shadow: 0px 0px 10px var(--pink);
+        }
+
         .flex-wrapper {
           display: flex;
           height: 93vh;

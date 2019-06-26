@@ -4,7 +4,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const OverlayLink = props => (
   <div>
-    <AniLink fade duration={0.25} to={props.url}>
+    <AniLink fade duration={0.3} to={props.url}>
       <div className={"link-wrapper"}>
         <div>{props.pageType}</div>
       </div>
