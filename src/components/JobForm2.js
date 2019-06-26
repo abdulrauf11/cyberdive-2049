@@ -29,7 +29,7 @@ export default class Contact extends React.Component {
     console.log(this.state)
     fetch("/careers", {
       method: "POST",
-      body: encode({ "form-name": "job-temp", ...this.state }),
+      body: encode({ "form-name": "job-post", ...this.state }),
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error))
@@ -42,16 +42,16 @@ export default class Contact extends React.Component {
       <div>
         <h1>File Upload</h1>
         <form
-          name="job-temp"
+          name="job-post"
           method="post"
           data-netlify="true"
-          data-netlify-honeypot="bot-field-temp"
+          data-netlify-honeypot="bot-field-post"
           onSubmit={this.handleSubmit}
         >
           <p hidden>
             <label>
               Don’t fill this out:{" "}
-              <input name="bot-field-temp" onChange={this.handleChange} />
+              <input name="bot-field-post" onChange={this.handleChange} />
             </label>
           </p>
 
