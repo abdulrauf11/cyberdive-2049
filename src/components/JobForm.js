@@ -31,7 +31,7 @@ class JobForm extends React.Component {
     console.log(this.state)
     fetch("/careers", {
       method: "POST",
-      body: encode({ "form-name": "application", ...this.state }),
+      body: encode({ "form-name": "job-form", ...this.state }),
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error))
