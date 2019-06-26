@@ -161,7 +161,7 @@ function JobForm(props) {
           </div>
         </div> */}
 
-        <div className="group-item">
+        {/* <div className="group-item">
           <div
             className="file-upload-wrapper"
             data-text={
@@ -171,7 +171,7 @@ function JobForm(props) {
             <input
               name="resume"
               type="file"
-              // accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               value={filename}
               onChange={e => {
                 setFilename(e.target.value)
@@ -179,12 +179,12 @@ function JobForm(props) {
               }}
             />
           </div>
-        </div>
+        </div> */}
 
-        {/* <div className="file-upload" ref={fileUpload}>
+        <div className="file-upload" ref={fileUpload}>
           <div className="file-select">
             <div className="file-select-button" id="fileName">
-              Choose File
+              Upload resume
             </div>
             <div className="file-select-name" id="noFile" ref={noFile}>
               No file chosen...
@@ -213,7 +213,7 @@ function JobForm(props) {
               }}
             />
           </div>
-        </div> */}
+        </div>
 
         <div className="group-item">
           <textarea
