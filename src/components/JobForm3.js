@@ -77,10 +77,10 @@ function JobForm(props) {
       name="job"
       action="#"
       data-netlify="true"
-      data-netlify-honeypot="bot-field"
+      data-netlify-honeypot="bot-field-new"
       onSubmit={handleSubmit}
     >
-      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="bot-field-new" />
       <input type="hidden" name="form-name" value="job" />
 
       <div className="group">
