@@ -45,13 +45,13 @@ export default class Contact extends React.Component {
           name="job-post"
           method="post"
           data-netlify="true"
-          data-netlify-honeypot="bot-field-new"
+          data-netlify-honeypot="bot-field-new2"
           onSubmit={this.handleSubmit}
         >
           <p hidden>
             <label>
               Don’t fill this out:{" "}
-              <input name="bot-field-new" onChange={this.handleChange} />
+              <input name="bot-field-new2" onChange={this.handleChange} />
             </label>
           </p>
 
