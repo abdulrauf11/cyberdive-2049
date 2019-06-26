@@ -1,4 +1,5 @@
 import React from "react"
+import all_jobs from "../models/jobs.json"
 
 function encode(data) {
   const formData = new FormData()
@@ -53,7 +54,8 @@ export default class Contact extends React.Component {
               <input name="bot-field-new" onChange={this.handleChange} />
             </label>
           </p>
-          <p>
+
+          {/* <p>
             <label>
               Your name:
               <br />
@@ -70,10 +72,73 @@ export default class Contact extends React.Component {
                 onChange={this.handleChange}
               />
             </label>
-          </p>
-          <p>
+          </p> */}
+          <div className="group">
+            <div className="group-item">
+              <input
+                type="text"
+                name="name"
+                required
+                onChange={this.handleChange}
+                placeholder="Full Name*"
+              />
+            </div>
+            <div className="group-item">
+              <input
+                type="email"
+                name="email"
+                required
+                onChange={this.handleChange}
+                placeholder="Email*"
+              />
+            </div>
+            <div className="group-item">
+              <input
+                type="text"
+                name="phone"
+                required
+                onChange={this.handleChange}
+                placeholder="Phone*"
+              />
+            </div>
+            <div className="group-item">
+              <select name="position" onChange={this.handleChange}>
+                <option value="" disabled>
+                  Select position
+                </option>
+                {all_jobs.map(job => (
+                  <option key={job.id} value={job.title}>
+                    {job.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="group-item">
+              <label className="file-upload">
+                Upload resume:
+                <span>
+                  <input
+                    type="file"
+                    name="attachment"
+                    onChange={this.handleChange}
+                  />
+                </span>
+              </label>
+            </div>
+
+            <div className="group-item">
+              <textarea
+                name="message"
+                onChange={this.handleChange}
+                placeholder="Tell us what inspires you to join Groovrick"
+              />
+            </div>
+          </div>
+
+          <div>
             <button type="submit">Send</button>
-          </p>
+          </div>
         </form>
       </div>
     )
