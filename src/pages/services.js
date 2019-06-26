@@ -9,7 +9,7 @@ import serviceImage1 from "../images/services/digital-transformation.jpg"
 import serviceImage2 from "../images/services/social-ecommerce.jpg"
 import serviceImage3 from "../images/services/design-development.jpg"
 import serviceImage4 from "../images/services/creative.jpg"
-import serviceImage5 from "../images/services/creative.jpg"
+import serviceImage5 from "../images/services/digital-consultancy.jpg"
 
 const FullPage = () => {
   const serviceList = [
