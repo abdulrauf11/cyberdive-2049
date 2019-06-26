@@ -31,7 +31,7 @@ class JobForm extends React.Component {
     console.log(this.state)
     fetch("/careers", {
       method: "POST",
-      body: encode({ "form-name": "job-form", ...this.state }),
+      body: encode({ "form-name": "job-new", ...this.state }),
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error))
@@ -40,14 +40,14 @@ class JobForm extends React.Component {
   render() {
     return (
       <form
-        name="job-form"
+        name="job-new"
         method="post"
         data-netlify="true"
-        data-netlify-honeypot="bot-field-123"
+        data-netlify-honeypot="bot-field-1234"
         onSubmit={this.handleSubmit}
       >
-        <input type="hidden" name="bot-field-123" />
-        <input type="hidden" name="form-name" value="job-form" />
+        <input type="hidden" name="bot-field-1234" />
+        <input type="hidden" name="form-name" value="job-new" />
 
         <div className="group">
           <div className="group-item">

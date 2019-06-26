@@ -70,9 +70,9 @@ const Careers = () => {
             ))}
           </div>
           <div className="send-wrapper">
-            <Modal tag={"Apply"}>
-              <JobForm />
-            </Modal>
+            {/* <Modal tag={"Apply"}> */}
+            <JobForm />
+            {/* </Modal> */}
           </div>
         </div>
         <div className="why-groovrick">
