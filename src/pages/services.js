@@ -5,6 +5,7 @@ import ReactFullpage from "@fullpage/react-fullpage"
 import Footer from "../components/Footer.js"
 import Loader from "../components/Loader.js"
 import { Link, graphql } from "gatsby"
+import SEO from "../components/SEO"
 
 const FullPage = ({ idata }) => {
   const serviceList = [
@@ -93,6 +94,7 @@ const Services = props => {
 
   return (
     <Layout onlyHeader={true}>
+      <SEO title="Groovrick | Services" />
       <FullPage idata={props} />
       <style global jsx>{`
         .contact-wrapper {

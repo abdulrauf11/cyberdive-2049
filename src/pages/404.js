@@ -1,8 +1,10 @@
 import React from "react"
+import SEO from "../components/SEO"
 
 function ErrorPage() {
   return (
     <div className="wrapper">
+      <SEO />
       <h1 className="heading">ERROR 404</h1>
       <p className="message">Page not found!</p>
       <style jsx>{`

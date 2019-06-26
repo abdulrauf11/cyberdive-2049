@@ -7,6 +7,7 @@ import JobForm from "../components/JobForm"
 import { TimelineMax, Expo } from "gsap"
 import { graphql, StaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
+import SEO from "../components/SEO"
 
 if (typeof window !== "undefined") {
   var ScrollMagic = require("scrollmagic")
@@ -66,6 +67,7 @@ const Careers = () => {
 
   return (
     <Layout>
+      <SEO title="Groovrick | Careers" />
       <section className="first-wrapper">
         <div className="heading-wrapper">
           <h1>WORK WITH US</h1>

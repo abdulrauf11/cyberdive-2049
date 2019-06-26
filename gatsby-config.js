@@ -1,4 +1,11 @@
 module.exports = {
+  siteMetadata: {
+    title: "Groovrick",
+    titleTemplate: "%s · Advancing Beyond",
+    description: "We are the next generation of digital world.",
+    url: "https://www.groovrick.com", // No trailing slash allowed!
+    image: "/images/groovrick-logo.png", // Path to your image you placed in the 'static' folder
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-styled-jsx`,
@@ -8,6 +15,7 @@ module.exports = {
         vendorPrefixes: true,
       },
     },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

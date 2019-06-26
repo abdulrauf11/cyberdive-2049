@@ -1,9 +1,11 @@
 import React from "react"
 import Layout from "../components/DefaultLayout.js"
+import SEO from "../components/SEO"
 
 const TermsAndConditions = () => {
   return (
     <Layout>
+      <SEO title="Groovrick | Terms & Conditions" />
       <main>
         <div className="heading-wrapper">
           <h1>TERMS & CONDITIONS</h1>

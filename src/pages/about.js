@@ -7,6 +7,7 @@ import qualityData from "../images/about/quality.json"
 import insightsData from "../images/about/inspire.json"
 import aboutVideo from "../images/about/about_video_compressed.mp4"
 import aboutVideoSmall from "../images/about/about_video_small_compressed.mp4"
+import SEO from "../components/SEO"
 
 const About = () => {
   const strategyObject = useRef(null)
@@ -77,6 +78,7 @@ const About = () => {
   }, [])
   return (
     <Layout>
+      <SEO title="Groovrick | About" />
       <main>
         <div className="heading-wrapper">
           <h1>WE ARE GROOVRICK</h1>

@@ -1,9 +1,11 @@
 import React from "react"
 import Layout from "../components/DefaultLayout.js"
+import SEO from "../components/SEO"
 
 const PrivacyPolicy = () => {
   return (
     <Layout>
+      <SEO title="Groovrick | Privacy Policy" />
       <main>
         <div className="heading-wrapper">
           <h1>Privacy Policy</h1>

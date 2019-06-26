@@ -3,6 +3,7 @@ import Layout from "../components/DefaultLayout.js"
 import fetch from "isomorphic-unfetch"
 import { TweenMax } from "gsap"
 import Loader from "../components/Loader.js"
+import SEO from "../components/SEO"
 
 const MediaAndNews = () => {
   const [loaded, setLoaded] = useState(false)
@@ -35,6 +36,7 @@ const MediaAndNews = () => {
 
   return (
     <Layout>
+      <SEO title="Groovrick | Media & News" />
       <main>
         <div className="heading-wrapper">
           <h1>MEDIA & NEWS</h1>

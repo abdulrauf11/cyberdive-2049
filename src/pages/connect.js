@@ -4,6 +4,7 @@ import ContactForm from "../components/ContactForm.js"
 import { TimelineMax, Circ, Bounce, Sine, RoughEase, Power4 } from "gsap"
 import message from "../images/contact/message.svg"
 import pin from "../images/contact/map.svg"
+import SEO from "../components/SEO"
 
 const Connect = () => {
   const map = useRef(null)
@@ -59,6 +60,7 @@ const Connect = () => {
 
   return (
     <Layout>
+      <SEO title="Groovrick | Connect" />
       <main className="connect-main">
         <section className="get-in-touch">
           <div className="image">
