@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react"
 import Layout from "../components/DefaultLayout"
-// import { Link } from "gatsby"
 import all_jobs from "../models/jobs.json"
 import Modal from "../components/Modal"
 import JobForm from "../components/JobForm"

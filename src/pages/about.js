@@ -8,6 +8,7 @@ import insightsData from "../images/about/inspire.json"
 import aboutVideo from "../images/about/about_video_compressed.mp4"
 import aboutVideoSmall from "../images/about/about_video_small_compressed.mp4"
 import SEO from "../components/SEO"
+import { Player, ControlBar } from "video-react"
 
 const About = () => {
   const strategyObject = useRef(null)
@@ -85,10 +86,9 @@ const About = () => {
         </div>
         <section className="who-we-are">
           <div className="video">
-            <video muted playsInline autoPlay loop>
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <Player autoPlay fluid loop controls={true} muted src={videoSrc}>
+              <ControlBar disableCompletely={true} />
+            </Player>
           </div>
           <div className="text">
             <p>
@@ -181,14 +181,9 @@ const About = () => {
         }
         .who-we-are .video {
           width: 100%;
+          margin-bottom: 7rem;
           border: 1px solid var(--pink);
           border-bottom: 2px solid var(--pink);
-          margin-bottom: 7rem;
-        }
-        video {
-          display: block;
-          width: 100%;
-          height: auto;
         }
         .text {
           margin: 0 auto;
@@ -259,6 +254,11 @@ const About = () => {
         @media only screen and (min-width: 2500px) {
           .lottie-item {
             width: 250px;
+          }
+        }
+        @media only screen and (max-width: 600px) {
+          .who-we-are .video {
+            border-bottom: 1px solid var(--pink);
           }
         }
       `}</style>

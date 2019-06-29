@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400&display=swap");
-
+@import "../node_modules/video-react/dist/video-react.css";
 :root {
   --blue: #0055ff;
   --black: #121023;
