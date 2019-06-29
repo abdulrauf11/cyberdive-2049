@@ -8,7 +8,7 @@ import insightsData from "../images/about/inspire.json"
 import aboutVideo from "../images/about/about_video_compressed.mp4"
 import aboutVideoSmall from "../images/about/about_video_small_compressed.mp4"
 import SEO from "../components/SEO"
-import { Player, ControlBar } from "video-react"
+import { Player, ControlBar, BigPlayButton } from "video-react"
 
 const About = () => {
   const strategyObject = useRef(null)
@@ -88,6 +88,7 @@ const About = () => {
           <div className="video">
             <Player autoPlay fluid loop controls={true} muted src={videoSrc}>
               <ControlBar disableCompletely={true} />
+              <BigPlayButton position="center" />
             </Player>
           </div>
           <div className="text">
