@@ -87,7 +87,7 @@ body {
   color: var(--pink);
 }
 
-input[type="text"],
+input,
 textarea,
 select {
   font-family: "Montserrat", sans-serif;

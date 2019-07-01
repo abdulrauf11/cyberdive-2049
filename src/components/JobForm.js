@@ -27,7 +27,7 @@ function JobForm(props) {
     console.log(state)
     fetch("/careers", {
       method: "POST",
-      body: encode({ "form-name": "job-post", ...state }),
+      body: encode({ "form-name": "job-post-new", ...state }),
     })
       .then(() => {
         console.log("Success!")
@@ -65,14 +65,14 @@ function JobForm(props) {
   return (
     <form
       method="post"
-      name="job-post"
+      name="job-post-new"
       action="#"
       data-netlify="true"
-      data-netlify-honeypot="bot-field-post"
+      data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
     >
-      <input type="hidden" name="bot-field-post" />
-      <input type="hidden" name="form-name" value="job-post" />
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="job-post-new" />
 
       <div className="group">
         <div className="group-item">
