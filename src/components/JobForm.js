@@ -3,12 +3,10 @@ import Button from "./Button"
 import all_jobs from "../models/jobs.json"
 import { CSSTransition } from "react-transition-group"
 
-function encode(data) {
-  const formData = new FormData()
-  for (const key of Object.keys(data)) {
-    formData.append(key, data[key])
-  }
-  return formData
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
 }
 
 function JobForm(props) {
@@ -16,13 +14,13 @@ function JobForm(props) {
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
   const [position, setPosition] = useState("")
-  const [resume, setResume] = useState(null)
+  const [resume, setResume] = useState("")
   const [message, setMessage] = useState("")
   const [buttonText, setButtonText] = useState("Send")
   const [inProp, setInProp] = useState(false)
 
-  const fileUpload = useRef(null)
-  const noFile = useRef(null)
+  // const fileUpload = useRef(null)
+  // const noFile = useRef(null)
 
   const handleSubmit = e => {
     let state = { name, email, phone, position, resume, message }
@@ -39,10 +37,10 @@ function JobForm(props) {
         setEmail("")
         setPhone("")
         setPosition("")
-        setResume(null)
+        setResume("")
         setMessage("")
-        fileUpload.current.classList.remove("active")
-        noFile.current.textContent = "No file chosen..."
+        // fileUpload.current.classList.remove("active")
+        // noFile.current.textContent = "No file chosen..."
       })
       .catch(error => {
         console.log(error)
@@ -124,7 +122,18 @@ function JobForm(props) {
           </select>
         </div>
 
-        <div className="file-upload" ref={fileUpload}>
+        <div className="group-item">
+          <input
+            placeholder="Link to your resume*"
+            type="text"
+            name="resume"
+            required
+            value={resume}
+            onChange={e => setPhone(e.target.value)}
+          />
+        </div>
+
+        {/* <div className="file-upload" ref={fileUpload}>
           <div className="file-select">
             <div className="file-select-button" id="fileName">
               Upload resume
@@ -156,7 +165,7 @@ function JobForm(props) {
               }}
             />
           </div>
-        </div>
+        </div> */}
 
         <div className="group-item">
           <textarea

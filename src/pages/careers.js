@@ -90,17 +90,15 @@ const Careers = () => {
                 <h3>{pad(index + 1, 2)}</h3>
                 <h4>{job.title}</h4>
                 <AniLink fade duration={0.3} to={`/job/${job.id}`}>
-                  {/* <Link to={`/job/${job.id}`}> */}
                   <div>View Description</div>
-                  {/* </Link> */}
                 </AniLink>
               </div>
             ))}
           </div>
           <div className="send-wrapper">
-            <Modal tag={"Apply"}>
-              <JobForm />
-            </Modal>
+            {/* <Modal tag={"Apply"}> */}
+            <JobForm />
+            {/* </Modal> */}
           </div>
         </div>
         <div className="why-groovrick">

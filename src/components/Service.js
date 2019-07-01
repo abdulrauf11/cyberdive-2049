@@ -68,12 +68,14 @@ const Service = props => {
           color: var(--blue);
         }
         .item-image {
+          overflow: hidden;
           flex: 1;
           position: relative;
           margin-right: 1rem;
         }
 
         .image-overlay {
+          z-index: 10;
           position: absolute;
           top: 0;
           left: 0;
@@ -144,7 +146,6 @@ const Service = props => {
         }
         @media only screen and (max-width: 600px) {
           .service-item {
-            // display: block;
             flex-direction: column;
             width: 90%;
           }
