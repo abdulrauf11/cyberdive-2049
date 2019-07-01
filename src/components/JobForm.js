@@ -129,7 +129,7 @@ function JobForm(props) {
             name="resume"
             required
             value={resume}
-            onChange={e => setPhone(e.target.value)}
+            onChange={e => setResume(e.target.value)}
           />
         </div>
 
