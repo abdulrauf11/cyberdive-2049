@@ -22,38 +22,28 @@ const AboutAnimation = props => {
     }
   }, [])
   return (
-    <div className="image">
-      <div className={`lottie-item ${props.color}`} ref={lottieObject} />
-      <style>
+    <div className={`lottie-item ${props.color}`} ref={lottieObject}>
+      <style jsx>
         {`
-        .image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .lottie-item {
+          .lottie-item {
             width: 200px;
-        }
-        .lottie-item.blue {
+          }
+          .lottie-item.blue {
             filter: drop-shadow(0px 0px 5px var(--blue));
-        }
-        .lottie-item.pink {
+          }
+          .lottie-item.pink {
             filter: drop-shadow(0px 0px 5px var(--pink));
-        }
-        @media only screen and (max-width: 600px) {
-            .image {
-            margin-top: 2rem;
-            order: 2;
-            }
+          }
+          @media only screen and (max-width: 600px) {
             .lottie-item {
-            width: 150px;
+              width: 150px;
             }
-        }
-        @media only screen and (min-width: 2500px) {
+          }
+          @media only screen and (min-width: 2500px) {
             .lottie-item {
-            width: 250px;
+              width: 250px;
             }
-        }
+          }
         `}
       </style>
     </div>

@@ -58,10 +58,18 @@ const About = () => {
               entrepreneurial gasoline fueled in-house teams.
             </p>
           </div>
-          <AboutAnimation data={strategyData} color={"pink"} delay={4000} />
+          <div className="image">
+            <AboutAnimation data={strategyData} color={"pink"} delay={4000} />
+          </div>
         </section>
         <section className="service-first mid">
-          <AboutAnimation data={serviceFirstData} color={"blue"} delay={6000} />
+          <div className="image">
+            <AboutAnimation
+              data={serviceFirstData}
+              color={"blue"}
+              delay={6000}
+            />
+          </div>
           <div className="content">
             <h2>SERVICE FIRST</h2>
             <p>
@@ -80,10 +88,14 @@ const About = () => {
               is how we measure quality.
             </p>
           </div>
-          <AboutAnimation data={qualityData} color={"pink"} delay={5500} />
+          <div className="image">
+            <AboutAnimation data={qualityData} color={"pink"} delay={5500} />
+          </div>
         </section>
         <section className="insights mid">
-          <AboutAnimation data={insightsData} color={"blue"} delay={5000} />
+          <div className="image">
+            <AboutAnimation data={insightsData} color={"blue"} delay={5000} />
+          </div>
           <div className="content">
             <h2>INSPIRE</h2>
             <p>
@@ -117,6 +129,12 @@ const About = () => {
           font-size: 1.1rem;
         }
 
+        .image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
         .content {
           display: flex;
           flex-direction: column;
@@ -148,6 +166,10 @@ const About = () => {
           }
           .content {
             order: 1;
+          }
+          .image {
+            margin-top: 2rem;
+            order: 2;
           }
           .text p {
             font-size: 0.95rem;
