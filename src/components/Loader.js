@@ -1,3 +1,4 @@
+import Layout from "../components/DefaultLayout.js"
 import React, { useRef, useEffect } from "react"
 import lottie from "lottie-web"
 import innerLoaderData from "../images/inner-loader.json"
@@ -43,8 +44,8 @@ const Loader = () => {
           z-index: 1000;
           margin: 0;
           padding: 0;
-          width: 100%;
-          height: 100%;
+          width: 100vw;
+          height: 100vh;
           overflow: hidden;
           background: var(--black);
         }

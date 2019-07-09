@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const Footer = () => (
   <footer>
@@ -7,9 +7,9 @@ const Footer = () => (
       <div className="primary-subwrapper">
         <div className="wrapper-left">
           <div className="left-subwrapper">
-            <Link to="/connect">
+            <AniLink fade duration={0.3} to="/connect">
               <div className="lets-talk">LET'S TALK.</div>
-            </Link>
+            </AniLink>
             <div className="social-links">
               <a
                 target="_blank"
@@ -55,17 +55,17 @@ const Footer = () => (
     </div>
     <div className="copyright">
       <span>
-        <Link to="/privacy-policy">
+        <AniLink fade duration={0.3} to="/privacy-policy">
           <span style={{ marginRight: "0.3rem" }} className="footer-link">
             Privacy Policy
           </span>
-        </Link>
+        </AniLink>
         |
-        <Link to="/terms-and-conditions">
+        <AniLink fade duration={0.3} to="/terms-and-conditions">
           <span style={{ marginLeft: "0.3rem" }} className="footer-link">
             Terms & Conditions
           </span>
-        </Link>
+        </AniLink>
       </span>
       <span>&copy; Copyright Groovrick 2019. All Rights Reserved.</span>
       <span>
