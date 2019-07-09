@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import * as THREE from "three"
 import { TweenMax, Expo, Power4 } from "gsap"
 import { vertexShader, fragmentShader } from "./Shaders.js"
-import Loader from "./Loader"
 import palleteImage from "../images/gradient.png"
 import sunImage from "../images/sun.png"
 
@@ -13,7 +12,6 @@ function Hero() {
   const titleRef = useRef(null)
   const subtitleRef = useRef(null)
   const overlayRef = useRef(null)
-  const [loaded, setLoaded] = useState(false)
   let renderer
   let frameId
 
@@ -23,7 +21,7 @@ function Hero() {
       sunImage,
     })
 
-    setTimeout(() => setLoaded(true), 2000)
+    animateTitles()
 
     return function cleanup() {
       cancelAnimationFrame(frameId)
@@ -31,10 +29,6 @@ function Hero() {
       mount.current.removeChild(renderer.domElement)
     }
   }, [])
-
-  useEffect(() => {
-    animateTitles()
-  }, [loaded])
 
   function createLandscape(params) {
     var width = window.innerWidth
@@ -262,7 +256,6 @@ function Hero() {
 
   return (
     <main>
-      {!loaded && <Loader />}
       <div className="content">
         <div className="landscape" ref={mount} />
         <h1 className="content__title" ref={titleRef}>

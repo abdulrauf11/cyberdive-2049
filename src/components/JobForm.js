@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect } from "react"
 import Button from "./Button"
 import all_jobs from "../models/jobs.json"
 import { CSSTransition } from "react-transition-group"
@@ -19,9 +19,6 @@ function JobForm(props) {
   const [buttonText, setButtonText] = useState("Send")
   const [inProp, setInProp] = useState(false)
 
-  // const fileUpload = useRef(null)
-  // const noFile = useRef(null)
-
   const handleSubmit = e => {
     let state = { name, email, phone, position, resume, message }
     console.log(state)
@@ -39,8 +36,6 @@ function JobForm(props) {
         setPosition("")
         setResume("")
         setMessage("")
-        // fileUpload.current.classList.remove("active")
-        // noFile.current.textContent = "No file chosen..."
       })
       .catch(error => {
         console.log(error)
@@ -132,40 +127,6 @@ function JobForm(props) {
             onChange={e => setResume(e.target.value)}
           />
         </div>
-
-        {/* <div className="file-upload" ref={fileUpload}>
-          <div className="file-select">
-            <div className="file-select-button" id="fileName">
-              Upload resume
-            </div>
-            <div className="file-select-name" id="noFile" ref={noFile}>
-              No file chosen...
-            </div>
-            <input
-              type="file"
-              name="resume"
-              // accept=".pdf,image/*,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-              onChange={e => {
-                let filename = e.target.value
-                if (e.target.files[0].size > 1048576) {
-                  alert("File size exceeds the maximum capacity!")
-                  return
-                }
-                setResume(e.target.files[0])
-                if (/^\s*$/.test(filename)) {
-                  fileUpload.current.classList.remove("active")
-                  noFile.current.textContent = "No file chosen..."
-                } else {
-                  fileUpload.current.classList.add("active")
-                  noFile.current.textContent = filename.replace(
-                    "C:\\fakepath\\",
-                    ""
-                  )
-                }
-              }}
-            />
-          </div>
-        </div> */}
 
         <div className="group-item">
           <textarea
@@ -270,98 +231,6 @@ function JobForm(props) {
         .button-text-exit-active {
           opacity: 0;
           transition: all 500ms;
-        }
-
-        .file-upload {
-          display: block;
-          text-align: center;
-          font-size: 0.8rem;
-        }
-        .file-upload .file-select {
-          display: block;
-          border: 1px solid var(--white);
-          color: var(--white);
-          cursor: pointer;
-          height: 35px;
-          line-height: 40px;
-          text-align: left;
-          background: transparent;
-          overflow: hidden;
-          position: relative;
-          transition: all 0.2s ease-in-out;
-        }
-        .file-upload .file-select .file-select-button {
-          background: var(--blue);
-          color: var(--white);
-          padding: 0 10px;
-          display: inline-block;
-          height: 35px;
-          // line-height: 40px;
-        }
-        .file-upload .file-select .file-select-name {
-          // line-height: 40px;
-          display: inline-block;
-          padding: 0 10px;
-        }
-        .file-upload .file-select:hover {
-          border-color: var(--blue);
-        }
-        .file-upload.active .file-select {
-          border-color: var(--blue);
-          box-shadow: 0px 0px 5px 0px var(--blue);
-        }
-        // .file-upload .file-select:hover .file-select-button {
-        //   background: ;
-        //   color: #ffffff;
-        //   transition: all 0.2s ease-in-out;
-        // }
-        // .file-upload.active .file-select .file-select-button {
-        //   background: #3fa46a;
-        //   color: #ffffff;
-        // transition: all 0.2s ease-in-out;
-        // }
-        .file-upload .file-select input[type="file"] {
-          z-index: 100;
-          cursor: pointer;
-          position: absolute;
-          height: 100%;
-          width: 100%;
-          top: 0;
-          left: 0;
-          opacity: 0;
-          filter: alpha(opacity=0);
-        }
-        .file-upload .file-select.file-select-disabled {
-          opacity: 0.65;
-        }
-        .file-upload .file-select.file-select-disabled:hover {
-          cursor: default;
-          display: block;
-          border: 2px solid #dce4ec;
-          color: #34495e;
-          cursor: pointer;
-          height: 40px;
-          line-height: 40px;
-          margin-top: 5px;
-          text-align: left;
-          background: #ffffff;
-          overflow: hidden;
-          position: relative;
-        }
-        .file-upload
-          .file-select.file-select-disabled:hover
-          .file-select-button {
-          background: #dce4ec;
-          color: #666666;
-          padding: 0 10px;
-          display: inline-block;
-          height: 40px;
-          line-height: 40px;
-        }
-        .file-upload .file-select.file-select-disabled:hover .file-select-name {
-          line-height: 40px;
-          display: inline-block;
-          padding: 0 10px;
         }
 
         @media only screen and (max-width: 600px) {

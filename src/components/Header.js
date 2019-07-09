@@ -1,15 +1,15 @@
 import React from "react"
-import { Link } from "gatsby"
 import logo from "../images/groovrick-logo.svg"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const Header = () => (
   <header>
     <div className="brand-logo">
-      <Link to="/">
+      <AniLink fade duration={0.3} to="/">
         <div>
           <img src={logo} alt="brand-logo" />
         </div>
-      </Link>
+      </AniLink>
     </div>
     <style jsx>{`
       header {
