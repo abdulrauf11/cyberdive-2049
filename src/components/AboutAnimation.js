@@ -1,26 +1,26 @@
 import React, { useEffect, useRef } from "react"
-// import lottie from "lottie-web"
+import lottie from "lottie-web"
 
 const AboutAnimation = props => {
   const lottieObject = useRef(null)
-  //   useEffect(() => {
-  //     let lottieAnimation = lottie.loadAnimation({
-  //       renderer: "svg",
-  //       loop: false,
-  //       autoplay: true,
-  //       container: lottieObject.current,
-  //       animationData: props.data,
-  //     })
-  //     let lottieTimer = setInterval(function() {
-  //       lottieAnimation.stop()
-  //       lottieAnimation.play()
-  //     }, props.delay)
+  useEffect(() => {
+    let lottieAnimation = lottie.loadAnimation({
+      renderer: "svg",
+      loop: false,
+      autoplay: true,
+      container: lottieObject.current,
+      animationData: props.data,
+    })
+    let lottieTimer = setInterval(function() {
+      lottieAnimation.stop()
+      lottieAnimation.play()
+    }, props.delay)
 
-  //     return function cleanup() {
-  //       clearInterval(lottieTimer)
-  //       lottieAnimation.destroy()
-  //     }
-  //   }, [])
+    return function cleanup() {
+      clearInterval(lottieTimer)
+      lottieAnimation.destroy()
+    }
+  }, [])
   return (
     <div className={`lottie-item ${props.color}`} ref={lottieObject}>
       <style jsx>
