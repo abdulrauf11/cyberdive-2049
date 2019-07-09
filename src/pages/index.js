@@ -1,16 +1,19 @@
-import React, { Suspense } from "react"
+import React from "react"
 import Layout from "../components/DefaultLayout"
 import SEO from "../components/SEO"
 import Loader from "../components/Loader"
-const Hero = React.lazy(() => import("../components/HeroCyber"))
+import Loadable from "react-loadable"
+
+const Hero = Loadable({
+  loader: () => import("../components/HeroCyber"),
+  loading: Loader,
+})
 
 const Index = () => {
   return (
     <Layout onlyHeader={true}>
       <SEO />
-      <Suspense fallback={<Loader />}>
-        <Hero />
-      </Suspense>
+      <Hero />
     </Layout>
   )
 }

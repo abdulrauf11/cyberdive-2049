@@ -27,6 +27,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-loadable": "^5.5.0",
     "react-transition-group": "^4.1.1",
     "scrollmagic": "^2.0.7",
     "styled-jsx": "^3.2.1",
