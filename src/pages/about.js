@@ -1,84 +1,25 @@
-import React, { useRef, useEffect } from "react"
+import React from "react"
 import Layout from "../components/DefaultLayout.js"
-import lottie from "lottie-web"
+import SEO from "../components/SEO"
+import Loadable from "react-loadable"
+import Loader from "../components/Loader"
+
 import strategyData from "../images/about/strategy.json"
 import serviceFirstData from "../images/about/service-first.json"
 import qualityData from "../images/about/quality.json"
 import insightsData from "../images/about/inspire.json"
-import SEO from "../components/SEO"
-import Loadable from "react-loadable"
-import Loader from "../components/Loader"
 
 const AboutVideo = Loadable({
   loader: () => import("../components/AboutVideo"),
   loading: Loader,
 })
 
+const AboutAnimation = Loadable({
+  loader: () => import("../components/AboutAnimation"),
+  loading: Loader,
+})
+
 const About = () => {
-  const strategyObject = useRef(null)
-  const serviceFirstObject = useRef(null)
-  const qualityObject = useRef(null)
-  const insightsObject = useRef(null)
-  useEffect(() => {
-    let strategyAnimation = lottie.loadAnimation({
-      renderer: "svg",
-      loop: false,
-      autoplay: true,
-      container: strategyObject.current,
-      animationData: strategyData,
-    })
-    let strategyTimer = setInterval(function() {
-      strategyAnimation.stop()
-      strategyAnimation.play()
-    }, 4000)
-
-    let serviceFirstAnimation = lottie.loadAnimation({
-      renderer: "svg",
-      loop: false,
-      autoplay: true,
-      container: serviceFirstObject.current,
-      animationData: serviceFirstData,
-    })
-    let serviceFirstTimer = setInterval(function() {
-      serviceFirstAnimation.stop()
-      serviceFirstAnimation.play()
-    }, 6000)
-
-    let qualityAnimation = lottie.loadAnimation({
-      renderer: "svg",
-      loop: false,
-      autoplay: true,
-      container: qualityObject.current,
-      animationData: qualityData,
-    })
-    let qualityTimer = setInterval(function() {
-      qualityAnimation.stop()
-      qualityAnimation.play()
-    }, 5500)
-
-    let insightsAnimation = lottie.loadAnimation({
-      renderer: "svg",
-      loop: false,
-      autoplay: true,
-      container: insightsObject.current,
-      animationData: insightsData,
-    })
-    let insightsTimer = setInterval(function() {
-      insightsAnimation.stop()
-      insightsAnimation.play()
-    }, 5000)
-
-    return function cleanup() {
-      clearInterval(strategyTimer)
-      strategyAnimation.destroy()
-      clearInterval(serviceFirstTimer)
-      serviceFirstAnimation.destroy()
-      clearInterval(qualityTimer)
-      qualityAnimation.destroy()
-      clearInterval(insightsTimer)
-      insightsAnimation.destroy()
-    }
-  }, [])
   return (
     <Layout>
       <SEO title="Groovrick | About" />
@@ -117,14 +58,10 @@ const About = () => {
               entrepreneurial gasoline fueled in-house teams.
             </p>
           </div>
-          <div className="image">
-            <div className="lottie-item pink" ref={strategyObject} />
-          </div>
+          <AboutAnimation data={strategyData} color={"pink"} delay={4000} />
         </section>
         <section className="service-first mid">
-          <div className="image">
-            <div className="lottie-item blue" ref={serviceFirstObject} />
-          </div>
+          <AboutAnimation data={serviceFirstData} color={"blue"} delay={6000} />
           <div className="content">
             <h2>SERVICE FIRST</h2>
             <p>
@@ -143,14 +80,10 @@ const About = () => {
               is how we measure quality.
             </p>
           </div>
-          <div className="image">
-            <div className="lottie-item pink" ref={qualityObject} />
-          </div>
+          <AboutAnimation data={qualityData} color={"pink"} delay={5500} />
         </section>
         <section className="insights mid">
-          <div className="image">
-            <div className="lottie-item blue" ref={insightsObject} />
-          </div>
+          <AboutAnimation data={insightsData} color={"blue"} delay={5000} />
           <div className="content">
             <h2>INSPIRE</h2>
             <p>
@@ -182,21 +115,6 @@ const About = () => {
         }
         .text p {
           font-size: 1.1rem;
-        }
-
-        .image {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .lottie-item {
-          width: 200px;
-        }
-        .lottie-item.blue {
-          filter: drop-shadow(0px 0px 5px var(--blue));
-        }
-        .lottie-item.pink {
-          filter: drop-shadow(0px 0px 5px var(--pink));
         }
 
         .content {
@@ -231,21 +149,8 @@ const About = () => {
           .content {
             order: 1;
           }
-          .image {
-            margin-top: 2rem;
-            order: 2;
-          }
-          .lottie-item {
-            width: 150px;
-          }
           .text p {
             font-size: 0.95rem;
-          }
-        }
-
-        @media only screen and (min-width: 2500px) {
-          .lottie-item {
-            width: 250px;
           }
         }
       `}</style>

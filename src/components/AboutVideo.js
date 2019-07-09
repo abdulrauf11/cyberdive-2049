@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import aboutVideo from "../images/about/about_video_compressed.mp4"
 import aboutVideoSmall from "../images/about/about_video_small_compressed.mp4"
-import { Player, ControlBar, BigPlayButton } from "video-react"
+import { Player, BigPlayButton } from "video-react"
 
 const AboutVideo = () => {
   const [videoSrc, setVideoSrc] = useState("")
@@ -10,8 +10,7 @@ const AboutVideo = () => {
   })
   return (
     <div className="video">
-      <Player autoPlay fluid loop controls={true} muted src={videoSrc}>
-        <ControlBar disableCompletely={true} />
+      <Player autoPlay fluid loop muted src={videoSrc}>
         <BigPlayButton position="center" />
       </Player>
       <style>{`
