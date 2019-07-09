@@ -1,4 +1,3 @@
-import Layout from "../components/DefaultLayout.js"
 import React, { useRef, useEffect } from "react"
 import lottie from "lottie-web"
 import innerLoaderData from "../images/inner-loader.json"
@@ -30,13 +29,11 @@ const Loader = () => {
   })
 
   return (
-    <Layout onlyHeader={true}>
-      <main>
-        <div className="loader-wrapper">
-          <div className="outer-loader" ref={outerLoaderObject} />
-          <div className="inner-loader" ref={innerLoaderObject} />
-        </div>
-      </main>
+    <main>
+      <div className="loader-wrapper">
+        <div className="outer-loader" ref={outerLoaderObject} />
+        <div className="inner-loader" ref={innerLoaderObject} />
+      </div>
       <style jsx>{`
         main {
           display: flex;
@@ -46,8 +43,8 @@ const Loader = () => {
           z-index: 1000;
           margin: 0;
           padding: 0;
-          width: 100vw;
-          height: 100vh;
+          width: 100%;
+          height: 100%;
           overflow: hidden;
           background: var(--black);
         }
@@ -70,7 +67,7 @@ const Loader = () => {
           filter: drop-shadow(0px 0px 5px var(--blue));
         }
       `}</style>
-    </Layout>
+    </main>
   )
 }
 

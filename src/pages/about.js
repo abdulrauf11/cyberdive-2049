@@ -1,23 +1,25 @@
-import React, { useRef, useEffect, useState } from "react"
+import React, { useRef, useEffect } from "react"
 import Layout from "../components/DefaultLayout.js"
 import lottie from "lottie-web"
 import strategyData from "../images/about/strategy.json"
 import serviceFirstData from "../images/about/service-first.json"
 import qualityData from "../images/about/quality.json"
 import insightsData from "../images/about/inspire.json"
-import aboutVideo from "../images/about/about_video_compressed.mp4"
-import aboutVideoSmall from "../images/about/about_video_small_compressed.mp4"
 import SEO from "../components/SEO"
-import { Player, ControlBar, BigPlayButton } from "video-react"
+import Loadable from "react-loadable"
+import Loader from "../components/Loader"
+
+const AboutVideo = Loadable({
+  loader: () => import("../components/AboutVideo"),
+  loading: Loader,
+})
 
 const About = () => {
   const strategyObject = useRef(null)
   const serviceFirstObject = useRef(null)
   const qualityObject = useRef(null)
   const insightsObject = useRef(null)
-  const [videoSrc, setVideoSrc] = useState("")
   useEffect(() => {
-    setVideoSrc(document.body.offsetWidth > 600 ? aboutVideo : aboutVideoSmall)
     let strategyAnimation = lottie.loadAnimation({
       renderer: "svg",
       loop: false,
@@ -85,12 +87,7 @@ const About = () => {
           <h1>WE ARE GROOVRICK</h1>
         </div>
         <section className="who-we-are">
-          <div className="video">
-            <Player autoPlay fluid loop controls={true} muted src={videoSrc}>
-              <ControlBar disableCompletely={true} />
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
+          <AboutVideo />
           <div className="text">
             <p>
               Located in Bahria Town, Lahore, Groovrick was founded in 2018 with
@@ -180,12 +177,6 @@ const About = () => {
         .mid > * {
           flex: 1;
         }
-        .who-we-are .video {
-          width: 100%;
-          margin-bottom: 7rem;
-          border: 1px solid var(--pink);
-          border-bottom: 2px solid var(--pink);
-        }
         .text {
           margin: 0 auto;
         }
@@ -255,11 +246,6 @@ const About = () => {
         @media only screen and (min-width: 2500px) {
           .lottie-item {
             width: 250px;
-          }
-        }
-        @media only screen and (max-width: 600px) {
-          .who-we-are .video {
-            border-bottom: 1px solid var(--pink);
           }
         }
       `}</style>
