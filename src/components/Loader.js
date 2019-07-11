@@ -1,4 +1,3 @@
-import Layout from "../components/DefaultLayout.js"
 import React, { useRef, useEffect } from "react"
 import lottie from "lottie-web"
 import innerLoaderData from "../images/inner-loader.json"

@@ -1,35 +1,35 @@
-import React, { useState, useEffect, useRef } from "react";
-import { TimelineMax, Elastic } from "gsap";
-import Button from "./Button";
-import ButtonClose from "./ButtonClose";
+import React, { useState, useEffect, useRef } from "react"
+import { TimelineMax, Elastic } from "gsap/all"
+import Button from "./Button"
+import ButtonClose from "./ButtonClose"
 
 function Modal(props) {
-  const [isOpen, setIsOpen] = useState(false);
-  const modalContainer = useRef(null);
-  const cardContainer = useRef(null);
-  var t1 = new TimelineMax({ paused: false });
+  const [isOpen, setIsOpen] = useState(false)
+  const modalContainer = useRef(null)
+  const cardContainer = useRef(null)
+  var t1 = new TimelineMax({ paused: false })
   var t2 = new TimelineMax({
-    paused: false
-  });
+    paused: false,
+  })
 
   const handleOpen = () => {
-    setIsOpen(true);
-  };
+    setIsOpen(true)
+  }
 
   const handleClose = () => {
     t2.to(cardContainer.current, 0.5, { x: -100, opacity: 0 })
       .to(modalContainer.current, 0.3, { opacity: 0 })
-      .add(() => setIsOpen(false));
-  };
+      .add(() => setIsOpen(false))
+  }
 
   useEffect(() => {
-    if (!modalContainer.current && !cardContainer.current) return;
+    if (!modalContainer.current && !cardContainer.current) return
     t1.to(modalContainer.current, 0.3, { opacity: 1 }).to(
       cardContainer.current,
       2,
       { ease: Elastic.easeOut, x: 0, opacity: 1 }
-    );
-  }, [t1]);
+    )
+  }, [t1])
 
   return (
     <>
@@ -106,7 +106,7 @@ function Modal(props) {
         }
       `}</style>
     </>
-  );
+  )
 }
 
-export default Modal;
+export default Modal

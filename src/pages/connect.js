@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import Layout from "../components/DefaultLayout.js"
 import ContactForm from "../components/ContactForm.js"
-import { TimelineMax, Circ, Bounce, Sine, RoughEase, Power4 } from "gsap"
+import { TimelineMax, Circ, Bounce, Sine, RoughEase, Power4 } from "gsap/all"
 import message from "../images/contact/message.svg"
 import pin from "../images/contact/map.svg"
 import SEO from "../components/SEO"

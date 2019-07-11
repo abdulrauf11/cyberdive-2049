@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/DefaultLayout.js"
 import fetch from "isomorphic-unfetch"
-import { TweenMax } from "gsap"
+import { TweenMax } from "gsap/all"
 import Loader from "../components/Loader.js"
 import SEO from "../components/SEO"
 

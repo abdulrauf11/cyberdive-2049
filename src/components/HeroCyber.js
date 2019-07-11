@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from "react"
 import * as THREE from "three"
-import { TweenMax, Expo, Power4 } from "gsap"
+import { TweenMax, Expo, Power4 } from "gsap/all"
 import { vertexShader, fragmentShader } from "./Shaders.js"
 import palleteImage from "../images/gradient.png"
 import sunImage from "../images/sun.png"
-
 const getRandomNumber = (min, max) => Math.random() * (max - min) + min
 
 function Hero() {
