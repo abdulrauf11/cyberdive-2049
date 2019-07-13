@@ -7,7 +7,7 @@ const AboutVideo = () => {
   const [videoSrc, setVideoSrc] = useState("")
   useEffect(() => {
     setVideoSrc(document.body.offsetWidth > 600 ? aboutVideo : aboutVideoSmall)
-  })
+  }, [])
   return (
     <div className="video">
       <Player autoPlay fluid loop muted src={videoSrc}>
