@@ -122,7 +122,6 @@ function JobForm(props) {
             placeholder="Link to your resume*"
             type="text"
             name="resume"
-            required
             value={resume}
             onChange={e => setResume(e.target.value)}
           />
