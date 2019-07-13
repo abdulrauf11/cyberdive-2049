@@ -279,7 +279,7 @@ function Hero() {
           </span>
         </h1>
         <h3 className="content__subtitle" ref={subtitleRef}>
-          We are the next generation of digital world.
+          We are the next generation of the digital world.
         </h3>
       </div>
       <div className="overlay" ref={overlayRef} />

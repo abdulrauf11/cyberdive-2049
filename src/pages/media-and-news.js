@@ -44,7 +44,7 @@ const MediaAndNews = () => {
 
         <ul className="grid">
           {feed &&
-            feed.slice(0, 12).map((post, index) => (
+            feed.slice(0, 6).map((post, index) => (
               <li key={post.id} ref={li => (postElements[index] = li)}>
                 <a
                   target="_blank"
@@ -97,7 +97,7 @@ const MediaAndNews = () => {
           height: 100%;
           display: block;
           background-size: cover;
-          background-position: center;
+          background-position: center center;
           transition: transform 0.5s ease-in-out;
         }
         .grid li:hover .post,
@@ -114,9 +114,9 @@ const MediaAndNews = () => {
             width: 100%;
           }
           .grid li {
-            margin: 0rem;
+            margin: 0.5rem;
+            width: 30vmax;
             height: 30vmax;
-            flex: 1 1 50%;
           }
         }
       `}</style>

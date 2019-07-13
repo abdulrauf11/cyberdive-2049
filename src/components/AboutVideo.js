@@ -1,19 +1,30 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import aboutVideo from "../images/about/about_video_compressed.mp4"
 import aboutVideoSmall from "../images/about/about_video_small_compressed.mp4"
 import { Player, ControlBar, BigPlayButton } from "video-react"
 
 const AboutVideo = () => {
-  const [videoSrc, setVideoSrc] = useState("")
-  useEffect(() => {
-    setVideoSrc(document.body.offsetWidth > 600 ? aboutVideo : aboutVideoSmall)
-  }, [])
   return (
     <div className="video">
-      <Player autoPlay fluid loop muted src={videoSrc}>
-        <ControlBar disableCompletely={true} />
-        <BigPlayButton position="center" />
-      </Player>
+      {document.body.offsetWidth > 600 && (
+        <Player autoPlay fluid loop muted playsInline src={aboutVideo}>
+          <ControlBar disableCompletely={true} />
+          <BigPlayButton position="center" />
+        </Player>
+      )}
+      {document.body.offsetWidth <= 600 && (
+        <Player
+          autoPlay
+          loop
+          muted
+          playsInline
+          aspectRatio="4:5"
+          src={aboutVideoSmall}
+        >
+          <ControlBar disableCompletely={true} />
+          <BigPlayButton position="center" />
+        </Player>
+      )}
       <style>{`
           .video {
             width: 100%;
