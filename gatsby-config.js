@@ -54,11 +54,11 @@ module.exports = {
         trackingId: "UA-143013502-1",
       },
     },
-    {
-      resolve: `gatsby-plugin-facebook-pixel`,
-      options: {
-        pixelId: "2180577912061107",
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-facebook-pixel`,
+    //   options: {
+    //     pixelId: "2180577912061107",
+    //   },
+    // },
   ],
 }
