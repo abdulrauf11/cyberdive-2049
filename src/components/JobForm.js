@@ -165,7 +165,7 @@ function JobForm(props) {
         input[type="email"],
         textarea,
         select {
-          font-size: 0.8rem;
+          font-size: 1rem;
           color: var(--white);
           width: 100%;
           background: transparent;

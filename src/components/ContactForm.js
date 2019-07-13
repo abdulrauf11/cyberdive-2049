@@ -1,58 +1,58 @@
-import React, { useState, useEffect } from "react";
-import Button from "./Button";
-import { CSSTransition } from "react-transition-group";
+import React, { useState, useEffect } from "react"
+import Button from "./Button"
+import { CSSTransition } from "react-transition-group"
 
 const encode = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+    .join("&")
+}
 
 function Contact() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [company, setCompany] = useState("");
-  const [message, setMessage] = useState("");
-  const [buttonText, setButtonText] = useState("Send");
-  const [inProp, setInProp] = useState(false);
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [company, setCompany] = useState("")
+  const [message, setMessage] = useState("")
+  const [buttonText, setButtonText] = useState("Send")
+  const [inProp, setInProp] = useState(false)
 
   const handleSubmit = e => {
-    let state = { name, email, phone, company, message };
+    let state = { name, email, phone, company, message }
     fetch("/connect", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...state })
+      body: encode({ "form-name": "contact", ...state }),
     })
       .then(() => {
-        console.log("Success!");
-        setInProp(true);
-        setButtonText("Thank you!");
-        setName("");
-        setEmail("");
-        setPhone("");
-        setCompany("");
-        setMessage("");
+        console.log("Success!")
+        setInProp(true)
+        setButtonText("Thank you!")
+        setName("")
+        setEmail("")
+        setPhone("")
+        setCompany("")
+        setMessage("")
       })
       .catch(error => {
-        console.log(error);
-        setInProp(true);
-        setButtonText("Try Again!");
-      });
-    e.preventDefault();
-  };
+        console.log(error)
+        setInProp(true)
+        setButtonText("Try Again!")
+      })
+    e.preventDefault()
+  }
 
   useEffect(() => {
     if (buttonText === "Send") {
-      setInProp(false);
+      setInProp(false)
     }
     let timeout = setTimeout(() => {
-      setButtonText("Send");
-    }, 2000);
+      setButtonText("Send")
+    }, 2000)
     return function cleanup() {
-      clearTimeout(timeout);
-    };
-  }, [buttonText]);
+      clearTimeout(timeout)
+    }
+  }, [buttonText])
 
   return (
     <form
@@ -152,7 +152,7 @@ function Contact() {
         input[type="text"],
         input[type="email"],
         textarea {
-          font-size: 0.8rem;
+          font-size: 1rem;
           color: var(--white);
           width: 100%;
           background: transparent;
@@ -218,7 +218,7 @@ function Contact() {
         }
       `}</style>
     </form>
-  );
+  )
 }
 
-export default Contact;
+export default Contact
