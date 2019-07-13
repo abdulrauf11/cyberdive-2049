@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/DefaultLayout.js"
 import SEO from "../components/SEO"
 import Loadable from "react-loadable"
-import Loader from "../components/Loader"
 
 import strategyData from "../images/about/strategy.json"
 import serviceFirstData from "../images/about/service-first.json"
