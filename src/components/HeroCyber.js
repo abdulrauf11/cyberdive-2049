@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import * as THREE from "three"
-import { TweenMax, Expo, Power4 } from "gsap/all"
+import { TweenMax, Expo } from "gsap/all"
 import { vertexShader, fragmentShader } from "./Shaders.js"
 import palleteImage from "../images/gradient.png"
 import sunImage from "../images/sun.png"
@@ -19,7 +19,9 @@ function Hero() {
       palleteImage,
       sunImage,
     })
+
     animateTitles()
+
     return function cleanup() {
       cancelAnimationFrame(frameId)
       frameId = null
@@ -184,8 +186,9 @@ function Hero() {
 
   function animateTitles() {
     const overlay = overlayRef.current
+    TweenMax.set(overlay, { opacity: 1 })
     TweenMax.to(overlay, 2, {
-      ease: Power4.easeOut,
+      ease: Expo.easeOut,
       opacity: 0,
     })
 
@@ -296,7 +299,6 @@ function Hero() {
           padding: 0 0 12vmax 0;
           justify-content: flex-end;
         }
-
         .content__title {
           position: relative;
           font-size: 6vw;
@@ -305,34 +307,30 @@ function Hero() {
           perspective: 1000px;
           text-shadow: 0px 0px 10px var(--white);
         }
-
         .content__title span {
           display: inline-block;
           white-space: pre;
           transform-origin: 50% -50%;
         }
-
         .content__subtitle {
           position: relative;
           margin: 0;
           font-weight: 400;
         }
-
         .landscape {
           position: absolute;
           top: 0;
           left: 0;
         }
-
         .overlay {
-          position: fixed;
+          position: absolute;
           width: 100%;
           height: 100%;
           top: 0;
           left: 0;
-          background: #000;
+          background: var(--black);
+          opacity: 0;
         }
-
         @media only screen and (max-width: 600px) {
           .word {
             display: block;
