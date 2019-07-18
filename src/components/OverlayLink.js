@@ -1,13 +1,13 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 
 const OverlayLink = props => (
   <div>
-    <AniLink fade duration={0.3} to={props.url}>
+    <Link to={props.url}>
       <div className={"link-wrapper"}>
         <div>{props.pageType}</div>
       </div>
-    </AniLink>
+    </Link>
     <style jsx>{`
       .link-wrapper {
         position: relative;

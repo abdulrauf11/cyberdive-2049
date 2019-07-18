@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "groovrick-2049",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Website for Groovrick",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Rauf Tech",
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.14",
     "gatsby": "^2.10.4",
@@ -16,7 +16,6 @@
     "gatsby-plugin-react-helmet": "^3.1.0",
     "gatsby-plugin-sharp": "^2.2.1",
     "gatsby-plugin-styled-jsx": "^3.1.0",
-    "gatsby-plugin-transition-link": "^1.12.4",
     "gatsby-source-filesystem": "^2.1.0",
     "gatsby-transformer-sharp": "^2.2.0",
     "gsap": "^2.1.3",

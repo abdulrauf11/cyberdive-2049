@@ -7,7 +7,7 @@ import { TimelineMax, Expo } from "gsap/all"
 import { graphql, StaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import SEO from "../components/SEO"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 
 if (typeof window !== "undefined") {
   var ScrollMagic = require("scrollmagic")
@@ -91,9 +91,9 @@ const Careers = () => {
                   <div className="position-item" key={job.id}>
                     <h3>{pad(index + 1, 2)}</h3>
                     <h4>{job.title}</h4>
-                    <AniLink fade duration={0.3} to={`/job/${job.id}`}>
+                    <Link to={`/job/${job.id}`}>
                       <div>View Description</div>
-                    </AniLink>
+                    </Link>
                   </div>
                 )
             )}
