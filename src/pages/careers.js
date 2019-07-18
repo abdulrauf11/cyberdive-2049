@@ -103,6 +103,20 @@ const Careers = () => {
               <JobForm />
             </Modal>
           </div>
+          <div className="instructions">
+            <p>
+              You can also send us your resume and cover letter at{" "}
+              <a href="mailto:careers@groovrick.com">careers@groovrick.com</a>,
+              in the subject field write the relevant position you are applying
+              for. ​ Groovrick is an equal opportunity employer. If we do not
+              contact back with-in 15 days of submitting the job application, it
+              implies that your application has been rejected. Groovrick only
+              reply to candidates using "careers@groovrick.com" as their e-mail
+              address. Groovrick stores your submitted information. For support,
+              e-mail us at{" "}
+              <a href="mailto:contact@groovrick.com">contact@groovrick.com</a>
+            </p>
+          </div>
         </div>
         <div className="why-groovrick">
           <h2>WHY GROOVRICK?</h2>
@@ -238,6 +252,18 @@ const Careers = () => {
         .why-groovrick p {
           margin-bottom: 0;
           margin-top: 4rem;
+        }
+
+        .instructions {
+          margin-top: 3rem;
+        }
+        .instructions a {
+          color: var(--pink);
+        }
+        .instructions p {
+          width: 70%;
+          margin: 0 auto;
+          font-size: 0.7rem;
         }
 
         .reason-list {
