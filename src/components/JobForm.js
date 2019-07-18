@@ -109,11 +109,14 @@ function JobForm(props) {
             <option value="" disabled>
               Select position
             </option>
-            {all_jobs.map(job => (
-              <option key={job.id} value={job.title}>
-                {job.title}
-              </option>
-            ))}
+            {all_jobs.map(
+              job =>
+                job.title !== "INTERN" && (
+                  <option key={job.id} value={job.title}>
+                    {job.title}
+                  </option>
+                )
+            )}
           </select>
         </div>
 
@@ -159,7 +162,7 @@ function JobForm(props) {
         input[type="text"],
         input[type="email"],
         select {
-          height: 35px;
+          height: auto;
         }
         input[type="text"],
         input[type="email"],
@@ -180,10 +183,12 @@ function JobForm(props) {
           font-size: 0.8rem;
           display: block;
           padding: 1rem;
+          text-transform: uppercase;
         }
 
         select {
           padding-left: 0.3rem;
+          text-transform: uppercase;
         }
 
         input[type="text"]:focus,
@@ -247,8 +252,7 @@ function JobForm(props) {
         @media only screen and (min-width: 2500px) {
           input[type="text"],
           input[type="email"],
-          select,
-          .file-upload .file-select {
+          select {
             height: 50px;
           }
           textarea {

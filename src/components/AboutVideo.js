@@ -14,10 +14,11 @@ const AboutVideo = () => {
     <div className="video">
       <Player
         fluid
-        autoPlay
-        loop
-        muted
-        playsInline
+        autoPlay={true}
+        loop={true}
+        muted={true}
+        playsInline={true}
+        preload="metadata"
         aspectRatio={aspectRatio}
         src={videoSrc}
       >

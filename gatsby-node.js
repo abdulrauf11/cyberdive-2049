@@ -13,10 +13,12 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   // Create a page for each Pokémon.
   allJobs.forEach(job_object => {
-    createPage({
-      path: `/job/${job_object.id}/`,
-      component: require.resolve("./src/templates/job.js"),
-      context: { job_object },
-    })
+    if (job_object.id < 100) {
+      createPage({
+        path: `/job/${job_object.id}/`,
+        component: require.resolve("./src/templates/job.js"),
+        context: { job_object },
+      })
+    }
   })
 }

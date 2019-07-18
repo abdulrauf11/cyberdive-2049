@@ -85,15 +85,18 @@ const Careers = () => {
         <div className="open-positions">
           <h2>OPEN POSITIONS</h2>
           <div className="position-list">
-            {all_jobs.map((job, index) => (
-              <div className="position-item" key={job.id}>
-                <h3>{pad(index + 1, 2)}</h3>
-                <h4>{job.title}</h4>
-                <AniLink fade duration={0.3} to={`/job/${job.id}`}>
-                  <div>View Description</div>
-                </AniLink>
-              </div>
-            ))}
+            {all_jobs.map(
+              (job, index) =>
+                job.id < 100 && (
+                  <div className="position-item" key={job.id}>
+                    <h3>{pad(index + 1, 2)}</h3>
+                    <h4>{job.title}</h4>
+                    <AniLink fade duration={0.3} to={`/job/${job.id}`}>
+                      <div>View Description</div>
+                    </AniLink>
+                  </div>
+                )
+            )}
           </div>
           <div className="send-wrapper">
             <Modal tag={"Apply"}>

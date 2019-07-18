@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react"
-import * as THREE from "three"
+// import * as THREE from "three"
 import { TweenMax, Expo, Power4 } from "gsap/all"
 import { vertexShader, fragmentShader } from "./Shaders.js"
 import palleteImage from "../images/gradient.png"
@@ -11,23 +11,25 @@ function Hero() {
   const titleRef = useRef(null)
   const subtitleRef = useRef(null)
   const overlayRef = useRef(null)
+  let THREE = undefined
   let renderer
   let frameId
 
   useEffect(() => {
-    createLandscape({
-      palleteImage,
-      sunImage,
-    })
-
-    animateTitles()
-
-    return function cleanup() {
-      cancelAnimationFrame(frameId)
-      frameId = null
-      mount.current.removeChild(renderer.domElement)
+    THREE = window.THREE
+    if (THREE) {
+      createLandscape({
+        palleteImage,
+        sunImage,
+      })
+      animateTitles()
+      return function cleanup() {
+        cancelAnimationFrame(frameId)
+        frameId = null
+        mount.current.removeChild(renderer.domElement)
+      }
     }
-  }, [])
+  }, [window.THREE])
 
   function createLandscape(params) {
     var width = window.innerWidth

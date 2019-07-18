@@ -97,7 +97,7 @@ function Modal(props) {
             width: 90%;
           }
           .body {
-            padding: 0 1rem;
+            padding: 0;
           }
           .close-wrapper {
             right: 0rem;

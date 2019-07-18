@@ -38,6 +38,19 @@ const SEO = ({ title, description, image, pathname, article }) => (
               <meta property="og:description" content={seo.description} />
             )}
             {seo.image && <meta property="og:image" content={seo.image} />}
+
+            <script
+              async
+              src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.6/lottie.min.js"
+              integrity="sha256-3GwC4y3c4it2V1ZNB3IKbCYzcumRYfe1TsveLFh1XLU="
+              crossorigin="anonymous"
+            ></script>
+            <script
+              async
+              src="https://cdnjs.cloudflare.com/ajax/libs/three.js/106/three.min.js"
+              integrity="sha256-tAVw6WRAXc3td2Esrjd28l54s3P2y7CDFu1271mu5LE="
+              crossorigin="anonymous"
+            ></script>
           </Helmet>
         </>
       )

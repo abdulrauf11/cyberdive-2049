@@ -269,12 +269,15 @@ const Connect = () => {
             flex: 1;
           }
 
-          .contact-wrapper {
-            flex-direction: column;
-          }
           .contact-wrapper .image {
-            margin-top: 8rem;
+            position: relative;
           }
+          .contact-wrapper .image img {
+            width: 80px;
+            position: absolute;
+            left: -120px;
+          }
+
           .contact a {
             font-size: 0.9rem;
           }

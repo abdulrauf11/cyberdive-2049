@@ -68,5 +68,45 @@
       "Research"
     ],
     "note": ""
+  },
+  {
+    "id": "100",
+    "title": "INTERN - Visual Communication"
+  },
+  {
+    "id": "101",
+    "title": "INTERN - Video Editing & VFX"
+  },
+  {
+    "id": "102",
+    "title": "INTERN - Digital Marketing"
+  },
+  {
+    "id": "103",
+    "title": "INTERN - Data Analytics"
+  },
+  {
+    "id": "104",
+    "title": "INTERN - Motion Graphics"
+  },
+  {
+    "id": "105",
+    "title": "INTERN - Graphic Design"
+  },
+  {
+    "id": "106",
+    "title": "INTERN - UI/UX Design"
+  },
+  {
+    "id": "107",
+    "title": "INTERN -  Full Stack Dev"
+  },
+  {
+    "id": "108",
+    "title": "INTERN -  AR/VR, AI, ML"
+  },
+  {
+    "id": "109",
+    "title": "INTERN -  Research"
   }
 ]

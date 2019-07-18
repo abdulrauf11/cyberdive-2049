@@ -5,6 +5,20 @@ import { TweenMax } from "gsap/all"
 import Loader from "../components/Loader.js"
 import SEO from "../components/SEO"
 
+const text_truncate = function(str, length, ending) {
+  if (length == null) {
+    length = 200
+  }
+  if (ending == null) {
+    ending = " . . ."
+  }
+  if (str.length > length) {
+    return str.substring(0, length - ending.length) + ending
+  } else {
+    return str
+  }
+}
+
 const MediaAndNews = () => {
   const [loaded, setLoaded] = useState(false)
   const [feed, setFeed] = useState(null)
@@ -46,6 +60,9 @@ const MediaAndNews = () => {
           {feed &&
             feed.slice(0, 6).map((post, index) => (
               <li key={post.id} ref={li => (postElements[index] = li)}>
+                <div className="overlay">
+                  {text_truncate(post.caption.text)}
+                </div>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -53,10 +70,9 @@ const MediaAndNews = () => {
                   className="post"
                   style={{
                     backgroundImage: `url(${post.images.standard_resolution.url})`,
-                    color: "transparent",
                   }}
                 >
-                  InstaPost
+                  Instagram Post
                 </a>
               </li>
             ))}
@@ -84,6 +100,7 @@ const MediaAndNews = () => {
           margin-bottom: 5rem;
         }
         .grid li {
+          position: relative;
           opacity: 0;
           transform: translateY(15px);
           width: 20vmax;
@@ -93,20 +110,37 @@ const MediaAndNews = () => {
           overflow: hidden;
         }
         .post {
+          color: transparent;
           width: 100%;
           height: 100%;
           display: block;
           background-size: cover;
           background-position: center center;
-          transition: transform 0.5s ease-in-out;
+          transition: transform 1s ease-in-out;
         }
         .grid li:hover .post,
         .grid li:focus .post {
           transform: scale(1.05);
         }
 
-        a:hover {
-          opacity: 1;
+        .overlay {
+          display: flex;
+          align-items: center;
+          padding: 1rem;
+          top: 100%;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: 10;
+          background: rgba(18, 16, 35, 0.9);
+          transition: top 0.5s ease-in-out;
+          font-size: 0.8rem;
+          line-height: 1.5;
+        }
+
+        .grid li:hover .overlay,
+        .grid li:focus .overlay {
+          top: 0;
         }
 
         @media only screen and (max-width: 600px) {
@@ -114,9 +148,12 @@ const MediaAndNews = () => {
             width: 100%;
           }
           .grid li {
-            margin: 0.5rem;
-            width: 30vmax;
-            height: 30vmax;
+            margin: 0.2rem;
+            width: 25vmax;
+            height: 25vmax;
+          }
+          .overlay {
+            display: none;
           }
         }
       `}</style>

@@ -9,10 +9,6 @@ import qualityData from "../images/about/quality.json"
 import insightsData from "../images/about/inspire.json"
 
 import AboutVideo from "../components/AboutVideo"
-// const AboutVideo = Loadable({
-//   loader: () => import("../components/AboutVideo"),
-//   loading: () => null,
-// })
 
 const AboutAnimation = Loadable({
   loader: () => import("../components/AboutAnimation"),
