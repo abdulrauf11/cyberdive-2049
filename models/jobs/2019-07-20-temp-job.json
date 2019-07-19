@@ -1,0 +1,17 @@
+{
+  "layout": "job",
+  "title": "Temp Job",
+  "description": "job description",
+  "responsibilities": [
+    "do this",
+    "do that"
+  ],
+  "requirements": [
+    "req 1",
+    "req 2"
+  ],
+  "positions": [
+    "pos 1"
+  ],
+  "note": "no note"
+}
