@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react"
 import Layout from "../components/DefaultLayout"
-import all_jobs from "../models/jobs.json"
 import Modal from "../components/Modal"
 import JobForm from "../components/JobForm"
 import { TimelineMax, Expo } from "gsap/all"
@@ -44,7 +43,7 @@ const BackgroundSection = ({ className, children }) => (
   />
 )
 
-const Careers = () => {
+const Careers = ({ pageContext: { allJobs } }) => {
   const imageRef = useRef(null)
   const boxSides = []
   const timeline = new TimelineMax()
@@ -85,7 +84,7 @@ const Careers = () => {
         <div className="open-positions">
           <h2>OPEN POSITIONS</h2>
           <div className="position-list">
-            {all_jobs.map(
+            {allJobs.map(
               (job, index) =>
                 job.id < 100 && (
                   <div className="position-item" key={job.id}>

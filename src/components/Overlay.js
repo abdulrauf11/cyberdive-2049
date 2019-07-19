@@ -11,11 +11,12 @@ class Overlay extends React.Component {
               <p>MENU</p>
             </div>
             <div className="page-links">
-              <OverlayLink url="/services" pageType="SERVICES" />
-              <OverlayLink url="/about" pageType="ABOUT" />
-              <OverlayLink url="/media-and-news" pageType="MEDIA & NEWS" />
-              <OverlayLink url="/careers" pageType="CAREERS" />
-              <OverlayLink url="/connect" pageType="CONNECT" />
+              <OverlayLink url="/services/" pageType="SERVICES" />
+              <OverlayLink url="/about/" pageType="ABOUT" />
+              <OverlayLink url="/work/" pageType="WORK" />
+              <OverlayLink url="/media-and-news/" pageType="MEDIA & NEWS" />
+              <OverlayLink url="/careers/" pageType="CAREERS" />
+              <OverlayLink url="/connect/" pageType="CONNECT" />
             </div>
           </div>
           <div className="social-links">

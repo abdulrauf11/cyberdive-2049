@@ -7,7 +7,7 @@ const Footer = () => (
       <div className="primary-subwrapper">
         <div className="wrapper-left">
           <div className="left-subwrapper">
-            <Link to="/connect">
+            <Link to="/connect/">
               <div className="lets-talk">LET'S TALK.</div>
             </Link>
             <div className="social-links">
@@ -55,13 +55,13 @@ const Footer = () => (
     </div>
     <div className="copyright">
       <span>
-        <Link to="/privacy-policy">
+        <Link to="/privacy-policy/">
           <span style={{ marginRight: "0.3rem" }} className="footer-link">
             Privacy Policy
           </span>
         </Link>
         |
-        <Link to="/terms-and-conditions">
+        <Link to="/terms-and-conditions/">
           <span style={{ marginLeft: "0.3rem" }} className="footer-link">
             Terms & Conditions
           </span>

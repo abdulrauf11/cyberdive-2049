@@ -9,7 +9,7 @@ const Job = ({ pageContext: { job_object } }) => {
   return (
     <Layout>
       <main>
-        <Link to="/careers">
+        <Link to="/careers/">
           <div className="close-wrapper">
             <ButtonClose />
           </div>
