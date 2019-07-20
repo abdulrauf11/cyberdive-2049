@@ -1,4 +1,15 @@
 {
   "title": "Test job",
-  "description": "Testin 1 2 3...."
+  "description": "Testin 1 2 3....",
+  "responsibilities": [
+    "1",
+    "2"
+  ],
+  "requirements": [
+    "1"
+  ],
+  "positions": [
+    "1"
+  ],
+  "note": "note"
 }
