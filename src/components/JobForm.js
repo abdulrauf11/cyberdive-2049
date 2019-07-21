@@ -24,7 +24,7 @@ function JobForm(props) {
     console.log(state)
     fetch("/careers", {
       method: "POST",
-      body: encode({ "form-name": "job-post-new", ...state }),
+      body: encode({ "form-name": "job-post-latest", ...state }),
     })
       .then(() => {
         console.log("Success!")
