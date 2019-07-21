@@ -12,11 +12,9 @@ collections:
     label: "Job" # Used in the UI
     folder: "models/jobs" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     extension: "json"
-    format: "json"
     fields: # The fields for each document, usually in front matter
-      - { label: "Layout", name: "layout", widget: "hidden", default: "job" }
       - { label: "Title", name: "title", widget: "string" }
       - {
           label: "Description",
@@ -28,22 +26,18 @@ collections:
           label: "Responsibilites",
           name: "responsibilities",
           widget: "list",
-          field:
-            { label: Responsibility, name: responsibility, widget: string },
           required: false,
         }
       - {
           label: "Requirements",
           name: "requirements",
           widget: "list",
-          field: { label: Requirement, name: requirement, widget: string },
           required: false,
         }
       - {
           label: "Positions",
           name: "positions",
           widget: "list",
-          field: { label: Position, name: position, widget: string },
           required: false,
         }
       - { label: "Note", name: "note", widget: "text", required: false }

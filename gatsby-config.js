@@ -44,6 +44,14 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `models`,
+        path: `${__dirname}/models/jobs`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

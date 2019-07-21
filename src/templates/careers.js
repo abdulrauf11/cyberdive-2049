@@ -98,9 +98,9 @@ const Careers = ({ pageContext: { allJobs } }) => {
             )}
           </div>
           <div className="send-wrapper">
-            <Modal tag={"Apply"}>
+            {/* <Modal tag={"Apply"}> */}
               <JobForm />
-            </Modal>
+            {/* </Modal> */}
           </div>
           <div className="instructions">
             <p>
@@ -216,7 +216,7 @@ const Careers = ({ pageContext: { allJobs } }) => {
           display: flex;
         }
         .position-item {
-          flex: 1;
+          flex: 1 1 33.33333%;
           margin: 0 1rem;
         }
         .position-item h3 {
