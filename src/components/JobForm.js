@@ -24,6 +24,7 @@ function JobForm(props) {
     console.log(state)
     fetch("/careers", {
       method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "job-latest", ...state }),
     })
       .then(() => {
@@ -110,12 +111,13 @@ function JobForm(props) {
               Select position
             </option>
             {all_jobs.map(
-              job =>
-                job.title !== "INTERN" && (
-                  <option key={job.id} value={job.title}>
-                    {job.title}
-                  </option>
-                )
+              job => (
+                // job.title !== "INTERN" && (
+                <option key={job.id} value={job.title}>
+                  {job.title}
+                </option>
+              )
+              // )
             )}
           </select>
         </div>
