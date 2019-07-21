@@ -60,14 +60,14 @@ function JobForm(props) {
   return (
     <form
       method="post"
-      name="job-post-new"
+      name="job-post-latest"
       action="#"
       data-netlify="true"
-      data-netlify-honeypot="bot-field"
+      data-netlify-honeypot="bot-field-latest"
       onSubmit={handleSubmit}
     >
-      <input type="hidden" name="bot-field" />
-      <input type="hidden" name="form-name" value="job-post-new" />
+      <input type="hidden" name="bot-field-latest" />
+      <input type="hidden" name="form-name" value="job-post-latest" />
 
       <div className="group">
         <div className="group-item">
@@ -122,7 +122,7 @@ function JobForm(props) {
 
         <div className="group-item">
           <input
-            placeholder="Link to your resume*"
+            placeholder="Link to your resume"
             type="text"
             name="resume"
             value={resume}
