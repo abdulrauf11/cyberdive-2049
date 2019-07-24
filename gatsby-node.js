@@ -1,5 +1,3 @@
-// const all_jobs = require("./src/models/jobs.json")
-// const all_portfolios = require("./src/models/portfolios.json")
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
