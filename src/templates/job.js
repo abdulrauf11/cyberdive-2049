@@ -177,6 +177,7 @@ export const query = graphql`
         responsibilities
         requirements
         positions
+        note
       }
     }
   }
