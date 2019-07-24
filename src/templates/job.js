@@ -60,6 +60,13 @@ const Job = ({ data }) => {
           </div>
         )}
 
+        {job.note && (
+          <div className="note">
+            <h3>Note</h3>
+            <p>{job.note}</p>
+          </div>
+        )}
+
         <div className="apply">
           <p>
             To apply for this position, click 'Apply' and fill out the form.
@@ -67,7 +74,10 @@ const Job = ({ data }) => {
         </div>
         <div className="send-wrapper">
           <Modal tag={"Apply"}>
-            <JobForm defaultPosition={job.title} />
+            <JobForm
+              allJobs={[{ node: { frontmatter: { title: job.title } } }]}
+              defaultPosition={job.title}
+            />
           </Modal>
         </div>
       </main>
@@ -100,20 +110,17 @@ const Job = ({ data }) => {
             font-weight: 300;
           }
 
-          .description {
-            margin-top: 5rem;
-          }
-
-          .responsibilities {
-            margin-top: 5rem;
-          }
-          .qualities {
+          .description,
+          .responsibilities,
+          .qualities,
+          .note {
             margin-top: 5rem;
           }
 
           .positions h3,
           .qualities h3,
-          .responsibilities h3 {
+          .responsibilities h3,
+          .note h3 {
             color: var(--blue);
             font-weight: 600;
             text-transform: uppercase;

@@ -96,7 +96,7 @@ const Careers = ({ pageContext: { allJobs } }) => {
           </div>
           <div className="send-wrapper">
             <Modal tag={"Apply"}>
-              <JobForm />
+              <JobForm allJobs={allJobs} />
             </Modal>
           </div>
           <div className="instructions">

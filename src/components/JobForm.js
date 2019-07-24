@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import Button from "./Button"
-import all_jobs from "../models/jobs.json"
 import { CSSTransition } from "react-transition-group"
 
 const encode = data => {
@@ -110,9 +109,12 @@ function JobForm(props) {
             <option value="" disabled>
               Select position
             </option>
-            {all_jobs.map(job => (
-              <option key={job.title} value={job.title}>
-                {job.title}
+            {props.allJobs.map(({ node }) => (
+              <option
+                key={node.frontmatter.title}
+                value={node.frontmatter.title}
+              >
+                {node.frontmatter.title}
               </option>
             ))}
           </select>

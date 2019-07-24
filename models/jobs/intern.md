@@ -11,4 +11,5 @@ positions:
   - "Full Stack Dev"
   - "AR/VR, AI, ML"
   - "Research"
+note: Please mention the position you're applying for in the message box.
 ---
