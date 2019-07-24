@@ -28,6 +28,7 @@ exports.createPages = ({ graphql, actions }) => {
               responsibilities
               requirements
               positions
+              note
             }
           }
         }
