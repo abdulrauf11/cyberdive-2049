@@ -110,15 +110,11 @@ function JobForm(props) {
             <option value="" disabled>
               Select position
             </option>
-            {all_jobs.map(
-              job => (
-                // job.title !== "INTERN" && (
-                <option key={job.id} value={job.title}>
-                  {job.title}
-                </option>
-              )
-              // )
-            )}
+            {all_jobs.map(job => (
+              <option key={job.title} value={job.title}>
+                {job.title}
+              </option>
+            ))}
           </select>
         </div>
 

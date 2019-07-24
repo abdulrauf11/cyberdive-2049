@@ -1,52 +1,78 @@
-const all_jobs = require("./src/models/jobs.json")
+// const all_jobs = require("./src/models/jobs.json")
 // const all_portfolios = require("./src/models/portfolios.json")
+const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-// exports.createPages = async ({ actions: { createPage } }) => {
-//   return graphql(`
-//     {
-//       allJobsJson {
-//         edges {
-//           node {
-//             title
-//             description
-//             responsibilities
-//             requirements
-//             positions
-//             note
-//           }
-//         }
-//       }
-//     }
-//   `).then(result => {
-//     if (result.errors) {
-//       return Promise.reject(result.errors)
-//     }
-//     return result.data.allJobsJson.edges.forEach(({ node }) => {
-//       createPage({
-//         path: `/job/${node.title}/`,
-//         component: require.resolve("./src/templates/job.js"),
-//         context: { node }, // additional data can be passed via context
-//       })
-//     })
-//   })
-exports.createPages = async ({ actions: { createPage } }) => {
-  const allJobs = all_jobs
-  createPage({
-    path: `/careers`,
-    component: require.resolve("./src/templates/careers.js"),
-    context: { allJobs },
-  })
-  allJobs.forEach(job_object => {
-    if (job_object.id < 100) {
-      createPage({
-        path: `/job/${job_object.id}/`,
-        component: require.resolve("./src/templates/job.js"),
-        context: { job_object },
-      })
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    createNodeField({
+      node,
+      name: `slug`,
+      value: `/job${slug}`,
+    })
+  }
+}
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              description
+              responsibilities
+              requirements
+              positions
+            }
+          }
+        }
+      }
     }
+  `).then(result => {
+    createPage({
+      path: `/careers/`,
+      component: require.resolve("./src/templates/careers.js"),
+      context: {
+        allJobs: result.data.allMarkdownRemark.edges,
+      },
+    })
+
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      createPage({
+        path: `${node.fields.slug}`,
+        component: path.resolve(`./src/templates/job.js`),
+        context: {
+          slug: node.fields.slug,
+        },
+      })
+    })
   })
 }
 
+// exports.createPages = async ({ actions: { createPage } }) => {
+//   const allJobs = all_jobs
+//   createPage({
+//     path: `/careers`,
+//     component: require.resolve("./src/templates/careers.js"),
+//     context: { allJobs },
+//   })
+//   allJobs.forEach(job_object => {
+//     if (job_object.id < 100) {
+//       createPage({
+//         path: `/job/${job_object.id}/`,
+//         component: require.resolve("./src/templates/job.js"),
+//         context: { job_object },
+//       })
+//     }
+//   })
+// }
 // `getPokemonData` is a function that fetches our data
 // const allPortfolios = all_portfolios
 // // Create a page that lists all Pokemon.

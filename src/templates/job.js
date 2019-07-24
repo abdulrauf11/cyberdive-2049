@@ -1,11 +1,13 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/DefaultLayout.js"
 import { Link } from "gatsby"
 import ButtonClose from "../components/ButtonClose"
 import Modal from "../components/Modal"
 import JobForm from "../components/JobForm"
 
-const Job = ({ pageContext: { job_object } }) => {
+const Job = ({ data }) => {
+  const job = data.markdownRemark.frontmatter
   return (
     <Layout>
       <main>
@@ -15,41 +17,43 @@ const Job = ({ pageContext: { job_object } }) => {
           </div>
         </Link>
         <div className="headings">
-          <h1>{job_object["title"]}</h1>
+          <h1>{job.title}</h1>
           <h3>Job Description</h3>
         </div>
 
-        <div className="description">
-          <p>{job_object["description"]}</p>
-        </div>
+        {job.description && (
+          <div className="description">
+            <p>{job.description}</p>
+          </div>
+        )}
 
-        {job_object["responsibilites"] && (
+        {job.responsibilities && (
           <div className="responsibilities">
             <h3>Responsibilities</h3>
             <ul>
-              {job_object["responsibilities"].map((r, i) => (
+              {job.responsibilities.map((r, i) => (
                 <li key={i}>{r}</li>
               ))}
             </ul>
           </div>
         )}
 
-        {job_object["requirements"] && (
+        {job.requirements && (
           <div className="qualities">
             <h3>Requirements</h3>
             <ul>
-              {job_object["requirements"].map((q, i) => (
+              {job.requirements.map((q, i) => (
                 <li key={i}>{q}</li>
               ))}
             </ul>
           </div>
         )}
 
-        {job_object["positions"] && (
+        {job.positions && (
           <div className="positions">
             <h3>Available Positions</h3>
             <ul>
-              {job_object["positions"].map((q, i) => (
+              {job.positions.map((q, i) => (
                 <li key={q}>{q}</li>
               ))}
             </ul>
@@ -63,7 +67,7 @@ const Job = ({ pageContext: { job_object } }) => {
         </div>
         <div className="send-wrapper">
           <Modal tag={"Apply"}>
-            <JobForm defaultPosition={job_object["id"]} />
+            <JobForm defaultPosition={job.title} />
           </Modal>
         </div>
       </main>
@@ -156,3 +160,17 @@ const Job = ({ pageContext: { job_object } }) => {
 }
 
 export default Job
+
+export const query = graphql`
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        description
+        responsibilities
+        requirements
+        positions
+      }
+    }
+  }
+`

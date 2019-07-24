@@ -84,18 +84,15 @@ const Careers = ({ pageContext: { allJobs } }) => {
         <div className="open-positions">
           <h2>OPEN POSITIONS</h2>
           <div className="position-list">
-            {allJobs.map(
-              (job, index) =>
-                job.id < 100 && (
-                  <div className="position-item" key={job.id}>
-                    <h3>{pad(index + 1, 2)}</h3>
-                    <h4>{job.title}</h4>
-                    <Link to={`/job/${job.id}`}>
-                      <div>View Description</div>
-                    </Link>
-                  </div>
-                )
-            )}
+            {allJobs.map(({ node }, index) => (
+              <div className="position-item" key={node.frontmatter.title}>
+                <h3>{pad(index + 1, 2)}</h3>
+                <h4>{node.frontmatter.title}</h4>
+                <Link to={node.fields.slug}>
+                  <div>View Description</div>
+                </Link>
+              </div>
+            ))}
           </div>
           <div className="send-wrapper">
             <Modal tag={"Apply"}>
@@ -214,10 +211,11 @@ const Careers = ({ pageContext: { allJobs } }) => {
         .position-list {
           margin: 4rem 0 6rem 0;
           display: flex;
+          flex-wrap: wrap;
         }
         .position-item {
-          flex: 1 1 33.33333%;
-          margin: 0 1rem;
+          flex: 1 1 calc(33.33333% - 2rem);
+          margin: 1rem;
         }
         .position-item h3 {
           font-size: 3rem;

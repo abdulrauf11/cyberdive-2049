@@ -13,7 +13,6 @@ collections:
     folder: "models/jobs" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    extension: "json"
     fields: # The fields for each document, usually in front matter
       - { label: "Title", name: "title", widget: "string" }
       - {
@@ -27,17 +26,20 @@ collections:
           name: "responsibilities",
           widget: "list",
           required: false,
+          hint: "Enter comma separated values",
         }
       - {
           label: "Requirements",
           name: "requirements",
           widget: "list",
           required: false,
+          hint: "Enter comma separated values",
         }
       - {
           label: "Positions",
           name: "positions",
           widget: "list",
           required: false,
+          hint: "Enter comma separated values",
         }
       - { label: "Note", name: "note", widget: "text", required: false }
