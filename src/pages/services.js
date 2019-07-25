@@ -49,14 +49,14 @@ const FullPage = ({ idata }) => {
   return (
     <ReactFullpage
       {...opts}
-      render={({ fullpageApi }) => {
+      render={() => {
         return (
           <ReactFullpage.Wrapper>
-            <Service {...serviceList[0]} fullpageApi={fullpageApi} count={1} />
-            <Service {...serviceList[1]} fullpageApi={fullpageApi} count={2} />
-            <Service {...serviceList[2]} fullpageApi={fullpageApi} count={3} />
-            <Service {...serviceList[3]} fullpageApi={fullpageApi} count={4} />
-            <Service {...serviceList[4]} fullpageApi={fullpageApi} count={5} />
+            <Service {...serviceList[0]} count={1} />
+            <Service {...serviceList[1]} count={2} />
+            <Service {...serviceList[2]} count={3} />
+            <Service {...serviceList[3]} count={4} />
+            <Service {...serviceList[4]} count={5} />
             <div className="section">
               <div className="contact-wrapper">
                 <div className="contact-slide">
