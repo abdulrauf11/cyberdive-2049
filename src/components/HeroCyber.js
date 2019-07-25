@@ -4,6 +4,7 @@ import { TweenMax, Expo } from "gsap/all"
 import { vertexShader, fragmentShader } from "./Shaders.js"
 import palleteImage from "../images/gradient.png"
 import sunImage from "../images/sun.png"
+
 const getRandomNumber = (min, max) => Math.random() * (max - min) + min
 
 function Hero() {
@@ -259,7 +260,7 @@ function Hero() {
       <div className="content">
         <div className="landscape" ref={mount} />
         <h1 className="content__title" ref={titleRef}>
-          <span className="word">
+          <div className="word">
             <span>A</span>
             <span>D</span>
             <span>V</span>
@@ -269,15 +270,15 @@ function Hero() {
             <span>I</span>
             <span>N</span>
             <span>G</span>
-          </span>{" "}
-          <span className="word">
+          </div>{" "}
+          <div className="word">
             <span>B</span>
             <span>E</span>
             <span>Y</span>
             <span>O</span>
             <span>N</span>
             <span>D</span>
-          </span>
+          </div>
         </h1>
         <h3 className="content__subtitle" ref={subtitleRef}>
           We are the next generation of the digital world.
@@ -330,6 +331,9 @@ function Hero() {
           left: 0;
           background: var(--black);
           opacity: 0;
+        }
+        .word {
+          display: inline-block;
         }
         @media only screen and (max-width: 600px) {
           .word {
