@@ -195,7 +195,7 @@ function Hero() {
 
     const title = titleRef.current
     const titleLetters = Array.from(title.querySelectorAll("span"))
-    // TweenMax.set(titleLetters, { opacity: 0 })
+    TweenMax.set(titleLetters, { opacity: 0 })
     TweenMax.staggerTo(
       titleLetters,
       1,
@@ -210,7 +210,7 @@ function Hero() {
     )
 
     const subtitle = subtitleRef.current
-    // TweenMax.set(subtitle, { opacity: 0 })
+    TweenMax.set(subtitle, { opacity: 0 })
     TweenMax.to(subtitle, 1.5, {
       ease: Expo.easeOut,
       startAt: { y: 50 },
@@ -312,13 +312,11 @@ function Hero() {
           display: inline-block;
           white-space: pre;
           transform-origin: 50% -50%;
-          opacity: 0;
         }
         .content__subtitle {
           position: relative;
           margin: 0;
           font-weight: 400;
-          opacity: 0;
         }
         .landscape {
           position: absolute;
@@ -332,7 +330,6 @@ function Hero() {
           top: 0;
           left: 0;
           background: var(--black);
-          opacity: 1;
         }
         .word {
           display: inline-block;
