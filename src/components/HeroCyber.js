@@ -129,7 +129,7 @@ function Hero() {
       var phi = 2 * Math.PI * -0.25
       sprite.position.y = 650 * Math.sin(phi) * Math.sin(theta)
       sprite.position.z = 150 * Math.sin(phi) * Math.cos(theta)
-      sprite.scale.set(30, 30, 1)
+      sprite.scale.set(40, 40, 1)
       scene.add(sprite)
     }
 
