@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
+// import ReactDOM from "react-dom"
 import { TimelineMax, Elastic } from "gsap/all"
 import Button from "./Button"
 import ButtonClose from "./ButtonClose"
@@ -62,6 +63,7 @@ function Modal(props) {
           left: 0;
           height: 100%;
           width: 100%;
+          overflow: hidden;
           z-index: 10000;
           transform: translateZ(0);
           background-color: rgba(0, 0, 0, 0.9);
@@ -94,7 +96,7 @@ function Modal(props) {
 
         @media only screen and (max-width: 600px) {
           .card {
-            width: 90%;
+            // width: 90%;
           }
           .body {
             padding: 0;

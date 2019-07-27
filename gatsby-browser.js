@@ -5,6 +5,8 @@
  */
 
 // You can delete this file if you're not using it
+import React from "react"
+import Transition from "./src/components/Transition"
 import "./src/global.css"
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
@@ -12,4 +14,8 @@ export const onClientEntry = () => {
     import(`intersection-observer`)
     console.log(`# IntersectionObserver is polyfilled!`)
   }
+}
+
+export const wrapPageElement = ({ element, props }) => {
+  return <Transition {...props}>{element}</Transition>
 }
