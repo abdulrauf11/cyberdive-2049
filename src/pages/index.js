@@ -6,8 +6,22 @@ import Loadable from "react-loadable"
 
 const HeroCyber = Loadable({
   loader: () => import("../components/HeroCyber"),
-  loading: Loader,
+  loading: Loading,
 })
+
+function Loading(props) {
+  if (props.error) {
+    return (
+      <div>
+        Error! <button onClick={props.retry}>Retry</button>
+      </div>
+    )
+  } else if (props.pastDelay) {
+    return Loader
+  } else {
+    return null
+  }
+}
 
 const Index = () => {
   return (

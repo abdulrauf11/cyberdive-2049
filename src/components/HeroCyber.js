@@ -11,7 +11,7 @@ function Hero() {
   const mount = useRef(null)
   const titleRef = useRef(null)
   const subtitleRef = useRef(null)
-  const overlayRef = useRef(null)
+  // const overlayRef = useRef(null)
   let renderer
   let frameId
 
@@ -129,7 +129,7 @@ function Hero() {
       var phi = 2 * Math.PI * -0.25
       sprite.position.y = 650 * Math.sin(phi) * Math.sin(theta)
       sprite.position.z = 150 * Math.sin(phi) * Math.cos(theta)
-      sprite.scale.set(40, 40, 1)
+      sprite.scale.set(30, 30, 1)
       scene.add(sprite)
     }
 
@@ -186,16 +186,16 @@ function Hero() {
   }
 
   function animateTitles() {
-    const overlay = overlayRef.current
-    TweenMax.set(overlay, { opacity: 1 })
-    TweenMax.to(overlay, 2, {
-      ease: Expo.easeOut,
-      opacity: 0,
-    })
+    // const overlay = overlayRef.current
+    // TweenMax.set(overlay, { opacity: 0 })
+    // TweenMax.to(overlay, 2, {
+    //   ease: Expo.easeOut,
+    //   opacity: 1,
+    // })
 
     const title = titleRef.current
     const titleLetters = Array.from(title.querySelectorAll("span"))
-    TweenMax.set(titleLetters, { opacity: 0 })
+    // TweenMax.set(titleLetters, { opacity: 0 })
     TweenMax.staggerTo(
       titleLetters,
       1,
@@ -210,7 +210,7 @@ function Hero() {
     )
 
     const subtitle = subtitleRef.current
-    TweenMax.set(subtitle, { opacity: 0 })
+    // TweenMax.set(subtitle, { opacity: 0 })
     TweenMax.to(subtitle, 1.5, {
       ease: Expo.easeOut,
       startAt: { y: 50 },
@@ -284,7 +284,7 @@ function Hero() {
           We are the next generation of the digital world.
         </h3>
       </div>
-      <div className="overlay" ref={overlayRef} />
+      {/* <div className="overlay" ref={overlayRef}/> */}
       <style jsx>{`
         main {
           width: 100vw;
@@ -312,11 +312,13 @@ function Hero() {
           display: inline-block;
           white-space: pre;
           transform-origin: 50% -50%;
+          opacity: 0;
         }
         .content__subtitle {
           position: relative;
           margin: 0;
           font-weight: 400;
+          opacity: 0;
         }
         .landscape {
           position: absolute;
@@ -330,7 +332,7 @@ function Hero() {
           top: 0;
           left: 0;
           background: var(--black);
-          opacity: 0;
+          opacity: 1;
         }
         .word {
           display: inline-block;

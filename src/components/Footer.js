@@ -105,7 +105,7 @@ const Footer = () => (
 
         .flex-wrapper {
           display: flex;
-          height: 93vh;
+          height: 90vh;
           align-items: center;
         }
         .primary-subwrapper {
@@ -158,7 +158,7 @@ const Footer = () => (
           justify-content: space-between;
           margin: 0;
           font-size: 0.7rem;
-          height: 7vh;
+          height: 10vh;
           width: 65%;
           margin: auto;
         }
