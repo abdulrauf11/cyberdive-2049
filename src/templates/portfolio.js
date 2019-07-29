@@ -1,46 +1,105 @@
 import React from "react"
 import Layout from "../components/DefaultLayout.js"
-import { Link } from "gatsby"
 import { graphql } from "gatsby"
-import ButtonClose from "../components/ButtonClose"
 
 const Portfolio = ({ data }) => {
   const portfolio = data.markdownRemark.frontmatter
   return (
     <Layout>
       <main>
-        <Link to="/work/">
-          <div className="close-wrapper">
-            <ButtonClose />
+        <section className="heading">
+          <h1 className="project-title">{portfolio.title}</h1>
+        </section>
+        <section className="description">
+          <div className="points">
+            <div>
+              <h3>Client</h3>
+              <p>{portfolio.client}</p>
+            </div>
+            <div>
+              <h3>Location</h3>
+              <p>{portfolio.location}</p>
+            </div>
+            <div>
+              <h3>Work</h3>
+              <p>{portfolio.work}</p>
+            </div>
+            <div>
+              <h3>Team</h3>
+              <p>{portfolio.team}</p>
+            </div>
           </div>
-        </Link>
-        <div className="headings">
-          <h1>{portfolio.title}</h1>
-        </div>
+          <div>
+            <p>{portfolio.description}</p>
+            <a target="_blank" rel="noopener noreferrer" href={portfolio.link}>
+              LAUNCH PROJECT
+            </a>
+          </div>
+        </section>
+
+        <section className="process">
+          <div className="challenge">
+            <h3>THE CHALLENGE</h3>
+            <p>{portfolio.challenge}</p>
+          </div>
+          <div className="solution">
+            <h3>THE SOLUTION</h3>
+            <p>{portfolio.solution}</p>
+          </div>
+        </section>
       </main>
       <style jsx>
         {`
           main {
-            min-height: 100vh;
-            width: 75%;
+            width: 70%;
             margin: 10rem auto;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 5rem 4rem;
-            position: relative;
+          }
+          .project-title {
+            text-transform: uppercase;
+            font-size: 4rem;
           }
 
-          .close-wrapper {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
+          .description {
+            margin-top: 5rem;
+            display: flex;
+          }
+          .description > * {
+            flex: 1;
+          }
+          .description a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: block;
+            margin-top: 2rem;
+            text-decoration: underline;
+          }
+          .description p {
+            margin: 0;
+          }
+          .points h3 {
+            margin: 0;
+          }
+          .points > div {
+            margin-bottom: 2rem;
           }
 
-          .headings {
-            text-align: center;
+          .process {
+            margin: 7rem 0;
           }
-          .headings h1 {
-            margin-top: 0;
+          .process h3 {
             color: var(--blue);
+          }
+          .solution {
+            margin-top: 5rem;
+          }
+
+          @media only screen and (max-width: 600px) {
+            main {
+              width: 85%;
+            }
+            .description {
+              flex-direction: column;
+            }
           }
         `}
       </style>
@@ -55,6 +114,15 @@ export const queryPortfolio = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        thumbnail
+        client
+        description
+        location
+        work
+        team
+        link
+        challenge
+        solution
       }
     }
   }

@@ -46,6 +46,14 @@ exports.createPages = ({ graphql, actions }) => {
             frontmatter {
               title
               thumbnail
+              client
+              description
+              location
+              work
+              team
+              link
+              challenge
+              solution
             }
           }
         }
