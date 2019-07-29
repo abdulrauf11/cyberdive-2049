@@ -1,4 +1,5 @@
 ---
-title: Portfolio Temp
-thumbnail: "/images/uploads/placeholder.svg"
+title: Timmy's
+thumbnail: /images/uploads/belly.jpg
 ---
+
