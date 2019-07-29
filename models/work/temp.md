@@ -1,4 +1,5 @@
 ---
 title: Portfolio Temp
-thumbnail: "/images/uploads/placeholder.svg"
+thumbnail: /images/uploads/belly.jpg
 ---
+
