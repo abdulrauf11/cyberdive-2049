@@ -47,8 +47,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markedown-pages-jobs`,
-        path: `${__dirname}/models/jobs`,
+        name: `markdown-pages-careers`,
+        path: `${__dirname}/models/careers`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages-work`,
+        path: `${__dirname}/models/work`,
       },
     },
     `gatsby-transformer-remark`,

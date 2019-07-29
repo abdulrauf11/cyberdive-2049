@@ -1,7 +1,7 @@
 import React from "react"
 import posed, { PoseGroup } from "react-pose"
 
-const timeout = 0
+const timeout = 0.5
 
 class Transition extends React.PureComponent {
   render() {

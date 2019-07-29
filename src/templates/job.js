@@ -81,7 +81,7 @@ const Job = ({ data }) => {
           </Modal>
         </div>
       </main>
-      <style jsx global>
+      <style jsx>
         {`
           main {
             min-height: 100vh;
@@ -168,7 +168,7 @@ const Job = ({ data }) => {
 
 export default Job
 
-export const query = graphql`
+export const queryJob = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {

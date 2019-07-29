@@ -1,9 +1,11 @@
 import React from "react"
 import Layout from "../components/DefaultLayout.js"
 import { Link } from "gatsby"
+import { graphql } from "gatsby"
 import ButtonClose from "../components/ButtonClose"
 
-const Portfolio = ({ pageContext: { portfolio_object } }) => {
+const Portfolio = ({ data }) => {
+  const portfolio = data.markdownRemark.frontmatter
   return (
     <Layout>
       <main>
@@ -13,10 +15,10 @@ const Portfolio = ({ pageContext: { portfolio_object } }) => {
           </div>
         </Link>
         <div className="headings">
-          <h1>{portfolio_object["title"]}</h1>
+          <h1>{portfolio.title}</h1>
         </div>
       </main>
-      <style jsx global>
+      <style jsx>
         {`
           main {
             min-height: 100vh;
@@ -47,3 +49,13 @@ const Portfolio = ({ pageContext: { portfolio_object } }) => {
 }
 
 export default Portfolio
+
+export const queryPortfolio = graphql`
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+      }
+    }
+  }
+`

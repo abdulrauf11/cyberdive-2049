@@ -88,7 +88,7 @@ const Careers = ({ pageContext: { allJobs } }) => {
               <div className="position-item" key={node.frontmatter.title}>
                 <h3>{pad(index + 1, 2)}</h3>
                 <h4>{node.frontmatter.title}</h4>
-                <Link to={node.fields.slug}>
+                <Link to={`/job${node.fields.slug}`}>
                   <div>View Description</div>
                 </Link>
               </div>
@@ -193,7 +193,7 @@ const Careers = ({ pageContext: { allJobs } }) => {
           margin: 0 auto;
         }
         .heading-wrapper {
-          margin-bottom: 0 !important;
+          margin-bottom: 0;
         }
 
         .heading-wrapper h1:before {
