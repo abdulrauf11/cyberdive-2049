@@ -4,11 +4,6 @@ import SEO from "../components/SEO"
 import Loader from "../components/Loader"
 import Loadable from "react-loadable"
 
-const HeroCyber = Loadable({
-  loader: () => import("../components/HeroCyber"),
-  loading: Loading,
-})
-
 function Loading(props) {
   if (props.error) {
     return (
@@ -22,6 +17,11 @@ function Loading(props) {
     return null
   }
 }
+
+const HeroCyber = Loadable({
+  loader: () => import("../components/HeroCyber"),
+  loading: Loading,
+})
 
 const Index = () => {
   return (
