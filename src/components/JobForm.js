@@ -238,6 +238,10 @@ function JobForm(props) {
         }
 
         @media only screen and (max-width: 600px) {
+          .form {
+            width: 100%;
+          }
+          
           input[type="text"],
           input[type="email"],
           select {
