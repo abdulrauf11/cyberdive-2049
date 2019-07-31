@@ -54,6 +54,7 @@ exports.createPages = ({ graphql, actions }) => {
               link
               challenge
               solution
+              video
             }
           }
         }

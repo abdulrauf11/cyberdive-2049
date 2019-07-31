@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react"
-import aboutVideo from "../images/about/about_video_compressed.mp4"
-import aboutVideoSmall from "../images/about/about_video_small_compressed.mp4"
 import { Player, ControlBar, BigPlayButton } from "video-react"
 
 const AboutVideo = () => {
   const [videoSrc, setVideoSrc] = useState("")
   const [aspectRatio, setAspectRatio] = useState("")
   useEffect(() => {
+    let aboutVideo =
+      "https://res.cloudinary.com/rauf-tech/video/upload/v1564607920/about_video_compressed_engxuj.mp4"
+    let aboutVideoSmall =
+      "https://res.cloudinary.com/rauf-tech/video/upload/v1564607787/about_video_small_compressed_tih6w3.mp4"
     setVideoSrc(document.body.offsetWidth > 600 ? aboutVideo : aboutVideoSmall)
     setAspectRatio(document.body.offsetWidth > 600 ? "16:9" : "4:5")
   }, [])

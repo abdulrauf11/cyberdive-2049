@@ -1,11 +1,23 @@
 import React from "react"
 import Layout from "../components/DefaultLayout.js"
 import { graphql } from "gatsby"
+import { Player, BigPlayButton } from "video-react"
 
 const Portfolio = ({ data }) => {
   const portfolio = data.markdownRemark.frontmatter
   return (
     <Layout>
+      <section className="video">
+        <Player
+          fluid={true}
+          // width="100%"
+          // height="100%"
+          playsInline={true}
+          src={portfolio.video}
+        >
+          <BigPlayButton position="center" />
+        </Player>
+      </section>
       <main>
         <section className="heading">
           <h1 className="project-title">{portfolio.title}</h1>
@@ -54,6 +66,11 @@ const Portfolio = ({ data }) => {
             width: 70%;
             margin: 10rem auto;
           }
+
+          .video {
+            width: 100%;
+          }
+
           .project-title {
             text-transform: uppercase;
             font-size: 4rem;
@@ -96,8 +113,17 @@ const Portfolio = ({ data }) => {
           @media only screen and (max-width: 600px) {
             main {
               width: 85%;
+              margin-top: 5rem;
+            }
+
+            .video {
+              margin-top: 8rem;
+            }
+            .project-title {
+              font-size: 3rem;
             }
             .description {
+              margin-top: 0;
               flex-direction: column;
             }
           }
@@ -123,6 +149,7 @@ export const queryPortfolio = graphql`
         link
         challenge
         solution
+        video
       }
     }
   }

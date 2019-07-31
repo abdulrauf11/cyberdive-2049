@@ -65,3 +65,4 @@ collections:
       - { label: "Project Link", name: "link", widget: "string" }
       - { label: "The Challenge", name: "challenge", widget: "text" }
       - { label: "The Solution", name: "solution", widget: "text" }
+      - { label: "Video Link", name: "video", widget: "string" }
