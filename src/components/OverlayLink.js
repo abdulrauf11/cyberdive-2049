@@ -16,7 +16,7 @@ const OverlayLink = props => (
         opacity: 1;
         cursor: pointer;
         font-weight: 700;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         margin: 1rem 0 1rem 2rem;
         transition: color 0.25s ease-in-out, transform 0.3s ease-in-out;
       }
@@ -27,7 +27,7 @@ const OverlayLink = props => (
       @media only screen and (max-width: 600px) {
         .link-wrapper div {
           margin: 1rem 0;
-          font-size: 2rem;
+          font-size: 1.7rem;
         }
       }
     `}</style>

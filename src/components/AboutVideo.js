@@ -20,7 +20,6 @@ const AboutVideo = () => {
         loop={true}
         muted={true}
         playsInline={true}
-        preload="metadata"
         aspectRatio={aspectRatio}
         src={videoSrc}
       >

@@ -1,14 +1,22 @@
 import React from "react"
 import Layout from "../components/DefaultLayout.js"
 import { graphql } from "gatsby"
-import { Player, BigPlayButton } from "video-react"
+import { Player, ControlBar, BigPlayButton } from "video-react"
 
 const Portfolio = ({ data }) => {
   const portfolio = data.markdownRemark.frontmatter
   return (
     <Layout>
       <section className="video">
-        <Player fluid={true} playsInline={true} src={portfolio.video}>
+        <Player
+          fluid={true}
+          autoPlay={true}
+          loop={true}
+          muted={true}
+          playsInline={true}
+          src={portfolio.video}
+        >
+          <ControlBar disableCompletely={true} />
           <BigPlayButton position="center" />
         </Player>
       </section>
