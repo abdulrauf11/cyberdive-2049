@@ -55,7 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
               challenge
               solution
               video
-              mainImage
+              mainImages
               galleryImages
               galleryVideos
             }

@@ -22,7 +22,9 @@ solution: >-
   We crafted the content for Instagram stories along with feed posts that are
   visually more appealing to the fast-food enthusiasts and general consumers.
 video: "https://res.cloudinary.com/rauf-tech/video/upload/v1564607127/timmy_s_xbf5ic.mp4"
-mainImage: /images/uploads/cover-placeholder.png
+mainImages:
+  - /images/uploads/cover-placeholder.png
+  - /images/uploads/cover-placeholder.png
 galleryImages:
   - /images/uploads/placeholder.jpg
   - /images/uploads/placeholder.jpg

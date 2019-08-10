@@ -45,9 +45,15 @@ const Portfolio = ({ data }) => {
           </div>
           <div>
             <p>{portfolio.description}</p>
-            <a target="_blank" rel="noopener noreferrer" href={portfolio.link}>
-              LAUNCH PROJECT
-            </a>
+            {portfolio.link && (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={portfolio.link}
+              >
+                LAUNCH PROJECT
+              </a>
+            )}
           </div>
         </section>
 
@@ -62,37 +68,49 @@ const Portfolio = ({ data }) => {
           </div>
         </section>
 
-        <section
-          className="main-image"
-          style={{ backgroundImage: `url(${portfolio.mainImage})` }}
-        >
-          {/* <img src={portfolio.mainImage} alt="portfolio-main" /> */}
-        </section>
+        {portfolio.mainImages && (
+          <section className="main-image-gallery">
+            {portfolio.mainImages.map((i, index) => (
+              <div
+                key={index}
+                className="main-image"
+                style={{ backgroundImage: `url(${i})` }}
+              />
+            ))}
+          </section>
+        )}
 
-        <section className="square-gallery">
-          {portfolio.galleryImages.map((i, index) => (
-            <div className="square-container" key={index}>
-              <div className="image" style={{ backgroundImage: `url(${i})` }} />
-            </div>
-          ))}
-        </section>
-
-        <section className="video-gallery">
-          {portfolio.galleryVideos.map((i, index) => (
-            <div className="video-container" key={index}>
-              <div className="video">
-                <Player
-                  fluid={true}
-                  playsInline={true}
-                  aspectRatio="9:16"
-                  src={i}
-                >
-                  <BigPlayButton position="center" />
-                </Player>
+        {portfolio.galleryImages && (
+          <section className="square-gallery">
+            {portfolio.galleryImages.map((i, index) => (
+              <div className="square-container" key={index}>
+                <div
+                  className="image"
+                  style={{ backgroundImage: `url(${i})` }}
+                />
               </div>
-            </div>
-          ))}
-        </section>
+            ))}
+          </section>
+        )}
+
+        {portfolio.galleryVideos && (
+          <section className="video-gallery">
+            {portfolio.galleryVideos.map((i, index) => (
+              <div className="video-container" key={index}>
+                <div className="video">
+                  <Player
+                    fluid={true}
+                    playsInline={true}
+                    aspectRatio="9:16"
+                    src={i}
+                  >
+                    <BigPlayButton position="center" />
+                  </Player>
+                </div>
+              </div>
+            ))}
+          </section>
+        )}
       </main>
       <style jsx>
         {`
@@ -144,7 +162,10 @@ const Portfolio = ({ data }) => {
             margin-top: 5rem;
           }
 
+          .main-image-gallery {
+          }
           .main-image {
+            margin: 5rem 0;
             height: 40vmax;
             border: 1px solid var(--pink);
             background-postion: center center;
@@ -245,7 +266,7 @@ export const queryPortfolio = graphql`
         challenge
         solution
         video
-        mainImage
+        mainImages
         galleryImages
         galleryVideos
       }

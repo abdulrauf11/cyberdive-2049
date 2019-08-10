@@ -50,27 +50,34 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - { label: "Project Title", name: "title", widget: "string" }
+      - { label: "Project Title*", name: "title", widget: "string" }
       - {
-          label: "Thumbnail Image",
+          label: "Thumbnail Image*",
           name: "thumbnail",
           widget: "image",
           default: "/images/uploads/placeholder.jpg",
         }
-      - { label: "Client", name: "client", widget: "string" }
-      - { label: "Client Description", name: "description", widget: "text" }
-      - { label: "Location", name: "location", widget: "string" }
-      - { label: "Work", name: "work", widget: "string" }
-      - { label: "Team", name: "team", widget: "string" }
-      - { label: "Project Link", name: "link", widget: "string" }
-      - { label: "The Challenge", name: "challenge", widget: "text" }
-      - { label: "The Solution", name: "solution", widget: "text" }
-      - { label: "Video Link", name: "video", widget: "string" }
+      - { label: "Client*", name: "client", widget: "string" }
+      - { label: "Client Description*", name: "description", widget: "text" }
+      - { label: "Location*", name: "location", widget: "string" }
+      - { label: "Work*", name: "work", widget: "string" }
+      - { label: "Team*", name: "team", widget: "string" }
+      - { label: "Project Link", name: "link", widget: "string", required: false }
+      - { label: "The Challenge*", name: "challenge", widget: "text" }
+      - { label: "The Solution*", name: "solution", widget: "text" }
+      - { label: "Video Link", name: "video", widget: "string", required: false }
       - {
-          label: "Main Image",
-          name: "mainImage",
-          widget: "image",
-          default: "/images/uploads/cover-placeholder.png",
+          label: "Main Image Gallery",
+          name: "mainImages",
+          widget: "list",
+          field:
+            {
+              label: "Image",
+              name: "image",
+              widget: "image",
+              default: "/images/uploads/cover-placeholder.png",
+            },
+          required: false,
         }
       - {
           label: "Square Image Gallery",
@@ -84,6 +91,7 @@ collections:
               default: "/images/uploads/placeholder.jpg",
             },
           required: false,
+          hint: "Aspect Ratio: 1:1",
         }
       - {
           label: "Vertical Video Gallery",
@@ -91,4 +99,5 @@ collections:
           widget: "list",
           field: { label: "Video", name: "video", widget: "string" },
           required: false,
+          hint: "Aspect Ratio: 9:16",
         }
