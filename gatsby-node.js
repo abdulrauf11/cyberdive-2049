@@ -43,22 +43,6 @@ exports.createPages = ({ graphql, actions }) => {
             fields {
               slug
             }
-            frontmatter {
-              title
-              thumbnail
-              client
-              description
-              location
-              work
-              team
-              link
-              challenge
-              solution
-              video
-              mainImages
-              galleryImages
-              galleryVideos
-            }
           }
         }
       }
@@ -86,7 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
       path: `/work/`,
       component: require.resolve("./src/templates/work.js"),
       context: {
-        allPortfolios: result.data.work.edges,
+        // allPortfolios: result.data.work.edges,
       },
     })
     result.data.work.edges.forEach(({ node }) => {

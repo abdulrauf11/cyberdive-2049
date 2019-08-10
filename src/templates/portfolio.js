@@ -7,19 +7,21 @@ const Portfolio = ({ data }) => {
   const portfolio = data.markdownRemark.frontmatter
   return (
     <Layout>
-      <section className="video">
-        <Player
-          fluid={true}
-          autoPlay={true}
-          loop={true}
-          muted={true}
-          playsInline={true}
-          src={portfolio.video}
-        >
-          <ControlBar disableCompletely={true} />
-          <BigPlayButton position="center" />
-        </Player>
-      </section>
+      {portfolio.video && (
+        <section className="video">
+          <Player
+            fluid={true}
+            autoPlay={true}
+            loop={true}
+            muted={true}
+            playsInline={true}
+            src={portfolio.video}
+          >
+            <ControlBar disableCompletely={true} />
+            <BigPlayButton position="center" />
+          </Player>
+        </section>
+      )}
       <main>
         <section className="heading">
           <h1 className="project-title">{portfolio.title}</h1>
