@@ -49,9 +49,9 @@ function Hero() {
       sky()
       render()
 
-      // if (isMobile)
-      //   window.addEventListener("touchmove", onInputMove, { passive: false })
-      // else window.addEventListener("mousemove", onInputMove)
+      if (isMobile)
+        window.addEventListener("touchmove", onInputMove, { passive: false })
+      else window.addEventListener("mousemove", onInputMove)
 
       window.addEventListener("resize", resize)
       resize()
@@ -309,13 +309,11 @@ function Hero() {
           text-shadow: 0px 0px 10px var(--white);
         }
         .content__title span {
-          opacity: 0;
           display: inline-block;
           white-space: pre;
           transform-origin: 50% -50%;
         }
         .content__subtitle {
-          opacity: 0;
           position: relative;
           margin: 0;
           font-weight: 400;
