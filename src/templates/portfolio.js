@@ -2,6 +2,9 @@ import React from "react"
 import Layout from "../components/DefaultLayout.js"
 import { graphql } from "gatsby"
 import { Player, ControlBar, BigPlayButton } from "video-react"
+import AwesomeSlider from "react-awesome-slider"
+// import AwsSliderStyles from "react-awesome-slider/src/styles"
+// import "react-awesome-slider/dist/styles.css"
 
 const Portfolio = ({ data }) => {
   const portfolio = data.markdownRemark.frontmatter
@@ -97,20 +100,22 @@ const Portfolio = ({ data }) => {
 
         {portfolio.galleryVideos && (
           <section className="video-gallery">
-            {portfolio.galleryVideos.map((i, index) => (
-              <div className="video-container" key={index}>
-                <div className="video">
-                  <Player
-                    fluid={true}
-                    playsInline={true}
-                    aspectRatio="9:16"
-                    src={i}
-                  >
-                    <BigPlayButton position="center" />
-                  </Player>
+            <AwesomeSlider>
+              {portfolio.galleryVideos.map((i, index) => (
+                <div className="video-container" key={index}>
+                  <div className="video">
+                    <Player
+                      fluid={true}
+                      playsInline={true}
+                      aspectRatio="9:16"
+                      src={i}
+                    >
+                      <BigPlayButton position="center" />
+                    </Player>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </AwesomeSlider>
           </section>
         )}
       </main>
@@ -195,8 +200,8 @@ const Portfolio = ({ data }) => {
 
           .video-gallery {
             margin-top: 10rem;
-            display: flex;
-            flex-wrap: wrap;
+            // display: flex;
+            // flex-wrap: wrap;
           }
           .video-gallery .video-container {
             flex: 1;

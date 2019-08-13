@@ -9765,6 +9765,13 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-awesome-slider@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-awesome-slider/-/react-awesome-slider-1.0.1.tgz#9d6b28d44b82f67eff33032a0ed457bb2b075d6c"
+  integrity sha512-PXFoIfcntLy/OlfOba+wD8VkR8xn5HBIfpI9ZQFd+zH86sYRAJ9be6w9aiyrl6wyGtWwfLDQtpKKS+hVBkFKXQ==
+  dependencies:
+    web-animation-club "^0.2.2"
+
 react-dev-utils@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.3.tgz#5b42d9ea58d5e9e017a2f57a40a8af408a3a46fb"
@@ -12242,6 +12249,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+web-animation-club@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/web-animation-club/-/web-animation-club-0.2.2.tgz#469c7997751a1ac38a8b03333172c9d61453e8e0"
+  integrity sha512-VjsO7CdfrzO9LGGiHxEr5x5nU7052a3RwuHZjXEh8be49T5ABQ/LRqfB3Wrai2yWcUwr4K6MNBtqjSVmFHafRg==
 
 web-namespaces@^1.0.0, web-namespaces@^1.1.2:
   version "1.1.3"

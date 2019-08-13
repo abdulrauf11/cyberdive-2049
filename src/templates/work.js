@@ -14,19 +14,22 @@ const Work = ({ data }) => {
           <h1>OUR WORK</h1>
         </div>
         <ul className="grid">
-          {allPortfolios.map(({ node }) => (
-            <li className="grid-item" key={node.frontmatter.title}>
-              <Link
-                to={`/portfolio${node.fields.slug}`}
-                style={{
-                  backgroundImage: `url(${node.frontmatter.thumbnail})`,
-                }}
-              >
-                {node.frontmatter.title}
-              </Link>
-              <h3>{node.frontmatter.title}</h3>
-            </li>
-          ))}
+          {allPortfolios.map(
+            ({ node }) =>
+              node.frontmatter.title !== "DEFAULT" && (
+                <li className="grid-item" key={node.frontmatter.title}>
+                  <Link
+                    to={`/portfolio${node.fields.slug}`}
+                    style={{
+                      backgroundImage: `url(${node.frontmatter.thumbnail})`,
+                    }}
+                  >
+                    {node.frontmatter.title}
+                  </Link>
+                  <h3>{node.frontmatter.title}</h3>
+                </li>
+              )
+          )}
         </ul>
       </main>
       <style jsx global>

@@ -84,15 +84,18 @@ const Careers = ({ pageContext: { allJobs } }) => {
         <div className="open-positions">
           <h2>OPEN POSITIONS</h2>
           <div className="position-list">
-            {allJobs.map(({ node }, index) => (
-              <div className="position-item" key={node.frontmatter.title}>
-                <h3>{pad(index + 1, 2)}</h3>
-                <h4>{node.frontmatter.title}</h4>
-                <Link to={`/job${node.fields.slug}`}>
-                  <div>View Description</div>
-                </Link>
-              </div>
-            ))}
+            {allJobs.map(
+              ({ node }, index) =>
+                node.frontmatter.title !== "DEFAULT" && (
+                  <div className="position-item" key={node.frontmatter.title}>
+                    <h3>{pad(index + 1, 2)}</h3>
+                    <h4>{node.frontmatter.title}</h4>
+                    <Link to={`/job${node.fields.slug}`}>
+                      <div>View Description</div>
+                    </Link>
+                  </div>
+                )
+            )}
           </div>
           <div className="send-wrapper">
             <Modal tag={"Apply"}>
