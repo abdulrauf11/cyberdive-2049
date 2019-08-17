@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/DefaultLayout.js"
 import { graphql } from "gatsby"
 import { Player, ControlBar, BigPlayButton } from "video-react"
-import AwesomeSlider from "react-awesome-slider"
+// import AwesomeSlider from "react-awesome-slider"
 // import AwsSliderStyles from "react-awesome-slider/src/styles"
 // import "react-awesome-slider/dist/styles.css"
 
@@ -98,7 +98,7 @@ const Portfolio = ({ data }) => {
           </section>
         )}
 
-        {portfolio.galleryVideos && (
+        {/* {portfolio.galleryVideos && (
           <section className="video-gallery">
             <AwesomeSlider>
               {portfolio.galleryVideos.map((i, index) => (
@@ -117,7 +117,7 @@ const Portfolio = ({ data }) => {
               ))}
             </AwesomeSlider>
           </section>
-        )}
+        )} */}
       </main>
       <style jsx>
         {`
