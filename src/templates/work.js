@@ -2,10 +2,8 @@ import React from "react"
 import Layout from "../components/DefaultLayout.js"
 import { Link } from "gatsby"
 import SEO from "../components/SEO"
-import { graphql } from "gatsby"
 
-const Work = ({ data }) => {
-  const allPortfolios = data.work.edges
+const Work = ({ pageContext: { allPortfolios } }) => {
   return (
     <Layout>
       <SEO title="Groovrick | Work" />
@@ -102,33 +100,3 @@ const Work = ({ data }) => {
 }
 
 export default Work
-
-export const queryWork = graphql`
-  query WorkPageQuery {
-    work: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/work/" } }) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            thumbnail
-            client
-            description
-            location
-            work
-            team
-            link
-            challenge
-            solution
-            video
-            mainImages
-            galleryImages
-            galleryVideos
-          }
-        }
-      }
-    }
-  }
-`

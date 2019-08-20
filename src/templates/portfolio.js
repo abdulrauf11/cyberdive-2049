@@ -2,16 +2,33 @@ import React from "react"
 import Layout from "../components/DefaultLayout.js"
 import { graphql } from "gatsby"
 import { Player, ControlBar, BigPlayButton } from "video-react"
-// import AwesomeSlider from "react-awesome-slider"
-// import AwsSliderStyles from "react-awesome-slider/src/styles"
-// import "react-awesome-slider/dist/styles.css"
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import "./device.min.css"
 
 const Portfolio = ({ data }) => {
   const portfolio = data.markdownRemark.frontmatter
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    centerMode: true,
+    centerPadding: "25%",
+    slidesToShow: 1,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          centerMode: false,
+        },
+      },
+    ],
+  }
   return (
     <Layout>
       {portfolio.video && (
-        <section className="video">
+        <section className="video video-full">
           <Player
             fluid={true}
             autoPlay={true}
@@ -98,26 +115,48 @@ const Portfolio = ({ data }) => {
           </section>
         )}
 
-        {/* {portfolio.galleryVideos && (
+        {portfolio.galleryVideos && (
           <section className="video-gallery">
-            <AwesomeSlider>
+            <Slider {...settings}>
               {portfolio.galleryVideos.map((i, index) => (
-                <div className="video-container" key={index}>
-                  <div className="video">
-                    <Player
-                      fluid={true}
-                      playsInline={true}
-                      aspectRatio="9:16"
-                      src={i}
-                    >
-                      <BigPlayButton position="center" />
-                    </Player>
+                <div className="device-container" key={index}>
+                  <div className="marvel-device iphone-x">
+                    <div className="notch">
+                      <div className="camera"></div>
+                      <div className="speaker"></div>
+                    </div>
+                    <div className="top-bar"></div>
+                    <div className="sleep"></div>
+                    <div className="bottom-bar"></div>
+                    <div className="volume"></div>
+                    <div className="overflow">
+                      <div className="shadow shadow--tr"></div>
+                      <div className="shadow shadow--tl"></div>
+                      <div className="shadow shadow--br"></div>
+                      <div className="shadow shadow--bl"></div>
+                    </div>
+                    <div className="inner-shadow"></div>
+                    <div className="screen">
+                      <div className="video-container">
+                        <div className="video video-mobile">
+                          <Player
+                            fluid={true}
+                            playsInline={true}
+                            aspectRatio="9:19.5"
+                            src={i}
+                          >
+                            <ControlBar disableCompletely={true} />
+                            <BigPlayButton position="center" />
+                          </Player>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
-            </AwesomeSlider>
+            </Slider>
           </section>
-        )} */}
+        )}
       </main>
       <style jsx>
         {`
@@ -200,19 +239,22 @@ const Portfolio = ({ data }) => {
 
           .video-gallery {
             margin-top: 10rem;
-            // display: flex;
-            // flex-wrap: wrap;
           }
           .video-gallery .video-container {
-            flex: 1;
             display: flex;
-            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background: var(--black);
           }
-          .video-gallery .video {
-            margin: 3rem 0;
-            border: 1px solid var(--pink);
-            width: 25vmax;
-            height: 44.44vmax;
+
+          .device-container {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .marvel-device {
+            zoom: 0.7;
           }
 
           @media only screen and (max-width: 600px) {
@@ -221,7 +263,7 @@ const Portfolio = ({ data }) => {
               margin-top: 5rem;
             }
 
-            .video {
+            .video-full {
               margin-top: 8rem;
             }
             .project-title {
@@ -243,11 +285,8 @@ const Portfolio = ({ data }) => {
             .video-gallery {
               margin-top: 5rem;
             }
-
-            .video-gallery .video {
-              margin: 1rem 0;
-              width: 40vmax;
-              height: 71.11vmax;
+            .marvel-device {
+              zoom: 0.55;
             }
           }
         `}

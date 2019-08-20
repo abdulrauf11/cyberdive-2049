@@ -109,5 +109,5 @@ collections:
           widget: "list",
           field: { label: "Video", name: "video", widget: "string" },
           required: false,
-          hint: "Aspect Ratio: 9:16",
+          hint: "Aspect Ratio: 9:19.5",
         }

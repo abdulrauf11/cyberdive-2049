@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400&display=swap");
 @import "../node_modules/video-react/dist/video-react.css";
-@import "../node_modules/react-awesome-slider/dist/styles.css";
 
 :root {
   --blue: #0055ff;
@@ -10,22 +9,6 @@
   --pink: #ff00ec;
   --grey: #707070;
   --mobile: 600px;
-}
-
-.aws-sld {
-  --slider-height-percentage: 70% !important;
-  --loader-bar-color: #0055ff !important;
-  --control-bullet-color: transparent !important;
-  --control-bullet-active-color: transparent !important;
-  --content-background-color: transparent !important;
-  --organic-arrow-color: var(--grey) !important;
-}
-
-.aws-sld--exit.aws-sld--moveLeft {
-  transform: scale(0.85);
-}
-.aws-sld--exit.aws-sld--moveRight {
-  transform: scale(0.85);
 }
 
 *:before,
@@ -39,6 +22,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+
+*:focus {
+  outline: 0;
+}
+
 article,
 aside,
 details,
@@ -113,6 +101,10 @@ select {
 
 textarea {
   line-height: 1.6;
+}
+
+.video-react .video-react-big-play-button {
+  font-size: 2.5em !important;
 }
 
 @media only screen and (max-width: 600px) {
