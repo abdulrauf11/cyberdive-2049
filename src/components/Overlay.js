@@ -13,7 +13,7 @@ class Overlay extends React.Component {
             <div className="page-links">
               <OverlayLink url="/services/" pageType="SERVICES" />
               <OverlayLink url="/about/" pageType="ABOUT" />
-              <OverlayLink url="/work/" pageType="WORK" />
+              {/* <OverlayLink url="/work/" pageType="WORK" /> */}
               <OverlayLink url="/media-and-news/" pageType="MEDIA & NEWS" />
               <OverlayLink url="/careers/" pageType="CAREERS" />
               <OverlayLink url="/connect/" pageType="CONNECT" />
