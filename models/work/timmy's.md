@@ -2,6 +2,7 @@
 title: TIMMY'S
 category:
   - Social
+  - Creative
 thumbnail: /images/uploads/belly.jpg
 client: Timmy's Pakistan
 description: >-
