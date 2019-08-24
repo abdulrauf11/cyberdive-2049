@@ -46,6 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
             frontmatter {
               title
               thumbnail
+              category
               client
               description
               location

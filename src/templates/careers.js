@@ -104,16 +104,23 @@ const Careers = ({ pageContext: { allJobs } }) => {
           </div>
           <div className="instructions">
             <p>
-              You can also send us your resume and cover letter at{" "}
-              <a href="mailto:careers@groovrick.com">careers@groovrick.com</a>,
-              in the subject field write the relevant position you are applying
-              for. ​ Groovrick is an equal opportunity employer. If we do not
-              contact back with-in 15 days of submitting the job application, it
-              implies that your application has been rejected. Groovrick only
-              reply to candidates using "careers@groovrick.com" as their e-mail
-              address. Groovrick stores your submitted information. For support,
-              e-mail us at{" "}
-              <a href="mailto:contact@groovrick.com">contact@groovrick.com</a>
+              <div>
+                You can also send us your resume and cover letter at{" "}
+                <a href="mailto:careers@groovrick.com">careers@groovrick.com</a>
+                , in the subject field write the relevant position you are
+                applying for.{" "}
+              </div>
+              <div>Groovrick is an equal opportunity employer.</div>
+              <div>
+                If we do not contact back with-in 15 days of submitting the job
+                application, it implies that your application has been rejected.
+              </div>
+              <div>
+                Groovrick only reply to candidates using "careers@groovrick.com"
+                as their e-mail address. Groovrick stores your submitted
+                information. For support, e-mail us at{" "}
+                <a href="mailto:contact@groovrick.com">contact@groovrick.com</a>
+              </div>
             </p>
           </div>
         </div>
@@ -261,6 +268,7 @@ const Careers = ({ pageContext: { allJobs } }) => {
           color: var(--pink);
         }
         .instructions p {
+          text-align: left;
           width: 70%;
           margin: 0 auto;
           font-size: 0.7rem;

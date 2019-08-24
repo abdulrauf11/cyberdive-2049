@@ -13,10 +13,18 @@ const Work = ({ pageContext: { allPortfolios } }) => {
     Creative: false,
     Ecommerce: false,
   })
+
   function handleClick(e) {
     const prev = container.current.querySelector(".active").innerText
     const curr = e.currentTarget.innerText
     setFilterList({ ...filterList, [curr]: true, [prev]: false })
+  }
+
+  function getSelected() {
+    const filtered = Object.keys(filterList).find(
+      key => filterList[key] === true
+    )
+    return filtered
   }
 
   return (
@@ -42,9 +50,11 @@ const Work = ({ pageContext: { allPortfolios } }) => {
               ))}
             </div>
           </li>
-          {allPortfolios.map(
+          {allPortfolios.sort().map(
             ({ node }) =>
-              node.frontmatter.title !== "DEFAUL" && (
+              node.frontmatter.title !== "DEFAULT" &&
+              ((getSelected() === "All" ||
+                node.frontmatter.category.includes(getSelected())) && (
                 <li className="grid-item" key={node.frontmatter.title}>
                   <WorkItem
                     slug={node.fields.slug}
@@ -52,7 +62,7 @@ const Work = ({ pageContext: { allPortfolios } }) => {
                   />
                   <h3>{node.frontmatter.title}</h3>
                 </li>
-              )
+              ))
           )}
         </ul>
       </main>
@@ -76,6 +86,7 @@ const Work = ({ pageContext: { allPortfolios } }) => {
           }
 
           .grid {
+            min-height: 100vh;
             width: 70%;
             padding: 0;
             margin: 5rem auto 8rem auto;
