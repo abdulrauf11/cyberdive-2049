@@ -9,7 +9,7 @@ description: >-
   initiatives, as well as have a network of relationships within the creative
   community locally and can set the creative tone for every assigned project.
   Our assignments include branding, social media content development,
-  illustration development, motion-graphics, marketing campaigns, influence
+  illustration development, motion-graphics, marketing campaigns, influencer
   marketing and beyond.
 responsibilities:
   - Lead the creative team and provide strategic vision
@@ -64,5 +64,6 @@ requirements:
   - After Effects
   - Knowledge and maintained interest in design trends
   - videography and photography
+  - Degree in relevant field from a reputed institution
 ---
 
