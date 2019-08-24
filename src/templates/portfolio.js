@@ -11,6 +11,7 @@ const Portfolio = ({ data }) => {
   const portfolio = data.markdownRemark.frontmatter
   const settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 500,
     centerMode: true,
