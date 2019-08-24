@@ -114,55 +114,54 @@ const Portfolio = ({ data }) => {
             ))}
           </section>
         )}
-
-        {portfolio.galleryVideos && (
-          <section className="video-gallery">
-            <Slider {...settings}>
-              {portfolio.galleryVideos.map((i, index) => (
-                <div className="device-container" key={index}>
-                  <div className="marvel-device iphone-x">
-                    <div className="notch">
-                      <div className="camera"></div>
-                      <div className="speaker"></div>
-                    </div>
-                    <div className="top-bar"></div>
-                    <div className="sleep"></div>
-                    <div className="bottom-bar"></div>
-                    <div className="volume"></div>
-                    <div className="overflow">
-                      <div className="shadow shadow--tr"></div>
-                      <div className="shadow shadow--tl"></div>
-                      <div className="shadow shadow--br"></div>
-                      <div className="shadow shadow--bl"></div>
-                    </div>
-                    <div className="inner-shadow"></div>
-                    <div className="screen">
-                      <div className="video-container">
-                        <div className="video video-mobile">
-                          <Player
-                            fluid={true}
-                            playsInline={true}
-                            aspectRatio="9:19.5"
-                            src={i}
-                          >
-                            <ControlBar disableCompletely={true} />
-                            <BigPlayButton position="center" />
-                          </Player>
-                        </div>
+      </main>
+      {portfolio.galleryVideos && (
+        <section className="video-gallery">
+          <Slider {...settings}>
+            {portfolio.galleryVideos.map((i, index) => (
+              <div className="device-container" key={index}>
+                <div className="marvel-device iphone-x">
+                  <div className="notch">
+                    <div className="camera"></div>
+                    <div className="speaker"></div>
+                  </div>
+                  <div className="top-bar"></div>
+                  <div className="sleep"></div>
+                  <div className="bottom-bar"></div>
+                  <div className="volume"></div>
+                  <div className="overflow">
+                    <div className="shadow shadow--tr"></div>
+                    <div className="shadow shadow--tl"></div>
+                    <div className="shadow shadow--br"></div>
+                    <div className="shadow shadow--bl"></div>
+                  </div>
+                  <div className="inner-shadow"></div>
+                  <div className="screen">
+                    <div className="video-container">
+                      <div className="video video-mobile">
+                        <Player
+                          fluid={true}
+                          playsInline={true}
+                          aspectRatio="9:19.5"
+                          src={i}
+                        >
+                          <ControlBar disableCompletely={true} />
+                          <BigPlayButton position="center" />
+                        </Player>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </Slider>
-          </section>
-        )}
-      </main>
+              </div>
+            ))}
+          </Slider>
+        </section>
+      )}
       <style jsx>
         {`
           main {
             width: 70%;
-            margin: 10rem auto;
+            margin: 10rem auto 0;
           }
 
           .video {

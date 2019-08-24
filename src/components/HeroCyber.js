@@ -11,7 +11,7 @@ function Hero() {
   const mount = useRef(null)
   const titleRef = useRef(null)
   const subtitleRef = useRef(null)
-  // const overlayRef = useRef(null)
+  const overlayRef = useRef(null)
   let renderer
   let frameId
 
@@ -186,12 +186,11 @@ function Hero() {
   }
 
   function animateTitles() {
-    // const overlay = overlayRef.current
-    // TweenMax.set(overlay, { opacity: 0 })
-    // TweenMax.to(overlay, 2, {
-    //   ease: Expo.easeOut,
-    //   opacity: 1,
-    // })
+    const overlay = overlayRef.current
+    TweenMax.to(overlay, 2, {
+      ease: Expo.easeOut,
+      opacity: 0,
+    })
 
     const title = titleRef.current
     const titleLetters = Array.from(title.querySelectorAll("span"))
@@ -284,7 +283,7 @@ function Hero() {
           We are the next generation of the digital world.
         </h3>
       </div>
-      {/* <div className="overlay" ref={overlayRef}/> */}
+      <div className="overlay" ref={overlayRef} />
       <style jsx>{`
         main {
           width: 100vw;
