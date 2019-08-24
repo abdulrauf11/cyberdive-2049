@@ -117,9 +117,13 @@ const Careers = ({ pageContext: { allJobs } }) => {
               </div>
               <div>
                 Groovrick only reply to candidates using "careers@groovrick.com"
-                as their e-mail address. Groovrick stores your submitted
-                information. For support, e-mail us at{" "}
+                as their e-mail address.
+              </div>
+              <div>Groovrick stores your submitted information.</div>
+              <div>
+                For support, e-mail us at{" "}
                 <a href="mailto:contact@groovrick.com">contact@groovrick.com</a>
+                .
               </div>
             </p>
           </div>

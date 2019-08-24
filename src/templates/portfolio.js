@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/DefaultLayout.js"
 import { graphql } from "gatsby"
 import { Player, ControlBar, BigPlayButton } from "video-react"
@@ -8,15 +8,15 @@ import "slick-carousel/slick/slick-theme.css"
 import "./device.min.css"
 
 const Portfolio = ({ data }) => {
+  const [activeSlide, setActiveSlide] = useState(0)
   const portfolio = data.markdownRemark.frontmatter
   const settings = {
     dots: true,
     arrows: false,
     infinite: true,
     speed: 500,
-    centerMode: true,
-    centerPadding: "25%",
-    slidesToShow: 1,
+    slidesToShow: 3,
+    afterChange: current => setActiveSlide(current),
     responsive: [
       {
         breakpoint: 600,
@@ -120,7 +120,14 @@ const Portfolio = ({ data }) => {
         <section className="video-gallery">
           <Slider {...settings}>
             {portfolio.galleryVideos.map((i, index) => (
-              <div className="device-container" key={index}>
+              <div
+                className={`device-container ${
+                  (activeSlide + 1) % portfolio.galleryVideos.length === index
+                    ? "active"
+                    : ""
+                }`}
+                key={index}
+              >
                 <div className="marvel-device iphone-x">
                   <div className="notch">
                     <div className="camera"></div>
@@ -253,8 +260,15 @@ const Portfolio = ({ data }) => {
             align-items: center;
           }
 
-          .marvel-device {
+          .device-container.active .marvel-device {
             zoom: 0.6;
+            transform: scale(1);
+            transition: all 0.3s;
+          }
+          .device-container .marvel-device {
+            zoom: 0.6;
+            transform: scale(0.8);
+            transition: all 0.3s;
           }
 
           @media only screen and (max-width: 600px) {
@@ -286,7 +300,7 @@ const Portfolio = ({ data }) => {
               margin-top: 5rem;
             }
             .marvel-device {
-              zoom: 0.55;
+              zoom: 0.5;
             }
           }
         `}

@@ -9,10 +9,10 @@ description: >-
   Timmy’s is a fast food and burger joint offering a variety of gourmet burgers,
   pizzas, shakes and snacks. They bring their own twist to fast food and are
   expanding at a rapid speed.
-location: 'Lahore, Pakistan'
-work: 'Consultancy (Social Strategy, Creative Content)'
+location: "Lahore, Pakistan"
+work: "Consultancy (Social Strategy, Creative Content)"
 team: In-house team
-link: ''
+link: ""
 challenge: >-
   As an emerging fast-food chain, Timmy’s needed to boost their organic reach on
   social platforms through quality content over their social platforms. Having
@@ -31,5 +31,6 @@ galleryVideos:
     https://res.cloudinary.com/rauf-tech/video/upload/v1564667398/newyear_nadgpp.mp4
   - >-
     https://res.cloudinary.com/rauf-tech/video/upload/v1564666766/timmys_story_coffee_hkky6x.mp4
+  - >-
+    https://res.cloudinary.com/rauf-tech/video/upload/v1564667398/newyear_nadgpp.mp4
 ---
-
