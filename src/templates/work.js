@@ -7,11 +7,12 @@ const Work = ({ pageContext: { allPortfolios } }) => {
   const container = useRef()
   const [filterList, setFilterList] = useState({
     All: true,
+    Social: false,
+    Ecommerce: false,
     Design: false,
     Development: false,
-    Social: false,
     Creative: false,
-    Ecommerce: false,
+    Consultancy: false,
   })
 
   function handleClick(e) {

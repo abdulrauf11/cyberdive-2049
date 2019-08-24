@@ -26,21 +26,27 @@ collections:
           name: "responsibilities",
           widget: "list",
           required: false,
-          hint: "Enter comma separated values",
+          field:
+            {
+              label: "Responsibility",
+              name: "responsibility",
+              widget: "string",
+            },
         }
       - {
           label: "Requirements",
           name: "requirements",
           widget: "list",
           required: false,
-          hint: "Enter comma separated values",
+          field:
+            { label: "Requirement", name: "requirement", widget: "string" },
         }
       - {
           label: "Positions",
           name: "positions",
           widget: "list",
           required: false,
-          hint: "Enter comma separated values",
+          field: { label: "Position", name: "position", widget: "string" },
         }
       - { label: "Note", name: "note", widget: "text", required: false }
 
@@ -56,7 +62,15 @@ collections:
           name: "category",
           widget: "select",
           multiple: true,
-          options: ["Design", "Development", "Social", "Creative", "Ecommerce"],
+          options:
+            [
+              "Social",
+              "Ecommerce",
+              "Design",
+              "Development",
+              "Creative",
+              "Consultancy",
+            ],
         }
       - {
           label: "Thumbnail Image",

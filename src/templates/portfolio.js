@@ -254,7 +254,7 @@ const Portfolio = ({ data }) => {
           }
 
           .marvel-device {
-            zoom: 0.7;
+            zoom: 0.6;
           }
 
           @media only screen and (max-width: 600px) {
