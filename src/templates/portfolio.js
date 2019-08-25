@@ -1,27 +1,83 @@
 import React, { useState } from "react"
 import Layout from "../components/DefaultLayout.js"
-import { graphql } from "gatsby"
 import { Player, ControlBar, BigPlayButton } from "video-react"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import "./device.min.css"
+import arrow from "../images/arrow.svg"
+
+function PrevArrow(props) {
+  return (
+    <div onClick={props.onClick}>
+      <img className="arrow left" src={arrow} alt="arrow" />
+      <style jsx>
+        {`
+          .arrow.left {
+            cursor: pointer;
+            width: 4rem;
+            z-index: 10;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-100%, -50%) rotate(180deg);
+          }
+          @media only screen and (max-width: 600px) {
+            .arrow.left {
+              width: 2rem;
+              transform: translate(-50%, -50%) rotate(180deg);
+            }
+          }
+        `}
+      </style>
+    </div>
+  )
+}
+
+function NextArrow(props) {
+  return (
+    <div onClick={props.onClick}>
+      <img className="arrow right" src={arrow} alt="arrow" />
+      <style jsx>
+        {`
+          .arrow.right {
+            cursor: pointer;
+            width: 4rem;
+            z-index: 10;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(100%, -50%);
+          }
+          @media only screen and (max-width: 600px) {
+            .arrow.right {
+              width: 2rem;
+              transform: translate(50%, -50%);
+            }
+          }
+        `}
+      </style>
+    </div>
+  )
+}
 
 const Portfolio = ({ data }) => {
   const [activeSlide, setActiveSlide] = useState(0)
   const portfolio = data.markdownRemark.frontmatter
   const settings = {
     dots: true,
-    arrows: false,
+    arrows: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     afterChange: current => setActiveSlide(current),
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 600,
         settings: {
-          centerMode: false,
+          slidesToShow: 1,
         },
       },
     ],
@@ -115,56 +171,57 @@ const Portfolio = ({ data }) => {
             ))}
           </section>
         )}
-      </main>
-      {portfolio.galleryVideos && (
-        <section className="video-gallery">
-          <Slider {...settings}>
-            {portfolio.galleryVideos.map((i, index) => (
-              <div
-                className={`device-container ${
-                  (activeSlide + 1) % portfolio.galleryVideos.length === index
-                    ? "active"
-                    : ""
-                }`}
-                key={index}
-              >
-                <div className="marvel-device iphone-x">
-                  <div className="notch">
-                    <div className="camera"></div>
-                    <div className="speaker"></div>
-                  </div>
-                  <div className="top-bar"></div>
-                  <div className="sleep"></div>
-                  <div className="bottom-bar"></div>
-                  <div className="volume"></div>
-                  <div className="overflow">
-                    <div className="shadow shadow--tr"></div>
-                    <div className="shadow shadow--tl"></div>
-                    <div className="shadow shadow--br"></div>
-                    <div className="shadow shadow--bl"></div>
-                  </div>
-                  <div className="inner-shadow"></div>
-                  <div className="screen">
-                    <div className="video-container">
-                      <div className="video video-mobile">
-                        <Player
-                          fluid={true}
-                          playsInline={true}
-                          aspectRatio="9:19.5"
-                          src={i}
-                        >
-                          <ControlBar disableCompletely={true} />
-                          <BigPlayButton position="center" />
-                        </Player>
+        {portfolio.galleryVideos && (
+          <section className="video-gallery">
+            <Slider {...settings}>
+              {portfolio.galleryVideos.map((i, index) => (
+                <div
+                  className={`device-container ${
+                    (activeSlide + 1) % portfolio.galleryVideos.length === index
+                      ? "active"
+                      : ""
+                  }`}
+                  key={index}
+                >
+                  <div className="marvel-device iphone-x">
+                    <div className="notch">
+                      <div className="camera"></div>
+                      <div className="speaker"></div>
+                    </div>
+                    <div className="top-bar"></div>
+                    <div className="sleep"></div>
+                    <div className="bottom-bar"></div>
+                    <div className="volume"></div>
+                    <div className="overflow">
+                      <div className="shadow shadow--tr"></div>
+                      <div className="shadow shadow--tl"></div>
+                      <div className="shadow shadow--br"></div>
+                      <div className="shadow shadow--bl"></div>
+                    </div>
+                    <div className="inner-shadow"></div>
+                    <div className="screen">
+                      <div className="video-container">
+                        <div className="video video-mobile">
+                          <Player
+                            fluid={true}
+                            playsInline={true}
+                            aspectRatio="9:19.5"
+                            src={i}
+                          >
+                            <ControlBar disableCompletely={true} />
+                            <BigPlayButton position="center" />
+                          </Player>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </Slider>
-        </section>
-      )}
+              ))}
+            </Slider>
+          </section>
+        )}
+      </main>
+
       <style jsx>
         {`
           main {
@@ -215,8 +272,6 @@ const Portfolio = ({ data }) => {
             margin-top: 5rem;
           }
 
-          .main-image-gallery {
-          }
           .main-image {
             margin: 5rem 0;
             height: 40vmax;
@@ -245,8 +300,29 @@ const Portfolio = ({ data }) => {
           }
 
           .video-gallery {
+            position: relative;
             margin-top: 10rem;
           }
+
+          .arrow {
+            cursor: pointer;
+            width: 4rem;
+            z-index: 10;
+            position: absolute;
+          }
+
+          .arrow.left {
+            left: 0;
+            top: 50%;
+            transform: translate(-100%, -50%) rotate(180deg);
+          }
+
+          .arrow.right {
+            right: 0;
+            top: 50%;
+            transform: translate(100%, -50%);
+          }
+
           .video-gallery .video-container {
             display: flex;
             align-items: center;
@@ -263,12 +339,12 @@ const Portfolio = ({ data }) => {
           .device-container.active .marvel-device {
             zoom: 0.6;
             transform: scale(1);
-            transition: all 0.3s;
+            transition: all 0.5s;
           }
           .device-container .marvel-device {
             zoom: 0.6;
             transform: scale(0.8);
-            transition: all 0.3s;
+            transition: all 0.25s;
           }
 
           @media only screen and (max-width: 600px) {
@@ -299,8 +375,15 @@ const Portfolio = ({ data }) => {
             .video-gallery {
               margin-top: 5rem;
             }
-            .marvel-device {
+            .device-container.active .marvel-device {
               zoom: 0.5;
+              transform: none;
+              transition: none;
+            }
+            .device-container .marvel-device {
+              zoom: 0.5;
+              transform: none;
+              transition: none;
             }
           }
         `}
