@@ -1,5 +1,5 @@
 ---
-title: DIGITAL MARKETING PRO (TEMP)
+title: DIGITAL MARKETING PRO
 description: >-
   We’re seeking a digital marketing expert to spearhead digital marketing
   initiatives for Groovrick and our clients to design, transform and run digital
