@@ -43,6 +43,28 @@ responsibilities:
   - >-
     Contribute to new business acquisition, as well as internal agency promotion
     and thought leadership efforts
-requirements: []
+requirements:
+  - Able to organize and interpret business objectives.
+  - >-
+    Must be comfortable evaluating data from multiple sources, including
+    enterprise level tools, and be able to garner insights that will inform the
+    development of effective social media and content programs.
+  - >-
+    Complete know-how of social platforms like Instagram, Facebook, Linkedin,
+    Twitter, Snapchat, Tiktok
+  - 'Know-how of tools like FB Ads Manager, Sproutsocial etc.'
+  - 'Fantastic communication, organizational and time management skills.'
+  - Strong eye for detail is essential!
+  - In the know about industry and marketing trends and developments.
+  - 'Great understanding of SEO, SEM and PPC best practice and techniques.'
+  - Solid knowledge of performance analytics and reporting techniques.
+  - Experience using a website content management system.
+  - >-
+    Demonstrable success in increasing rankings, relevant traffic, conversions
+    from marketing campaigns and managing an effective team.
+  - A proactive and hands-on approach to working life.
+  - Bachelors degree in relevant field.
+  - Temp
+  - Temp
 ---
 
