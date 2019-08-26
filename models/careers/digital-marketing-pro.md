@@ -5,8 +5,7 @@ responsibilities:
   - 'no'
 requirements:
   - 'no'
-positions:
-  - 'no'
-note: 'no'
+positions: []
+note: ''
 ---
 
