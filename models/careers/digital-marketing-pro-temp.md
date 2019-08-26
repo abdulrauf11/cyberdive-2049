@@ -64,7 +64,5 @@ requirements:
     from marketing campaigns and managing an effective team.
   - A proactive and hands-on approach to working life.
   - Bachelors degree in relevant field.
-  - Temp
-  - Temp
 ---
 
