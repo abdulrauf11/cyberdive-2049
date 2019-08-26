@@ -22,14 +22,14 @@ responsibilities:
   - >-
     Develop creative strategy presentations that show the development of digital
     concepts and usability
-  - Manage and mentor a team of digital designers and videographers
-  - clearly communicating vision
-  - ensuring effectiveness of team output and adherence to project demands
+  - >-
+    Manage and mentor a team of digital designers and videographers, clearly
+    communicating vision ensuring effectiveness of team output and adherence to
+    project demands
   - >-
     Partner with the marketing and technical team leaders to develop creative
     campaigns and align activities with the brand essence
-  - Good understanding of social
-  - online culture and trends
+  - 'Good understanding of social, online culture and trends'
   - >-
     Effectively implement changes for clients and agency in a way that
     demonstrates powerful and unique thinking
@@ -50,20 +50,17 @@ responsibilities:
     standards
 requirements:
   - Minimum 2 years of experience as a Creative Lead
-  - Knowledge of photography
   - >-
-    design principles and experience working on-set providing art/creative
-    direction
-  - Ability to manage budgets
-  - allocates resources
-  - and meet deadlines
+    Knowledge of photography, design principles and experience working on-set
+    providing art/creative direction
+  - 'Ability to manage budgets, allocates resources and meet deadlines'
   - Expert knowledge of Adobe Creative Suite
-  - Advanced proficiency in Adobe Photoshop
-  - Illustrator
-  - InDesign
-  - After Effects
-  - Knowledge and maintained interest in design trends
-  - videography and photography
+  - >-
+    Advanced proficiency in Adobe Photoshop, Illustrator, InDesign, After
+    Effects
+  - >-
+    Knowledge and maintained interest in design trends, social media campaigns,
+    trending visual communication design
   - Degree in relevant field from a reputed institution
 ---
 
