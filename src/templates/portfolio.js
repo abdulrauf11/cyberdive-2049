@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import "./device.min.css"
 import arrow from "../images/arrow.svg"
+import { graphql } from "gatsby"
 
 function PrevArrow(props) {
   return (

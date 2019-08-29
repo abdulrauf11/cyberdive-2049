@@ -20,13 +20,12 @@ function Hero() {
       palleteImage,
       sunImage,
     })
-
     animateTitles()
-
     return function cleanup() {
       cancelAnimationFrame(frameId)
       frameId = null
       mount.current.removeChild(renderer.domElement)
+      setLoaded(false)
     }
   }, [])
 
@@ -187,7 +186,7 @@ function Hero() {
 
   function animateTitles() {
     const overlay = overlayRef.current
-    TweenMax.to(overlay, 2, {
+    TweenMax.to(overlay, 1, {
       ease: Expo.easeOut,
       opacity: 0,
     })
@@ -329,6 +328,7 @@ function Hero() {
           top: 0;
           left: 0;
           background: var(--black);
+          opacity: 0;
         }
         .word {
           display: inline-block;
