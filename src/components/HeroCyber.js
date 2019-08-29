@@ -25,7 +25,6 @@ function Hero() {
       cancelAnimationFrame(frameId)
       frameId = null
       mount.current.removeChild(renderer.domElement)
-      setLoaded(false)
     }
   }, [])
 
