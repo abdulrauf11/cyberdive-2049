@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import { TimelineMax, Expo } from "gsap/all"
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 if (typeof window !== "undefined") {
   var ScrollMagic = require("scrollmagic")
   require("imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
@@ -12,7 +13,7 @@ function pad(n, width, z) {
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n
 }
 
-const Service = props => {
+const ServiceItem = props => {
   const textRef = useRef(null)
   const imageRef = useRef(null)
   const countRef = useRef(null)
@@ -44,6 +45,18 @@ const Service = props => {
         <div className="item-content" ref={textRef}>
           <h1>{props.heading}</h1>
           <p>{props.description}</p>
+          <div className="button-wrapper">
+            <Link
+              style={{
+                padding: "0.7rem 1rem",
+                border: "1px solid var(--pink)",
+                fontSize: "0.8rem",
+              }}
+              to={props.link}
+            >
+              Learn More
+            </Link>
+          </div>
         </div>
         <div className="count" ref={countRef}>
           {pad(props.count, 2)}/05
@@ -159,10 +172,15 @@ const Service = props => {
           .item-content h1 {
             width: 100%;
             margin-top: 2rem;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
           }
           .item-content p {
+            line-height: 1.6;
+            font-size: 0.9rem;
             margin: 1rem 0;
+          }
+          .service-item .button-wrapper {
+            margin: 2rem 0;
           }
         }
       `}</style>
@@ -170,4 +188,4 @@ const Service = props => {
   )
 }
 
-export default Service
+export default ServiceItem

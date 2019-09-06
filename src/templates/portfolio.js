@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef, createRef, useEffect } from "react"
 import Layout from "../components/DefaultLayout.js"
 import { Player, ControlBar, BigPlayButton } from "video-react"
 import Slider from "react-slick"
@@ -63,26 +63,47 @@ function NextArrow(props) {
 }
 
 const Portfolio = ({ data }) => {
-  const [activeSlide, setActiveSlide] = useState(0)
   const portfolio = data.markdownRemark.frontmatter
+
+  const slidesRef = useRef(
+    [...Array(portfolio.galleryVideos.length)].map(() => createRef())
+  )
+
+  const [activeSlide, setActiveSlide] = useState(0)
+  // const [prevSlide, setPrevSlide] = useState(portfolio.galleryVideos.length - 1)
+
   const settings = {
+    centerMode: true,
+    centerPadding: "32%",
     dots: true,
     arrows: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    afterChange: current => setActiveSlide(current),
+    slidesToShow: 1,
+    beforeChange: (current, next) => {
+      // setPrevSlide(current)
+      setActiveSlide(next)
+    },
+    afterChange: current => {
+      // setActiveSlide(current)
+    },
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 1024,
         settings: {
+          centerMode: false,
           slidesToShow: 1,
         },
       },
     ],
   }
+
+  useEffect(() => {
+    // slidesRef.current[activeSlide].current.play()
+  }, [activeSlide])
+
   return (
     <Layout>
       {portfolio.video && (
@@ -178,9 +199,7 @@ const Portfolio = ({ data }) => {
               {portfolio.galleryVideos.map((i, index) => (
                 <div
                   className={`device-container ${
-                    (activeSlide + 1) % portfolio.galleryVideos.length === index
-                      ? "active"
-                      : ""
+                    activeSlide === index ? "active" : ""
                   }`}
                   key={index}
                 >
@@ -204,6 +223,7 @@ const Portfolio = ({ data }) => {
                       <div className="video-container">
                         <div className="video video-mobile">
                           <Player
+                            ref={slidesRef.current[index]}
                             fluid={true}
                             playsInline={true}
                             aspectRatio="9:19.5"
