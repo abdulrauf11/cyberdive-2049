@@ -65,8 +65,9 @@ function NextArrow(props) {
 const Portfolio = ({ data }) => {
   const portfolio = data.markdownRemark.frontmatter
 
+  const galleryLength = portfolio.galleryVideos ? portfolio.galleryVideos.length : 0;
   const slidesRef = useRef(
-    [...Array(portfolio.galleryVideos.length)].map(() => createRef())
+    [...Array(galleryLength)].map(() => createRef())
   )
 
   const [activeSlide, setActiveSlide] = useState(0)
