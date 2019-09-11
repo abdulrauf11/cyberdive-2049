@@ -4,8 +4,10 @@ import SEO from "../../components/SEO"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import { graphql } from "gatsby"
+import Img from "gatsby-image/withIEPolyfill"
 
-const Service = () => {
+const Service = ({ data }) => {
   const settings = {
     centerMode: true,
     centerPadding: "5%",
@@ -60,7 +62,7 @@ const Service = () => {
   }
   return (
     <Layout>
-      <SEO title={`Groovrick | Digital Transformation`} />
+      <SEO title={`Groovrick | Social & Ecommerce`} />
       <main>
         <section className="service-description">
           <h1 className="service-heading">{serviceObject.name}</h1>
@@ -68,8 +70,10 @@ const Service = () => {
           <div className="capabilities">
             <h3>Capabilities</h3>
             <div>
-              {serviceObject.capabilities.map(c => (
-                <p className="capability">- {c}</p>
+              {serviceObject.capabilities.map((c, index) => (
+                <p className="capability" key={index}>
+                  - {c}
+                </p>
               ))}
             </div>
           </div>
@@ -97,6 +101,14 @@ const Service = () => {
               ))}
             </Slider>
           </div>
+        </section>
+
+        <section className="banner-image">
+          <Img
+            fluid={data.image.childImageSharp.fluid}
+            objectFit="cover"
+            objectPosition="50% 50%"
+          />
         </section>
 
         <section className="service-description">
@@ -216,6 +228,19 @@ const Service = () => {
           margin: 2rem 0;
         }
 
+        .banner-image {
+          width: 100%;
+          height: 90vh;
+          margin: 8rem 0;
+          border-top: 1px solid var(--pink);
+          border-bottom: 1px solid var(--pink);
+        }
+
+        .banner-image > div {
+          width: 100%;
+          height: 100%;
+        }
+
         @media only screen and (max-width: 600px) {
           main {
             padding: 8rem 0 0 0;
@@ -282,6 +307,10 @@ const Service = () => {
           .process-item .title {
             font-size: 1.5rem;
           }
+
+          .banner-image {
+            height: 40vh;
+          }
         }
       `}</style>
     </Layout>
@@ -289,3 +318,21 @@ const Service = () => {
 }
 
 export default Service
+
+export const fluidSE = graphql`
+  fragment fluidImageD on File {
+    childImageSharp {
+      fluid(maxWidth: 1500) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+export const pageQuery = graphql`
+  query {
+    image: file(relativePath: { eq: "services/social-ecommerce-banner.png" }) {
+      ...fluidImage
+    }
+  }
+`

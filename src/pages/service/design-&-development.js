@@ -8,7 +8,6 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image/withIEPolyfill"
 
 const Service = ({ data }) => {
-  console.log(data)
   const settings = {
     centerMode: true,
     centerPadding: "5%",
@@ -28,22 +27,32 @@ const Service = ({ data }) => {
   }
 
   const serviceObject = {
-    name: "Digital Transformation",
-    introduction: `Evolving your enterprise creates a better way to grow, helping you better serve your customers, employees and investors, and increasing the odds that your firm – not a digital native – will be the disruptor in your industry in the age of 4th digital-first industrial revolution.`,
+    name: "Design & Development",
+    introduction: `We’re a full-cycle software development company. We build web and mobile applications from scratch.`,
     process: [
       {
-        title: "Digital Maturity Assessment",
-        text: `Assessment of current state and implemented business models. Re-imagining digital-first business models and vision. Identifying systematic gaps and blue-printing transformation initiatives along four tracks of people & culture, process, technology and content`,
+        title: "Communication",
+        text: `We discuss all of the important details with them in order to better understand the project’s purpose, the audience it caters to, the problems it can solve, and the overall vision of the customer.`,
       },
       {
-        title: "Defining Transformational Roadmaps",
-        text: `Developing transformational frame-work and strategies for target state. Road-mapping customer experience journeys. Road-mapping employees enablement journeys. Initiative prioritization and exploring returns on investments
-        `,
+        title: "Research",
+        text: `After talking with the customer, we begin our research. We look at particular details about the product in order to better understand the market it is going into.`,
       },
       {
-        title: "Execution & Monitoring",
-        text: `Build a cross-functional digital team. Implement business change and technology. Improve customer engagement. Enhance the employee experience. Monitor change adoption. Ensure continuous improvement and innovation
-        `,
+        title: "Wireframes",
+        text: `If the customer gives the project concept a “go”, the next step is to create wireframes. Wireframes are interactive schematic pages of the site or application’s screens, like a screen blueprint. `,
+      },
+      {
+        title: "Visual Design",
+        text: `After completing the wireframing and verifying the product’s logics and workflow, we proceed with design. To do so, we take into account the wireframes and mood board which was created after doing the research.`,
+      },
+      {
+        title: "Development",
+        text: `If the customer approves the design, we start the development process. We will start to customize the design for mobile devices and tablets.`,
+      },
+      {
+        title: "User testing and deployment",
+        text: `Our Test teams will ensure highest quality. The process of deploying the application will vary depending on the service clients end up using, as well as the language we used to develop the web application.`,
       },
     ],
   }
@@ -235,7 +244,7 @@ const Service = ({ data }) => {
 
 export default Service
 
-export const fluidImage = graphql`
+export const fluidImageDD = graphql`
   fragment fluidImageD on File {
     childImageSharp {
       fluid(maxWidth: 1500) {
@@ -248,7 +257,7 @@ export const fluidImage = graphql`
 export const pageQuery = graphql`
   query {
     image: file(
-      relativePath: { eq: "services/digital-transformation-banner.png" }
+      relativePath: { eq: "services/design-development-banner.png" }
     ) {
       ...fluidImage
     }

@@ -22,21 +22,21 @@ const FullPage = ({ idata }) => {
     },
     {
       heading: "DESIGN & DEVELOPMENT",
-      link: "/service/digital-transformation",
+      link: "/service/design-&-development",
       description:
         "We’re design-thinking driven, bringing brand, UX and technology together with innovative approaches.",
       imgSrc: idata.data.imageThree.childImageSharp.fluid,
     },
     {
       heading: "CREATIVE",
-      link: "/service/digital-transformation",
+      link: "/service/creative",
       description:
         "Catch the eye of digital-first next-gen consumers that are inspired by high-end purposeful visual content curated for maximum engagement and conversions.",
       imgSrc: idata.data.imageFour.childImageSharp.fluid,
     },
     {
       heading: "DIGITAL CONSULTANCY",
-      link: "/service/digital-transformation",
+      link: "/service/digital-consultancy",
       description:
         "Consult us to make a shift from now to next by merging imagination and technology in order to grow in the age of digital transformation.",
       imgSrc: idata.data.imageFive.childImageSharp.fluid,

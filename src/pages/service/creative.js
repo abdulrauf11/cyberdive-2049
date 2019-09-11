@@ -8,7 +8,6 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image/withIEPolyfill"
 
 const Service = ({ data }) => {
-  console.log(data)
   const settings = {
     centerMode: true,
     centerPadding: "5%",
@@ -28,28 +27,38 @@ const Service = ({ data }) => {
   }
 
   const serviceObject = {
-    name: "Digital Transformation",
-    introduction: `Evolving your enterprise creates a better way to grow, helping you better serve your customers, employees and investors, and increasing the odds that your firm – not a digital native – will be the disruptor in your industry in the age of 4th digital-first industrial revolution.`,
+    name: "Creative",
+    introduction: ``,
     process: [
       {
-        title: "Digital Maturity Assessment",
-        text: `Assessment of current state and implemented business models. Re-imagining digital-first business models and vision. Identifying systematic gaps and blue-printing transformation initiatives along four tracks of people & culture, process, technology and content`,
+        title: "Dedication",
+        text: `Do not be satisfied until you have achieved more than you set out to. Be urgent in your actions – every day is an opportunity to do more than you thought you could.`,
       },
       {
-        title: "Defining Transformational Roadmaps",
-        text: `Developing transformational frame-work and strategies for target state. Road-mapping customer experience journeys. Road-mapping employees enablement journeys. Initiative prioritization and exploring returns on investments
-        `,
+        title: "Learning",
+        text: `Relentlessly pursue personal growth and learn from the experience of others. The challenges we face have been experienced by many people before us – find their solutions.`,
       },
       {
-        title: "Execution & Monitoring",
-        text: `Build a cross-functional digital team. Implement business change and technology. Improve customer engagement. Enhance the employee experience. Monitor change adoption. Ensure continuous improvement and innovation
-        `,
+        title: "Integrity",
+        text: `Operate with transparency, honesty and humility. Build trust by proving yourself to our customers at every opportunity that arises.`,
+      },
+      {
+        title: "Teamwork",
+        text: `Communicate with those around you and support each other to realize your goals. Listen to others – there is no such thing as bad idea.`,
+      },
+      {
+        title: "Accountability",
+        text: `Lead by example and demand a higher standard of yourself than those around you. Own the challenges in front of you and don’t allow space for blame or excuses.`,
+      },
+      {
+        title: "Customer Devotion",
+        text: `We are here because of our customers. Strive to go beyond expectations with every interaction that you have.`,
       },
     ],
   }
   return (
     <Layout>
-      <SEO title={`Groovrick | Digital Transformation`} />
+      <SEO title={`Groovrick | Creative`} />
       <main>
         <section className="service-description">
           <h1 className="service-heading">{serviceObject.name}</h1>
@@ -66,7 +75,7 @@ const Service = ({ data }) => {
 
         <section className="process">
           <div className="heading-big">
-            <h1>PROCESS</h1>
+            <h1>Values</h1>
           </div>
 
           <div className="process-list">
@@ -115,7 +124,7 @@ const Service = ({ data }) => {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          height: 120vh;
+          height: 100vh;
           position: relative;
           width: 50%;
         }
@@ -138,7 +147,7 @@ const Service = ({ data }) => {
 
         .heading-big {
           text-align: center;
-          width: 120vh;
+          width: 100vh;
           transform: rotate(-90deg) translateX(-100%) translateY(-20%);
           transform-origin: 0 0;
           position: absolute;
@@ -235,7 +244,7 @@ const Service = ({ data }) => {
 
 export default Service
 
-export const fluidImage = graphql`
+export const fluidImageC = graphql`
   fragment fluidImageD on File {
     childImageSharp {
       fluid(maxWidth: 1500) {
@@ -247,9 +256,7 @@ export const fluidImage = graphql`
 
 export const pageQuery = graphql`
   query {
-    image: file(
-      relativePath: { eq: "services/digital-transformation-banner.png" }
-    ) {
+    image: file(relativePath: { eq: "services/creative-banner.png" }) {
       ...fluidImage
     }
   }
