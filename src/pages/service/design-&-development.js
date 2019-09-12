@@ -28,7 +28,9 @@ const Service = ({ data }) => {
 
   const serviceObject = {
     name: "Design & Development",
-    introduction: `We’re a full-cycle software development company. We build web and mobile applications from scratch.`,
+    introduction: `We’re a full-cycle software development company. We build web and mobile applications from scratch.
+    Our services include building, creating and maintaining websites. Our team does its best to ensure the success of the design and development projects.
+    `,
     process: [
       {
         title: "Communication",
@@ -245,7 +247,7 @@ const Service = ({ data }) => {
 export default Service
 
 export const fluidImageDD = graphql`
-  fragment fluidImageD on File {
+  fragment fluidImageDD on File {
     childImageSharp {
       fluid(maxWidth: 1500) {
         ...GatsbyImageSharpFluid

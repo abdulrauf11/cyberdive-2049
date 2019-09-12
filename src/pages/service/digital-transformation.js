@@ -235,7 +235,7 @@ const Service = ({ data }) => {
 
 export default Service
 
-export const fluidImage = graphql`
+export const fluidImageD = graphql`
   fragment fluidImageD on File {
     childImageSharp {
       fluid(maxWidth: 1500) {

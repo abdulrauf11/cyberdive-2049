@@ -28,7 +28,7 @@ const Service = ({ data }) => {
 
   const serviceObject = {
     name: "Creative",
-    introduction: ``,
+    introduction: `Catch the eye of digital-first next-gen consumers that are inspired by high-end purposeful visual content curated for maximum engagement and conversions.`,
     process: [
       {
         title: "Dedication",
@@ -245,7 +245,7 @@ const Service = ({ data }) => {
 export default Service
 
 export const fluidImageC = graphql`
-  fragment fluidImageD on File {
+  fragment fluidImageC on File {
     childImageSharp {
       fluid(maxWidth: 1500) {
         ...GatsbyImageSharpFluid

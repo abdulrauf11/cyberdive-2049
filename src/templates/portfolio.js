@@ -65,10 +65,10 @@ function NextArrow(props) {
 const Portfolio = ({ data }) => {
   const portfolio = data.markdownRemark.frontmatter
 
-  const galleryLength = portfolio.galleryVideos ? portfolio.galleryVideos.length : 0;
-  const slidesRef = useRef(
-    [...Array(galleryLength)].map(() => createRef())
-  )
+  const galleryLength = portfolio.galleryVideos
+    ? portfolio.galleryVideos.length
+    : 0
+  const slidesRef = useRef([...Array(galleryLength)].map(() => createRef()))
 
   const [activeSlide, setActiveSlide] = useState(0)
   // const [prevSlide, setPrevSlide] = useState(portfolio.galleryVideos.length - 1)
@@ -281,6 +281,7 @@ const Portfolio = ({ data }) => {
             margin: 0;
           }
           .points > div {
+            width: 80%;
             margin-bottom: 2rem;
           }
 
@@ -298,7 +299,7 @@ const Portfolio = ({ data }) => {
             margin: 5rem 0;
             height: 40vmax;
             border: 1px solid var(--pink);
-            background-postion: center center;
+            background-postion: center;
             background-size: cover;
           }
 
