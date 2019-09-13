@@ -256,7 +256,7 @@ export const pageQuery = graphql`
     image: file(
       relativePath: { eq: "services/digital-consultancy-banner.png" }
     ) {
-      ...fluidImage
+      ...fluidImageDC
     }
   }
 `

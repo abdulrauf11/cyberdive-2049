@@ -235,8 +235,8 @@ const Service = ({ data }) => {
 
 export default Service
 
-export const fluidImageD = graphql`
-  fragment fluidImageD on File {
+export const fluidImageDT = graphql`
+  fragment fluidImageDT on File {
     childImageSharp {
       fluid(maxWidth: 1500) {
         ...GatsbyImageSharpFluid
@@ -250,7 +250,7 @@ export const pageQuery = graphql`
     image: file(
       relativePath: { eq: "services/digital-transformation-banner.png" }
     ) {
-      ...fluidImage
+      ...fluidImageDT
     }
   }
 `

@@ -257,7 +257,7 @@ export const fluidImageC = graphql`
 export const pageQuery = graphql`
   query {
     image: file(relativePath: { eq: "services/creative-banner.png" }) {
-      ...fluidImage
+      ...fluidImageC
     }
   }
 `

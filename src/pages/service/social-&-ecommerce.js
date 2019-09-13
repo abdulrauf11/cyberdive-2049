@@ -403,7 +403,7 @@ export const pageQuery = graphql`
       ...fluidImage
     }
     imageTwo: file(relativePath: { eq: "services/ecommerce-banner.png" }) {
-      ...fluidImage
+      ...fluidImageSE
     }
   }
 `

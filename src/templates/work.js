@@ -142,7 +142,8 @@ const Work = ({ pageContext: { allPortfolios } }) => {
             }
 
             .grid-item {
-              margin: 2rem 0;
+              flex: 1 1 100%;
+              margin: 0 0 2rem 0;
             }
 
             .heading-big {
@@ -158,6 +159,11 @@ const Work = ({ pageContext: { allPortfolios } }) => {
               color: transparent;
               -webkit-text-stroke: 1px var(--pink);
               text-shadow: 0px 0px 4.5px var(--black), 0 0 4.5px var(--pink);
+            }
+
+            .filter-list span {
+              display: block;
+              margin: 0.5rem 0;
             }
           }
         `}

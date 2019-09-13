@@ -53,8 +53,8 @@ const WorkItem = props => {
 
         @media only screen and (max-width: 600px) {
           .grid-item-link {
-            width: 40vmax;
-            height: 45vmax;
+            width: 100%;
+            height: 60vh;
           }
         }
       `}</style>

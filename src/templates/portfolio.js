@@ -373,14 +373,21 @@ const Portfolio = ({ data }) => {
           @media only screen and (max-width: 600px) {
             main {
               width: 85%;
-              margin-top: 5rem;
+              margin-top: 8rem;
             }
-
+            .points h3 {
+              font-size: 1rem;
+            }
+            .points p {
+              font-size: 0.9rem;
+              line-height: 1.4;
+              margin-top: 0.5rem;
+            }
             .video-full {
               margin-top: 8rem;
             }
             .project-title {
-              font-size: 3rem;
+              font-size: 2rem;
             }
             .description {
               margin-top: 0;

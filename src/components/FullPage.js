@@ -2,7 +2,7 @@ import React from "react"
 import ServiceItem from "./ServiceItem"
 import ReactFullpage from "@fullpage/react-fullpage"
 import Footer from "../components/Footer.js"
-import { Link } from "gatsby"
+import ContactSlide from "../components/ContactSlide"
 
 const FullPage = ({ idata }) => {
   const serviceList = [
@@ -59,18 +59,7 @@ const FullPage = ({ idata }) => {
             <ServiceItem {...serviceList[3]} count={4} />
             <ServiceItem {...serviceList[4]} count={5} />
             <div className="section">
-              <div className="contact-wrapper">
-                <div className="contact-slide">
-                  <h1>
-                    Have a project
-                    <br />
-                    you'd like to discuss?
-                  </h1>
-                  <Link to="/connect">
-                    <div className="lets-talk">Say Hello</div>
-                  </Link>
-                </div>
-              </div>
+              <ContactSlide />
             </div>
             <div className="section">
               <Footer />
