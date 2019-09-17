@@ -27,19 +27,16 @@ const About = () => {
           <AboutVideo />
           <div className="text">
             <p>
-              Located in Bahria Town, Lahore, Groovrick was founded in 2018 with
-              the focus on fusing creative & technology to empower businesses,
-              young curious talent, local creatives & artists, technology
-              experts and organizations to engage in driving social content that
-              is original, creative, engaging and meaningful for audience.
+              Through combining creativity, insights, ultra-modern technologies
+              and culture driven digital strategies, we enable businesses to
+              transform in the face of digital age by unlocking engagement and
+              growth that is human centered and digitally disruptive.
             </p>
             <p>
-              Combining the expertise of visual aesthetics, high-end gear and
-              command over digital media technologies we help you create and
-              push your business communications to work for you beyond compare.
-              We work with you to formulate the roadmap to tap into evolving
-              technologies, business models, trends and demographics. We help
-              you to build a presence that makes your business special.
+              Founded in 2019, Groovrick serves its clientele by focusing on
+              fusing creativity, ultra-modern technology, young curious talent,
+              local creatives, artists and technology experts to drive enhanced
+              human-centric digital experiences.
             </p>
           </div>
         </section>
@@ -47,9 +44,9 @@ const About = () => {
           <div className="content">
             <h2>STRATEGY</h2>
             <p>
-              Our techniques are simple yet smart, we craft the combination of
-              Research & Insights, Data Analytics and Innovation to constantly
-              explore new possibilities. All of it done collaboratively in
+              With simple yet smart techniques, we craft the combination of
+              Research & Insights, Data Analytics, and Innovation to explore
+              possibilities constantly. All of it done collaboratively in
               perfect environment with right tools, knowledge, technology and
               entrepreneurial gasoline fueled in-house teams.
             </p>
@@ -69,9 +66,9 @@ const About = () => {
           <div className="content">
             <h2>SERVICE FIRST</h2>
             <p>
-              Groovrick is a services based company, our first priority is
-              serving in the best possible way. So our choices and decisions are
-              often taken around enhancing our services.
+              Our first priority is to serve in the best possible way. So our
+              choices and decisions are often taken around enhancing our
+              services.
             </p>
           </div>
         </section>

@@ -3,10 +3,11 @@ import React from "react"
 function MainText() {
   return (
     <section className="main-text">
-      <h3 className="main-text-heading">WE ARE GROOVRICK</h3>
+      <h3 className="main-text-heading">WE ARE IMMORTALIZING CREATIVITY</h3>
       <p className="main-text-paragraph">
-        We believe in the power of 'what if' and we exist to create a better
-        future with you.
+        We ignite next-generation digital experiences and help businesses evolve
+        for tech-revolution 4.0 with our immersive services curated to drive
+        engagement and growth.
       </p>
       <style>{`
         .main-text {

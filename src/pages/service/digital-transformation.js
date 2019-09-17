@@ -30,19 +30,23 @@ const Service = ({ data }) => {
   const serviceObject = {
     name: "Digital Transformation",
     introduction: `Evolving your enterprise creates a better way to grow, helping you better serve your customers, employees and investors, and increasing the odds that your firm – not a digital native – will be the disruptor in your industry in the age of 4th digital-first industrial revolution.`,
+    offerings: [
+      "Customer Experience (CX) - Define experiences customers love backed by fusing ultra-modern technologies and imaginative design thinking.",
+      "Business Agility - Engage employees with a higher organizational purpose, and empower them with an operating model that helps the company compete at the pace of digital.",
+    ],
     process: [
       {
         title: "Digital Maturity Assessment",
-        text: `Assessment of current state and implemented business models. Re-imagining digital-first business models and vision. Identifying systematic gaps and blue-printing transformation initiatives along four tracks of people & culture, process, technology and content`,
+        text: `Assessment of current state and implemented business models.<br /><br />Re-imagining digital-first business models and vision.<br /><br />Identifying systematic gaps and blue-printing transformation initiatives along four tracks of people & culture, process, technology and content`,
       },
       {
         title: "Defining Transformational Roadmaps",
-        text: `Developing transformational frame-work and strategies for target state. Road-mapping customer experience journeys. Road-mapping employees enablement journeys. Initiative prioritization and exploring returns on investments
+        text: `Developing transformational frame-work and strategies for target state.<br /><br />Road-mapping customer experience journeys. Road-mapping employees enablement journeys.<br /><br />Initiative prioritization and exploring returns on investments
         `,
       },
       {
         title: "Execution & Monitoring",
-        text: `Build a cross-functional digital team. Implement business change and technology. Improve customer engagement. Enhance the employee experience. Monitor change adoption. Ensure continuous improvement and innovation
+        text: `Build a cross-functional digital team.<br /><br />Implement business change and technology.<br /><br />Improve customer engagement.<br /><br />Enhance the employee experience.<br /><br />Monitor change adoption.<br /><br />Ensure continuous improvement and innovation
         `,
       },
     ],
@@ -54,6 +58,17 @@ const Service = ({ data }) => {
         <section className="service-description">
           <h1 className="service-heading">{serviceObject.name}</h1>
           <p className="service-introduction">{serviceObject.introduction}</p>
+
+          <section className="offerings">
+            <h3>Offerings</h3>
+            <div>
+              {serviceObject.offerings.map((p, index) => (
+                <p className="offering" key={index}>
+                  {p}
+                </p>
+              ))}
+            </div>
+          </section>
         </section>
 
         <section className="banner-image">
@@ -76,7 +91,10 @@ const Service = ({ data }) => {
                   <div className="process-item">
                     <div className="index">{index + 1}</div>
                     <div className="title">{p.title}</div>
-                    <p className="text">{p.text}</p>
+                    <p
+                      className="text"
+                      dangerouslySetInnerHTML={{ __html: p.text }}
+                    ></p>
                   </div>
                 </div>
               ))}
@@ -96,6 +114,10 @@ const Service = ({ data }) => {
           text-transform: uppercase;
           text-align: center;
           font-size: 3rem;
+        }
+
+        .offerings {
+          margin: 2rem 0;
         }
 
         .process {
@@ -134,6 +156,10 @@ const Service = ({ data }) => {
           text-transform: uppercase;
           font-size: 2.5rem;
           font-weight: 700;
+        }
+
+        .process-item .text {
+          line-height: 1.4;
         }
 
         .heading-big {
