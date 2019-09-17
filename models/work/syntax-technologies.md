@@ -26,8 +26,7 @@ solution: >-
   generating content on motion graphics and static graphics for social platforms
   with powerful creative, research and insights that could place the business
   ahead in the ever evolving digital landscape.
-mainImages:
-  - /images/uploads/logos.jpg
+mainImages: []
 galleryImages: []
 ---
 
