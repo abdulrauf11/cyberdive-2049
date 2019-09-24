@@ -12,9 +12,7 @@ description: >-
   beginners, enthusiasts and professionals
 location: 'Chantilly, Virgina, United States of America'
 work: 'Re-branding, Social Media Storytelling'
-team: >-
-  In-house team, Fasiha Rauf (Design), Bilal Aqeel (Design), Nimra Naeem
-  (Strategy)
+team: 'Nimra Naeem (Strategy), Fasiha Rauf (Design Lead), Bilal Aqeel (Design) '
 link: www.instagram.com/syntaxtechs
 challenge: >-
   Revamp Syntax Technologies into a new age brand, enhancing its overall digital
