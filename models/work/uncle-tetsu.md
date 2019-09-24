@@ -18,8 +18,8 @@ team: 'Saad Nawaz (Creative), Nimra Naeem (Strategy)'
 link: instagram.com/uncletetsupakistan
 challenge: >-
   Transforming Uncle Tetsu Pakistan into a new age brand locally, leveraging on
-  platforms where younger, demographic is engaged, through quality visuals,
-  culture and digital age storytelling to ignite, cravings for the best Japanese
+  platforms where younger demographic is engaged through quality visuals,
+  culture and digital age storytelling to ignite cravings for the best Japanese
   bakery in town.
 solution: >-
   Develop on going campaigns and visuals that expresses brand’s culture, story
