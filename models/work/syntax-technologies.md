@@ -4,7 +4,7 @@ category:
   - Social
   - Design
   - Consultancy
-thumbnail: /images/uploads/syntax-thumbnail.jpg
+thumbnail: /images/uploads/syntax-thumbnail-3x.png
 client: Syntax Technologies
 description: >-
   Syntax Technologies is school that offers a gateway to an IT career, with
