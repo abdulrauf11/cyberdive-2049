@@ -1,8 +1,8 @@
 ---
 title: UNCLE  TETSU
 category:
-  - Social
   - Creative
+  - Social
 thumbnail: /images/uploads/tetsuthumb.png
 client: 'Uncle Tetsu, Pakistan'
 description: >-
