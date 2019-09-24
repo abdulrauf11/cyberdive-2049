@@ -24,9 +24,7 @@ solution: >-
   cravings for fast food on social canvases where the audience actually lives.
   We crafted the content for Instagram stories along with feed posts that are
   visually more appealing to the fast-food enthusiasts and general consumers.
-mainImages:
-  - /images/uploads/cover-placeholder.png
-galleryImages:
-  - /images/uploads/placeholder.jpg
+mainImages: []
+galleryImages: []
 ---
 
