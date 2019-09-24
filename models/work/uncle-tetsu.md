@@ -31,9 +31,7 @@ solution: >-
 
   Constantly improving digital experiences to extend the reach of touch-points
   where the brand interacts with it audience to express itself digitally. 
-mainImages:
-  - /images/uploads/cover-placeholder.png
-galleryImages:
-  - /images/uploads/placeholder.jpg
+mainImages: []
+galleryImages: []
 ---
 
