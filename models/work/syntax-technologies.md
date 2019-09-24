@@ -1,9 +1,9 @@
 ---
 title: SYNTAX TECHNOLOGIES
 category:
-  - Social
   - Creative
   - Design
+  - Social
 thumbnail: /images/uploads/syntax-thumbnail-3x.png
 client: Syntax Technologies
 description: >-
