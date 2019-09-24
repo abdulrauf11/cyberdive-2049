@@ -12,7 +12,7 @@ description: >-
   expanding at a rapid speed.
 location: 'Lahore, Pakistan'
 work: 'Consultancy (Social Strategy, Creative Content)'
-team: In-house Team
+team: In-house team
 challenge: >-
   As an emerging fast-food chain, Timmy’s needed to boost their organic reach on
   social platforms through quality content over their social platforms. Having
