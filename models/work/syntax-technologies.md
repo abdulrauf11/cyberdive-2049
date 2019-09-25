@@ -1,21 +1,19 @@
 ---
-title: Syntax Technologies
+title: SYNTAX TECHNOLOGIES
 category:
-  - Social
+  - Creative
   - Design
-  - Consultancy
-thumbnail: /images/uploads/syntax-thumbnail.jpg
+  - Social
+thumbnail: /images/uploads/syntax-thumbnail-3x.png
 client: Syntax Technologies
 description: >-
   Syntax Technologies is school that offers a gateway to an IT career, with
   their immersive trainings available both online and on-site for tech
-  beginners, enthusiasts and professionals
+  beginners, enthusiasts and professionals.
 location: 'Chantilly, Virgina, United States of America'
 work: 'Re-branding, Social Media Storytelling'
-team: >-
-  In-house team, Fasiha Rauf (Design), Bilal Aqeel (Design), Nimra Naeem
-  (Strategy)
-link: www.instagram.com/syntaxtechs
+team: 'Nimra Naeem (Strategy), Fasiha Rauf (Design Lead), Bilal Aqeel (Design)'
+link: instagram.com/syntaxtechs
 challenge: >-
   Revamp Syntax Technologies into a new age brand, enhancing its overall digital
   experience from re-branding its overall identity to social engagement with
