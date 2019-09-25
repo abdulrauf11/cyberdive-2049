@@ -8,7 +8,6 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image/withIEPolyfill"
 
 const Service = ({ data }) => {
-  console.log(data)
   const settings = {
     centerMode: true,
     centerPadding: "5%",

@@ -74,7 +74,7 @@ function Contact() {
               type="text"
               name="name"
               value={name}
-              required
+              // required
               onChange={e => setName(e.target.value)}
             />
           </label>
@@ -86,7 +86,7 @@ function Contact() {
               type="email"
               name="email"
               value={email}
-              required
+              // required
               onChange={e => setEmail(e.target.value)}
             />
           </label>
@@ -109,7 +109,7 @@ function Contact() {
               type="text"
               name="company"
               value={company}
-              required
+              // required
               onChange={e => setCompany(e.target.value)}
             />
           </label>
@@ -126,7 +126,7 @@ function Contact() {
         </div>
       </div>
       <div className="button-wrapper">
-        <Button>
+        <Button disabled={inProp}>
           <CSSTransition in={inProp} timeout={200} classNames="button-text">
             <div>{buttonText}</div>
           </CSSTransition>

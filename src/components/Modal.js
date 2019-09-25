@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 // import ReactDOM from "react-dom"
-import { TimelineMax, Elastic } from "gsap/all"
+import { TimelineMax, Elastic } from "gsap"
 import Button from "./Button"
 import ButtonClose from "./ButtonClose"
 

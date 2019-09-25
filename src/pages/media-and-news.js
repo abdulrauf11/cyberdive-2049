@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/DefaultLayout.js"
 import fetch from "isomorphic-unfetch"
-import { TweenMax } from "gsap/all"
+import { TweenMax } from "gsap"
 import Loader from "../components/Loader.js"
 import SEO from "../components/SEO"
 
@@ -41,7 +41,6 @@ const MediaAndNews = () => {
       "https://api.instagram.com/v1/users/self/media/recent/?access_token=6148790221.f4a30c6.f296d24ee8174b5e97b09684ad271f3e"
     )
     const data = await res.json()
-    console.log(`Show data fetched. Count: ${data.data.length}`)
     setFeed(data.data.map(entry => entry))
     timeout = setTimeout(() => setLoaded(true), 1000)
   }

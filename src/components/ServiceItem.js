@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import { TimelineMax, Expo } from "gsap/all"
+import { TimelineMax, Expo } from "gsap"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 if (typeof window !== "undefined") {

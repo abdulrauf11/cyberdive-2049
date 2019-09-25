@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react"
-import { TimelineMax, Expo } from "gsap/all"
+import { TimelineMax, Expo } from "gsap"
 import { Link } from "gatsby"
+import Image from "./Image"
 if (typeof window !== "undefined") {
   var ScrollMagic = require("scrollmagic")
   require("imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
@@ -21,13 +22,8 @@ const WorkItem = props => {
 
   return (
     <>
-      <Link
-        className="grid-item-link"
-        to={`/portfolio${props.slug}`}
-        style={{
-          backgroundImage: `url(${props.thumbnail})`,
-        }}
-      >
+      <Link className="grid-item-link" to={`/portfolio${props.slug}`}>
+        <Image src={props.thumbnail} />
         <div className="image-overlay" ref={imageRef} />
       </Link>
       <style global jsx>{`
@@ -40,6 +36,13 @@ const WorkItem = props => {
           background-size: cover;
           background-position: center;
           color: transparent;
+        }
+
+        .grid-item-link img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
         }
 
         .image-overlay {

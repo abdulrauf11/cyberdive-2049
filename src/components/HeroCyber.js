@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import * as THREE from "three"
-import { TweenMax, Expo } from "gsap/all"
+import { TweenMax, Expo } from "gsap"
 import { vertexShader, fragmentShader } from "./Shaders.js"
 import palleteImage from "../images/gradient.png"
 import sunImage from "../images/sun.png"
@@ -10,7 +10,7 @@ const getRandomNumber = (min, max) => Math.random() * (max - min) + min
 function Hero() {
   const mount = useRef(null)
   const titleRef = useRef(null)
-  const subtitleRef = useRef(null)
+  const subtitleRef = useRef()
   const overlayRef = useRef(null)
   let renderer
   let frameId
@@ -21,6 +21,7 @@ function Hero() {
       sunImage,
     })
     animateTitles()
+
     return function cleanup() {
       cancelAnimationFrame(frameId)
       frameId = null
@@ -185,14 +186,13 @@ function Hero() {
 
   function animateTitles() {
     const overlay = overlayRef.current
-    TweenMax.to(overlay, 1, {
+    TweenMax.to(overlay, 2, {
       ease: Expo.easeOut,
       opacity: 0,
     })
 
     const title = titleRef.current
     const titleLetters = Array.from(title.querySelectorAll("span"))
-    TweenMax.set(titleLetters, { opacity: 0 })
     TweenMax.staggerTo(
       titleLetters,
       1,
@@ -207,10 +207,8 @@ function Hero() {
     )
 
     const subtitle = subtitleRef.current
-    TweenMax.set(subtitle, { opacity: 0 })
     TweenMax.to(subtitle, 1.5, {
       ease: Expo.easeOut,
-      startAt: { y: 50 },
       opacity: 1,
       y: 0,
     })
@@ -306,11 +304,14 @@ function Hero() {
           text-shadow: 0px 0px 10px var(--white);
         }
         .content__title span {
+          opacity: 0;
           display: inline-block;
           white-space: pre;
           transform-origin: 50% -50%;
         }
         .content__subtitle {
+          transform: translateY(50px);
+          opacity: 0;
           position: relative;
           margin: 0;
           font-weight: 400;
@@ -327,7 +328,6 @@ function Hero() {
           top: 0;
           left: 0;
           background: var(--black);
-          opacity: 0;
         }
         .word {
           display: inline-block;

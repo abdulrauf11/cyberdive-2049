@@ -1,12 +1,16 @@
 import React from "react"
 function Button(props) {
   return (
-    <button type="submit">
+    <button disabled={props.disabled} type="submit">
       <div className="wrapper">{props.children}</div>
       <style jsx>{`
         .wrapper {
             transform: skewX(20deg);
         }
+        button:disabled {
+          cursor: wait;
+        }
+
         button
         {
             display: block;

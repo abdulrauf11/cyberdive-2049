@@ -31,8 +31,7 @@ collections:
               label: "Responsibility",
               name: "responsibility",
               widget: "string",
-          required: false,
-
+              required: false,
             },
         }
       - {
@@ -41,14 +40,25 @@ collections:
           widget: "list",
           required: false,
           field:
-            { label: "Requirement", name: "requirement", widget: "string", required: false,},
+            {
+              label: "Requirement",
+              name: "requirement",
+              widget: "string",
+              required: false,
+            },
         }
       - {
           label: "Positions",
           name: "positions",
           widget: "list",
           required: false,
-          field: { label: "Position", name: "position", widget: "string", required: false, },
+          field:
+            {
+              label: "Position",
+              name: "position",
+              widget: "string",
+              required: false,
+            },
         }
       - { label: "Note", name: "note", widget: "text", required: false }
 

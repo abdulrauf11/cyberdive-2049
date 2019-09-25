@@ -20,7 +20,6 @@ function JobForm(props) {
 
   const handleSubmit = e => {
     let state = { name, email, phone, position, resume, message }
-    console.log(state)
     fetch("/careers", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -140,7 +139,7 @@ function JobForm(props) {
         </div>
       </div>
       <div className="button-wrapper">
-        <Button>
+        <Button disabled={inProp}>
           <CSSTransition in={inProp} timeout={200} classNames="button-text">
             <div>{buttonText}</div>
           </CSSTransition>
