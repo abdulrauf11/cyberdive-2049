@@ -102,31 +102,6 @@ const Careers = ({ pageContext: { allJobs } }) => {
               <JobForm allJobs={allJobs} />
             </Modal>
           </div>
-          <div className="instructions">
-            <p>
-              <div>
-                You can also send us your resume and cover letter at{" "}
-                <a href="mailto:careers@groovrick.com">careers@groovrick.com</a>
-                , in the subject field write the relevant position you are
-                applying for.{" "}
-              </div>
-              <div>Groovrick is an equal opportunity employer.</div>
-              <div>
-                If we do not contact back with-in 15 days of submitting the job
-                application, it implies that your application has been rejected.
-              </div>
-              <div>
-                Groovrick only reply to candidates using "careers@groovrick.com"
-                as their e-mail address.
-              </div>
-              <div>Groovrick stores your submitted information.</div>
-              <div>
-                For support, e-mail us at{" "}
-                <a href="mailto:contact@groovrick.com">contact@groovrick.com</a>
-                .
-              </div>
-            </p>
-          </div>
         </div>
         <div className="why-groovrick">
           <h2>WHY GROOVRICK?</h2>

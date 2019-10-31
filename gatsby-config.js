@@ -51,20 +51,6 @@ module.exports = {
         path: `${__dirname}/models/careers`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `markdown-pages-work`,
-        path: `${__dirname}/models/work`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `markdown-pages-work`,
-        path: `${__dirname}/static`,
-      },
-    },
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -74,11 +60,5 @@ module.exports = {
         trackingId: "UA-143013502-1",
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-facebook-pixel`,
-    //   options: {
-    //     pixelId: "2180577912061107",
-    //   },
-    // },
   ],
 }

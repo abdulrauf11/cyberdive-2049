@@ -93,29 +93,6 @@ function Contact() {
         </div>
         <div className="group-item">
           <label>
-            Your Contact No.
-            <input
-              type="text"
-              name="phone"
-              value={phone}
-              onChange={e => setPhone(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="group-item">
-          <label>
-            Your Company*
-            <input
-              type="text"
-              name="company"
-              value={company}
-              // required
-              onChange={e => setCompany(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="group-item">
-          <label>
             Tell us about your project
             <textarea
               name="message"

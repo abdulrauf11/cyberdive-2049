@@ -29,36 +29,6 @@ exports.createPages = ({ graphql, actions }) => {
               description
               responsibilities
               requirements
-              positions
-              note
-            }
-          }
-        }
-      }
-      work: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/work/" } }
-      ) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              thumbnail
-              category
-              client
-              description
-              location
-              work
-              team
-              link
-              challenge
-              solution
-              video
-              mainImages
-              galleryImages
-              galleryVideos
             }
           }
         }
@@ -77,23 +47,6 @@ exports.createPages = ({ graphql, actions }) => {
       createPage({
         path: `/job${node.fields.slug}`,
         component: path.resolve(`./src/templates/job.js`),
-        context: {
-          slug: node.fields.slug,
-        },
-      })
-    })
-    // PORTFOLIOS
-    createPage({
-      path: `/work/`,
-      component: require.resolve("./src/templates/work.js"),
-      context: {
-        allPortfolios: result.data.work.edges,
-      },
-    })
-    result.data.work.edges.forEach(({ node }) => {
-      createPage({
-        path: `/portfolio${node.fields.slug}`,
-        component: path.resolve(`./src/templates/portfolio.js`),
         context: {
           slug: node.fields.slug,
         },

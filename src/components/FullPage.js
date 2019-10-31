@@ -2,7 +2,6 @@ import React from "react"
 import ServiceItem from "./ServiceItem"
 import ReactFullpage from "@fullpage/react-fullpage"
 import Footer from "../components/Footer.js"
-import ContactSlide from "../components/ContactSlide"
 
 const FullPage = ({ idata }) => {
   const serviceList = [
@@ -58,9 +57,6 @@ const FullPage = ({ idata }) => {
             <ServiceItem {...serviceList[2]} count={3} />
             <ServiceItem {...serviceList[3]} count={4} />
             <ServiceItem {...serviceList[4]} count={5} />
-            <div className="section">
-              <ContactSlide />
-            </div>
             <div className="section">
               <Footer />
             </div>

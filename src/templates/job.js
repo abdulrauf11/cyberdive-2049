@@ -49,24 +49,6 @@ const Job = ({ data }) => {
           </div>
         )}
 
-        {job.positions && (
-          <div className="positions">
-            <h3>Available Positions</h3>
-            <ul>
-              {job.positions.map((q, i) => (
-                <li key={q}>{q}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {job.note && (
-          <div className="note">
-            <h3>Note</h3>
-            <p>{job.note}</p>
-          </div>
-        )}
-
         <div className="apply">
           <p>
             To apply for this position, click 'Apply' and fill out the form.
@@ -176,8 +158,6 @@ export const queryJob = graphql`
         description
         responsibilities
         requirements
-        positions
-        note
       }
     }
   }

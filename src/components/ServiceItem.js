@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react"
 import { TimelineMax, Expo } from "gsap"
 import Img from "gatsby-image"
-import { Link } from "gatsby"
 if (typeof window !== "undefined") {
   var ScrollMagic = require("scrollmagic")
   require("imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
@@ -45,18 +44,6 @@ const ServiceItem = props => {
         <div className="item-content" ref={textRef}>
           <h1>{props.heading}</h1>
           <p>{props.description}</p>
-          <div className="button-wrapper">
-            <Link
-              style={{
-                padding: "0.7rem 1rem",
-                border: "1px solid var(--pink)",
-                fontSize: "0.8rem",
-              }}
-              to={props.link}
-            >
-              Learn More
-            </Link>
-          </div>
         </div>
         <div className="count" ref={countRef}>
           {pad(props.count, 2)}/05
