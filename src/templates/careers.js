@@ -3,8 +3,7 @@ import Layout from "../components/DefaultLayout"
 import Modal from "../components/Modal"
 import JobForm from "../components/JobForm"
 import { TimelineMax, Expo } from "gsap"
-import { graphql, StaticQuery } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import CareersImage from "../components/CareersImage"
 import SEO from "../components/SEO"
 import { Link } from "gatsby"
 
@@ -18,30 +17,6 @@ function pad(n, width, z) {
   n = n + ""
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n
 }
-
-const BackgroundSection = ({ className, children }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        desktop: file(relativePath: { eq: "careers/careers.jpg" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 1500) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={data => {
-      const imageData = data.desktop.childImageSharp.fluid
-      return (
-        <BackgroundImage className={className} fluid={imageData}>
-          {children}
-        </BackgroundImage>
-      )
-    }}
-  />
-)
 
 const Careers = ({ pageContext: { allJobs } }) => {
   const imageRef = useRef(null)
@@ -66,15 +41,15 @@ const Careers = ({ pageContext: { allJobs } }) => {
 
   return (
     <Layout>
-      <SEO title="Groovrick | Careers" />
+      <SEO title="Careers" />
       <section className="first-wrapper">
         <div className="heading-wrapper">
           <h1>WORK WITH US</h1>
         </div>
         <p className="description">
-          Groovrick is committed to helping teams develop into the best possible
+          Cyberdive is committed to helping teams develop into the best possible
           practitioners and provide an unparalleled foundation for their career.
-          Groovrick helps well-rounded professionals acquire leadership skills
+          Cyberdive helps well-rounded professionals acquire leadership skills
           more quickly than at other organizations. Our employees benefit from
           the trusted long-term nature of our client relationships as well as
           the cultural alignment between the client and the organization,
@@ -103,8 +78,8 @@ const Careers = ({ pageContext: { allJobs } }) => {
             </Modal>
           </div>
         </div>
-        <div className="why-groovrick">
-          <h2>WHY GROOVRICK?</h2>
+        <div className="why-cyberdive">
+          <h2>WHY CYBERDIVE?</h2>
           <p>
             We are content creators, engineers, business leaders, gamers,
             technology experts and experience designers. Our teams brainstorm,
@@ -118,9 +93,10 @@ const Careers = ({ pageContext: { allJobs } }) => {
       </section>
 
       <section className="full-width">
-        <BackgroundSection className="careers-image">
+        <div className="careers-image">
+          <CareersImage />
           <div className="image-overlay" ref={imageRef} />
-        </BackgroundSection>
+        </div>
         <div className="box-wrapper">
           <div className="box">
             <div className="sides">
@@ -226,16 +202,16 @@ const Careers = ({ pageContext: { allJobs } }) => {
           justify-content: center;
         }
 
-        .why-groovrick {
+        .why-cyberdive {
           margin-top: 12rem;
         }
-        .why-groovrick h2 {
+        .why-cyberdive h2 {
           font-size: 2rem;
           font-weight: 600;
           margin: 0;
           text-align: center;
         }
-        .why-groovrick p {
+        .why-cyberdive p {
           margin-bottom: 0;
           margin-top: 4rem;
         }
@@ -296,6 +272,7 @@ const Careers = ({ pageContext: { allJobs } }) => {
         }
 
         .full-width {
+          overflow: hidden;
           margin: 5rem 0;
           position: relative;
           height: 90vh;
@@ -386,16 +363,20 @@ const Careers = ({ pageContext: { allJobs } }) => {
             margin: 1rem 0 0.5rem 0;
           }
 
-          .why-groovrick {
+          .why-cyberdive {
             margin-top: 10rem;
           }
 
           .full-width {
             height: 40vh;
-            margin-bottom: 8rem;
+            margin-bottom: 4rem;
           }
           .careers-image {
             width: 90%;
+          }
+
+          .box-wrapper {
+            height: 60%;
           }
 
           .reason-list {

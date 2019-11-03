@@ -11,7 +11,6 @@ const encode = data => {
 function JobForm(props) {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
   const [position, setPosition] = useState("")
   const [resume, setResume] = useState("")
   const [message, setMessage] = useState("")
@@ -19,7 +18,7 @@ function JobForm(props) {
   const [inProp, setInProp] = useState(false)
 
   const handleSubmit = e => {
-    let state = { name, email, phone, position, resume, message }
+    let state = { name, email, position, resume, message }
     fetch("/careers", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -31,7 +30,6 @@ function JobForm(props) {
         setButtonText("Thank you!")
         setName("")
         setEmail("")
-        setPhone("")
         setPosition("")
         setResume("")
         setMessage("")
@@ -90,16 +88,6 @@ function JobForm(props) {
           />
         </div>
         <div className="group-item">
-          <input
-            placeholder="Phone*"
-            type="text"
-            name="phone"
-            required
-            value={phone}
-            onChange={e => setPhone(e.target.value)}
-          />
-        </div>
-        <div className="group-item">
           <select
             name="position"
             defaultValue={props.defaultPosition ? props.defaultPosition : ""}
@@ -131,7 +119,7 @@ function JobForm(props) {
 
         <div className="group-item">
           <textarea
-            placeholder="Tell us what inspires you to join Groovrick"
+            placeholder="Tell us what inspires you to join Cyberdive"
             name="message"
             value={message}
             onChange={e => setMessage(e.target.value)}

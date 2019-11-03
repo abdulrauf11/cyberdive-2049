@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: "Groovrick",
-    titleTemplate: "%s · Advancing Beyond",
+    title: "Cyberdive",
+    titleTemplate: "%s · Dive into Future",
     description: "We are the next generation of digital world.",
-    url: "https://www.groovrick.com", // No trailing slash allowed!
-    image: "/images/groovrick-logo.png", // Path to your image you placed in the 'static' folder
+    url: "https://www.cyberdive.netlify.com", // No trailing slash allowed!
+    image: "/images/logo.png", // Path to your image you placed in the 'static' folder
   },
   plugins: [
     {
@@ -19,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Groovrick",
-        short_name: "Groovrick",
+        name: "Cyberdive",
+        short_name: "Cyberdive",
         start_url: "/",
         background_color: "#121023",
         theme_color: "#121023",
@@ -54,11 +54,5 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-143013502-1",
-      },
-    },
   ],
 }

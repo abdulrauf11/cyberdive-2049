@@ -13,7 +13,6 @@ class Overlay extends React.Component {
             <div className="page-links">
               <OverlayLink url="/services/" pageType="SERVICES" />
               <OverlayLink url="/about/" pageType="ABOUT" />
-              <OverlayLink url="/media-and-news/" pageType="MEDIA & NEWS" />
               <OverlayLink url="/careers/" pageType="CAREERS" />
               <OverlayLink url="/connect/" pageType="CONNECT" />
             </div>
@@ -22,21 +21,21 @@ class Overlay extends React.Component {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.instagram.com/groovrick"
+              href="https://www.instagram.com/"
             >
               Instagram.
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.facebook.com/groovrick/"
+              href="https://www.facebook.com/"
             >
               Facebook.
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.linkedin.com/company/groovrick/"
+              href="https://www.linkedin.com/company/"
             >
               LinkedIn.
             </a>

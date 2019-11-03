@@ -150,7 +150,7 @@ const ServiceItem = props => {
             width: 90%;
           }
           .item-image {
-            width: 60%;
+            width: 80%;
             margin-right: 0rem;
           }
           .item-content {

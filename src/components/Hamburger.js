@@ -11,7 +11,7 @@ const Hamburger = ({ isActive }) => (
         justify-content: center;
         cursor: pointer;
         position: fixed;
-        top: 3rem;
+        top: 2.6rem;
         right: 4rem;
         z-index: 1000;
       }

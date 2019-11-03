@@ -60,7 +60,7 @@ const Connect = () => {
 
   return (
     <Layout>
-      <SEO title="Groovrick | Connect" />
+      <SEO title="Connect" />
       <main className="connect-main">
         <section className="get-in-touch">
           <div className="image">
@@ -86,7 +86,9 @@ const Connect = () => {
           <div className="contact">
             <div className="say">
               <h2>Say</h2>
-              <a href="mailto:hello@groovrick.com">hello@groovrick.com</a>
+              <a href="mailto:hello@cyberdive.netlify.com">
+                hello@cyberdive.netlify.com
+              </a>
             </div>
             <div className="our-office">
               <h2>Our Office</h2>
@@ -95,12 +97,7 @@ const Connect = () => {
                 rel="noopener noreferrer"
                 href="https://goo.gl/maps/iGHgpzfEvinWk9kk6"
               >
-                Bahria Town, Lahore
-                <br />
-                Pakistan
-              </a>
-              <a className="phone" href="tel:+921111111111">
-                Tel: +92 (42) 35249624
+                Lahore, Pakistan
               </a>
             </div>
             <div className="follow-us">
@@ -109,21 +106,21 @@ const Connect = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://www.instagram.com/groovrick"
+                  href="https://www.instagram.com/"
                 >
                   Instagram.
                 </a>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://www.facebook.com/groovrick/"
+                  href="https://www.facebook.com/"
                 >
                   Facebook.
                 </a>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://www.linkedin.com/company/groovrick/"
+                  href="https://www.linkedin.com/"
                 >
                   LinkedIn.
                 </a>

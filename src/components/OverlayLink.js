@@ -16,7 +16,7 @@ const OverlayLink = props => (
         opacity: 1;
         cursor: pointer;
         font-weight: 700;
-        font-size: 2.2rem;
+        font-size: 3rem;
         margin: 1rem 0 1rem 2rem;
         transition: color 0.25s ease-in-out, transform 0.3s ease-in-out;
       }

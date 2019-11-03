@@ -14,21 +14,21 @@ const Footer = () => (
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.instagram.com/groovrick"
+                href="https://www.instagram.com/"
               >
                 Instagram.
               </a>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.facebook.com/groovrick/"
+                href="https://www.facebook.com/"
               >
                 Facebook.
               </a>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.linkedin.com/company/groovrick/"
+                href="https://www.linkedin.com/"
               >
                 LinkedIn.
               </a>
@@ -38,36 +38,23 @@ const Footer = () => (
         <div className="wrapper-right">
           <div className="right-subwrapper">
             <h3>GET IN TOUCH</h3>
-            <a href="mailto:hello@groovrick.com">hello@groovrick.com</a>
+            <a href="mailto:hello@cyberdive.netlify.com">
+              hello@cyberdive.netlify.com
+            </a>
             <h3>VISIT US</h3>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://goo.gl/maps/iGHgpzfEvinWk9kk6"
+              href="https://goo.gl/maps/"
             >
-              Bahria Town, Lahore
-              <br />
-              Pakistan
+              Lahore, Pakistan
             </a>
           </div>
         </div>
       </div>
     </div>
     <div className="copyright">
-      <span>
-        <Link to="/privacy-policy/">
-          <span style={{ marginRight: "0.3rem" }} className="footer-link">
-            Privacy Policy
-          </span>
-        </Link>
-        |
-        <Link to="/terms-and-conditions/">
-          <span style={{ marginLeft: "0.3rem" }} className="footer-link">
-            Terms & Conditions
-          </span>
-        </Link>
-      </span>
-      <span>&copy; Copyright Groovrick 2019. All Rights Reserved.</span>
+      <span>&copy; Copyright Cyberdive 2019. All Rights Reserved.</span>
       <span>
         <a
           target="_blank"
@@ -169,7 +156,7 @@ const Footer = () => (
           flex: 1;
           text-align: left;
         }
-        .copyright span:nth-child(3) {
+        .copyright span:nth-child(2) {
           flex: 1;
           text-align: right;
         }

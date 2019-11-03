@@ -256,27 +256,28 @@ function Hero() {
         <div className="landscape" ref={mount} />
         <h1 className="content__title" ref={titleRef}>
           <div className="word">
-            <span>A</span>
             <span>D</span>
-            <span>V</span>
-            <span>A</span>
-            <span>N</span>
-            <span>C</span>
             <span>I</span>
-            <span>N</span>
-            <span>G</span>
+            <span>V</span>
+            <span>E</span>
           </div>{" "}
           <div className="word">
-            <span>B</span>
-            <span>E</span>
-            <span>Y</span>
-            <span>O</span>
+            <span>I</span>
             <span>N</span>
-            <span>D</span>
+            <span>T</span>
+            <span>O</span>
+          </div>{" "}
+          <div className="word">
+            <span>F</span>
+            <span>U</span>
+            <span>T</span>
+            <span>U</span>
+            <span>R</span>
+            <span>E</span>
           </div>
         </h1>
         <h3 className="content__subtitle" ref={subtitleRef}>
-          We are the next generation of the digital world.
+          We are the next generation of digital world.
         </h3>
       </div>
       <div className="overlay" ref={overlayRef} />
@@ -292,7 +293,7 @@ function Hero() {
           height: 100%;
           position: relative;
           align-items: center;
-          padding: 0 0 12vmax 0;
+          padding: 0 0 10vmax 0;
           justify-content: flex-end;
         }
         .content__title {
@@ -333,9 +334,6 @@ function Hero() {
           display: inline-block;
         }
         @media only screen and (max-width: 600px) {
-          .word {
-            display: block;
-          }
           .content__title {
             font-size: 3rem;
             text-align: center;
@@ -344,11 +342,6 @@ function Hero() {
             width: 70%;
             margin: 1rem auto;
             text-align: center;
-          }
-        }
-        @media only screen and (min-width: 2500px) {
-          .content {
-            padding-bottom: 15vmax;
           }
         }
       `}</style>

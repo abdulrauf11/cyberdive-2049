@@ -8,7 +8,7 @@ import serviceFirstData from "../images/about/service-first.json"
 import qualityData from "../images/about/quality.json"
 import insightsData from "../images/about/inspire.json"
 
-import AboutVideo from "../components/AboutVideo"
+import AboutImage from "../components/AboutImage"
 
 const AboutAnimation = Loadable({
   loader: () => import("../components/AboutAnimation"),
@@ -18,13 +18,12 @@ const AboutAnimation = Loadable({
 const About = () => {
   return (
     <Layout>
-      <SEO title="Groovrick | About" />
+      <SEO title="About" />
       <main>
         <div className="heading-wrapper">
-          <h1>WE ARE GROOVRICK</h1>
+          <h1>WE ARE CYBERDIVE</h1>
         </div>
         <section className="who-we-are">
-          <AboutVideo />
           <div className="text">
             <p>
               Through combining creativity, insights, ultra-modern technologies
@@ -33,11 +32,14 @@ const About = () => {
               growth that is human centered and digitally disruptive.
             </p>
             <p>
-              Founded in 2019, Groovrick serves its clientele by focusing on
+              Founded in 2019, Cyberdive serves its clientele by focusing on
               fusing creativity, ultra-modern technology, young curious talent,
               local creatives, artists and technology experts to drive enhanced
               human-centric digital experiences.
             </p>
+          </div>
+          <div className="image-wrapper">
+            <AboutImage />
           </div>
         </section>
         <section className="strategy mid">
@@ -105,8 +107,11 @@ const About = () => {
           width: 70%;
           margin: 0 auto;
         }
+        .heading-wrapper {
+          margin-bottom: 0;
+        }
         .heading-wrapper h1:before {
-          content: "WE ARE GROOVRICK";
+          content: "WE ARE CYBERDIVE";
         }
         .mid {
           margin: 10rem auto;
@@ -119,7 +124,11 @@ const About = () => {
           margin: 0 auto;
         }
         .text p {
-          font-size: 1.1rem;
+          font-size: 1rem;
+        }
+
+        .image-wrapper {
+          margin: 6rem 0;
         }
 
         .image {

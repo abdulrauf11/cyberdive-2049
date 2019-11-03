@@ -18,7 +18,7 @@ const Services = props => {
 
   return (
     <Layout onlyHeader={true}>
-      <SEO title="Groovrick | Services" />
+      <SEO title="Services" />
       <FullPage idata={props} />
     </Layout>
   )
